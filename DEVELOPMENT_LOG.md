@@ -424,6 +424,20 @@ Chose to build FREE automated tool first to:
 
 ---
 
+### Issue Discovered & Fixed ⚠️
+
+**Problem:** Landing page (index.html) had non-functional email signup form from original beta strategy
+
+**Fix:**
+- Removed email form entirely
+- Updated CTAs to link directly to forecast.html
+- Changed messaging to reflect free, no-signup model
+- Commit: `a8b5b69`
+
+**Documented in:** `ISSUES_LOG.md`
+
+---
+
 **Last Updated:** November 13, 2025
 **Status:** ✅ PRODUCTION-READY & AUTO-UPDATING
 **Next Priority:** Community distribution and feedback gathering
