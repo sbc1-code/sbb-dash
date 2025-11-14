@@ -1,0 +1,159 @@
+{
+  "generated_at": "2025-11-13T16:27:28.516844",
+  "forecast": [
+    {
+      "date": "2025-11-13",
+      "day_name": "Thursday",
+      "day_short": "THU",
+      "day_of_week": 3,
+      "is_weekend": false,
+      "month_day": "11/13",
+      "demand": {
+        "score": 45,
+        "level": "LOW",
+        "factors": [
+          "Perfect weather 68\u00b0F (+15)",
+          "59% rain chance (-20)"
+        ],
+        "recommendation": "Skeleton crew, push promotions to locals"
+      },
+      "weather": {
+        "temp_high": 68,
+        "temp_low": 56,
+        "rain_prob": 59
+      }
+    },
+    {
+      "date": "2025-11-14",
+      "day_name": "Friday",
+      "day_short": "FRI",
+      "day_of_week": 4,
+      "is_weekend": false,
+      "month_day": "11/14",
+      "demand": {
+        "score": 50,
+        "level": "LOW",
+        "factors": [
+          "Friday evening (+20)",
+          "94% rain chance (-20)"
+        ],
+        "recommendation": "Skeleton crew, push promotions to locals"
+      },
+      "weather": {
+        "temp_high": 62,
+        "temp_low": 58,
+        "rain_prob": 94
+      }
+    },
+    {
+      "date": "2025-11-15",
+      "day_name": "Saturday",
+      "day_short": "SAT",
+      "day_of_week": 5,
+      "is_weekend": true,
+      "month_day": "11/15",
+      "demand": {
+        "score": 60,
+        "level": "MEDIUM",
+        "factors": [
+          "Weekend traffic (+30)",
+          "89% rain chance (-20)"
+        ],
+        "recommendation": "Normal staffing, consider promotions"
+      },
+      "weather": {
+        "temp_high": 60,
+        "temp_low": 55,
+        "rain_prob": 89
+      }
+    },
+    {
+      "date": "2025-11-16",
+      "day_name": "Sunday",
+      "day_short": "SUN",
+      "day_of_week": 6,
+      "is_weekend": true,
+      "month_day": "11/16",
+      "demand": {
+        "score": 50,
+        "level": "LOW",
+        "factors": [
+          "Weekend traffic (+30)",
+          "Cool weather 59\u00b0F (-10)",
+          "62% rain chance (-20)"
+        ],
+        "recommendation": "Skeleton crew, push promotions to locals"
+      },
+      "weather": {
+        "temp_high": 59,
+        "temp_low": 57,
+        "rain_prob": 62
+      }
+    },
+    {
+      "date": "2025-11-17",
+      "day_name": "Monday",
+      "day_short": "MON",
+      "day_of_week": 0,
+      "is_weekend": false,
+      "month_day": "11/17",
+      "demand": {
+        "score": 30,
+        "level": "LOW",
+        "factors": [
+          "Cool weather 59\u00b0F (-10)",
+          "50% rain chance (-10)"
+        ],
+        "recommendation": "Skeleton crew, push promotions to locals"
+      },
+      "weather": {
+        "temp_high": 59,
+        "temp_low": 52,
+        "rain_prob": 50
+      }
+    },
+    {
+      "date": "2025-11-18",
+      "day_name": "Tuesday",
+      "day_short": "TUE",
+      "day_of_week": 1,
+      "is_weekend": false,
+      "month_day": "11/18",
+      "demand": {
+        "score": 30,
+        "level": "LOW",
+        "factors": [
+          "Cool weather 59\u00b0F (-10)",
+          "34% rain chance (-10)"
+        ],
+        "recommendation": "Skeleton crew, push promotions to locals"
+      },
+      "weather": {
+        "temp_high": 59,
+        "temp_low": 49,
+        "rain_prob": 34
+      }
+    },
+    {
+      "date": "2025-11-19",
+      "day_name": "Wednesday",
+      "day_short": "WED",
+      "day_of_week": 2,
+      "is_weekend": false,
+      "month_day": "11/19",
+      "demand": {
+        "score": 60,
+        "level": "MEDIUM",
+        "factors": [
+          "Farmers Market day (+10)"
+        ],
+        "recommendation": "Normal staffing, consider promotions"
+      },
+      "weather": {
+        "temp_high": 61,
+        "temp_low": 50,
+        "rain_prob": 22
+      }
+    }
+  ]
+}
