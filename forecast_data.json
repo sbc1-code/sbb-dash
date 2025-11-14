@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-11-13T16:27:28.516844",
+  "generated_at": "2025-11-13T17:22:25.578383",
   "forecast": [
     {
       "date": "2025-11-13",
@@ -9,18 +9,25 @@
       "is_weekend": false,
       "month_day": "11/13",
       "demand": {
-        "score": 45,
-        "level": "LOW",
+        "score": 70,
+        "level": "MEDIUM",
         "factors": [
           "Perfect weather 68\u00b0F (+15)",
-          "59% rain chance (-20)"
+          "71% rain chance (-20)",
+          "Cruise Ship Arrival (+25)"
         ],
-        "recommendation": "Skeleton crew, push promotions to locals"
+        "recommendation": "\ud83d\udcca Normal staffing, run targeted promotions",
+        "events": [
+          {
+            "name": "Cruise Ship Arrival",
+            "type": "cruise"
+          }
+        ]
       },
       "weather": {
         "temp_high": 68,
         "temp_low": 56,
-        "rain_prob": 59
+        "rain_prob": 71
       }
     },
     {
@@ -37,7 +44,8 @@
           "Friday evening (+20)",
           "94% rain chance (-20)"
         ],
-        "recommendation": "Skeleton crew, push promotions to locals"
+        "recommendation": "\ud83d\udca1 Minimal staff, push deals to locals",
+        "events": []
       },
       "weather": {
         "temp_high": 62,
@@ -53,16 +61,24 @@
       "is_weekend": true,
       "month_day": "11/15",
       "demand": {
-        "score": 60,
+        "score": 65,
         "level": "MEDIUM",
         "factors": [
           "Weekend traffic (+30)",
-          "89% rain chance (-20)"
+          "Cool weather 59\u00b0F (-10)",
+          "89% rain chance (-20)",
+          "Saturday Farmers Market (+15)"
         ],
-        "recommendation": "Normal staffing, consider promotions"
+        "recommendation": "\ud83d\udcca Normal staffing, run targeted promotions",
+        "events": [
+          {
+            "name": "Saturday Farmers Market",
+            "type": "market"
+          }
+        ]
       },
       "weather": {
-        "temp_high": 60,
+        "temp_high": 59,
         "temp_low": 55,
         "rain_prob": 89
       }
@@ -79,14 +95,15 @@
         "level": "LOW",
         "factors": [
           "Weekend traffic (+30)",
-          "Cool weather 59\u00b0F (-10)",
+          "Cool weather 57\u00b0F (-10)",
           "62% rain chance (-20)"
         ],
-        "recommendation": "Skeleton crew, push promotions to locals"
+        "recommendation": "\ud83d\udca1 Minimal staff, push deals to locals",
+        "events": []
       },
       "weather": {
-        "temp_high": 59,
-        "temp_low": 57,
+        "temp_high": 57,
+        "temp_low": 55,
         "rain_prob": 62
       }
     },
@@ -98,17 +115,17 @@
       "is_weekend": false,
       "month_day": "11/17",
       "demand": {
-        "score": 30,
+        "score": 40,
         "level": "LOW",
         "factors": [
-          "Cool weather 59\u00b0F (-10)",
           "50% rain chance (-10)"
         ],
-        "recommendation": "Skeleton crew, push promotions to locals"
+        "recommendation": "\ud83d\udca1 Minimal staff, push deals to locals",
+        "events": []
       },
       "weather": {
-        "temp_high": 59,
-        "temp_low": 52,
+        "temp_high": 60,
+        "temp_low": 50,
         "rain_prob": 50
       }
     },
@@ -120,16 +137,22 @@
       "is_weekend": false,
       "month_day": "11/18",
       "demand": {
-        "score": 30,
-        "level": "LOW",
+        "score": 55,
+        "level": "MEDIUM",
         "factors": [
-          "Cool weather 59\u00b0F (-10)",
-          "34% rain chance (-10)"
+          "34% rain chance (-10)",
+          "Downtown Farmers Market (+15)"
         ],
-        "recommendation": "Skeleton crew, push promotions to locals"
+        "recommendation": "\ud83d\udcca Normal staffing, run targeted promotions",
+        "events": [
+          {
+            "name": "Downtown Farmers Market",
+            "type": "market"
+          }
+        ]
       },
       "weather": {
-        "temp_high": 59,
+        "temp_high": 60,
         "temp_low": 49,
         "rain_prob": 34
       }
@@ -142,18 +165,62 @@
       "is_weekend": false,
       "month_day": "11/19",
       "demand": {
-        "score": 60,
-        "level": "MEDIUM",
+        "score": 50,
+        "level": "LOW",
         "factors": [
-          "Farmers Market day (+10)"
+          "Midweek activity (+10)",
+          "Cool weather 59\u00b0F (-10)"
         ],
-        "recommendation": "Normal staffing, consider promotions"
+        "recommendation": "\ud83d\udca1 Minimal staff, push deals to locals",
+        "events": []
       },
       "weather": {
-        "temp_high": 61,
-        "temp_low": 50,
+        "temp_high": 59,
+        "temp_low": 48,
         "rain_prob": 22
       }
     }
-  ]
+  ],
+  "events": [
+    {
+      "date": "2025-11-15",
+      "name": "Saturday Farmers Market",
+      "type": "market",
+      "impact": "medium",
+      "estimated_visitors": 1000
+    },
+    {
+      "date": "2025-11-18",
+      "name": "Downtown Farmers Market",
+      "type": "market",
+      "impact": "medium",
+      "estimated_visitors": 500
+    },
+    {
+      "date": "2025-11-22",
+      "name": "Saturday Farmers Market",
+      "type": "market",
+      "impact": "medium",
+      "estimated_visitors": 1000
+    },
+    {
+      "date": "2025-11-25",
+      "name": "Downtown Farmers Market",
+      "type": "market",
+      "impact": "medium",
+      "estimated_visitors": 500
+    },
+    {
+      "date": "2025-11-13",
+      "name": "Cruise Ship Arrival",
+      "type": "cruise",
+      "impact": "high",
+      "estimated_visitors": 2000
+    }
+  ],
+  "data_quality": {
+    "weather_available": true,
+    "events_count": 5,
+    "forecast_days": 7
+  }
 }

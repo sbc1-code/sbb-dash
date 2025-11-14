@@ -1,0 +1,47 @@
+name: Update Business Forecast
+
+on:
+  schedule:
+    # Run every day at 6 AM Pacific Time (2 PM UTC)
+    - cron: '0 14 * * *'
+  workflow_dispatch:  # Allow manual triggers
+
+jobs:
+  update-forecast:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Generate forecast data
+        run: |
+          echo "🌴 Generating Santa Barbara Business Forecast..."
+          python3 scraper_v2.py
+
+      - name: Check if data changed
+        id: check_changes
+        run: |
+          git diff --quiet forecast_data.json || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push if changed
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          git config user.name "SB Forecast Bot"
+          git config user.email "forecast@sbb-dash.com"
+          git add forecast_data.json
+          git commit -m "data: automated forecast update $(date +'%Y-%m-%d %H:%M')"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Success notification
+        if: success()
+        run: |
+          echo "✅ Forecast updated successfully!"
+          echo "📅 $(date)"
