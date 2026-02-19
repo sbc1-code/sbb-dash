@@ -277,8 +277,8 @@
     </div>
 
     <script>
-        // Load forecast data
-        fetch('forecast_data.json')
+        // Load forecast data (cache-bust to always get latest)
+        fetch('forecast_data.json?t=' + Math.floor(Date.now() / 3600000))
             .then(r => r.json())
             .then(data => {
                 renderForecast(data);
