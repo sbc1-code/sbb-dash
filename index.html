@@ -3,189 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Santa Barbara Business Dashboard</title>
+    <title>Santa Barbara Business Forecast</title>
+    <meta name="description" content="Free 7-day demand forecast for Santa Barbara businesses. Weather, events, cruise ships, and staffing recommendations.">
     <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            color: #1a1a1a;
             line-height: 1.6;
         }
-        .container {
-            width: 90%;
-            max-width: 960px;
-            margin: 0 auto;
-        }
-        /* Hero Section */
+
         .hero {
-            background-color: #004a80; /* Darker SB Blue */
-            color: #ffffff;
-            padding: 80px 0;
+            background: #1a1a1a;
+            color: #fff;
+            padding: 80px 20px;
             text-align: center;
         }
+
         .hero h1 {
-            font-size: 2.8em;
-            margin-top: 0;
-            margin-bottom: 10px;
-        }
-        .hero-subheadline {
-            font-size: 1.2em;
-            margin-bottom: 30px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0.9;
-        }
-        .cta-button {
-            background-color: #f77f00; /* SB Orange */
-            color: #000;
-            padding: 15px 30px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            font-size: 1.1em;
-            transition: background-color 0.3s ease;
-        }
-        .cta-button:hover {
-            background-color: #ff9d2b;
-        }
-
-        /* Problem Section */
-        .problem {
-            padding: 60px 0;
-            background-color: #f4f7f6;
-            text-align: center;
-        }
-        .problem h2 {
             font-size: 2.2em;
-            margin-top: 0;
-        }
-        .problem p {
-            font-size: 1.1em;
-            max-width: 750px;
-            margin: 15px auto 0;
+            font-weight: 600;
+            margin-bottom: 12px;
         }
 
-        /* Features Section */
+        .hero p {
+            font-size: 1.05em;
+            color: #aaa;
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .hero a {
+            display: inline-block;
+            background: #fff;
+            color: #1a1a1a;
+            padding: 12px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        .hero a:hover {
+            background: #f0f0f0;
+        }
+
         .features {
-            padding: 60px 0;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
         }
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        .feature-card {
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 25px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-        }
-        .feature-card h3 {
+
+        .features h2 {
             font-size: 1.4em;
-            color: #005a9c;
-            margin-top: 0;
-            margin-bottom: 10px;
-        }
-
-        /* Final CTA Section */
-        .final-cta {
-            background-color: #333;
-            color: #ffffff;
-            padding: 70px 0;
+            font-weight: 600;
+            margin-bottom: 32px;
             text-align: center;
         }
-        .final-cta h2 {
-            font-size: 2.2em;
-            margin-top: 0;
-            margin-bottom: 10px;
-        }
-        .final-cta p {
-            font-size: 1.1em;
-            opacity: 0.9;
-            margin-bottom: 30px;
-        }
-        .beta-button {
-            background-color: #f77f00;
-            color: #000;
-            padding: 15px 30px;
-            border: none;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            font-size: 1.1em;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .beta-button:hover {
-            background-color: #ff9d2b;
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
         }
 
-        /* Footer */
+        .feature {
+            text-align: center;
+        }
+
+        .feature h3 {
+            font-size: 1em;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .feature p {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .cta {
+            background: #f5f5f0;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .cta h2 {
+            font-size: 1.4em;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .cta p {
+            color: #666;
+            margin-bottom: 24px;
+        }
+
+        .cta a {
+            display: inline-block;
+            background: #1a1a1a;
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        .cta a:hover {
+            background: #333;
+        }
+
         footer {
             text-align: center;
-            padding: 20px 0;
-            font-size: 0.9em;
-            color: #777;
+            padding: 20px;
+            font-size: 0.82em;
+            color: #aaa;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 1.6em; }
+            .feature-grid { grid-template-columns: 1fr; gap: 20px; }
         }
     </style>
 </head>
 <body>
-
-    <header class="hero">
-        <div class="container">
-            <h1>Stop Guessing. Start Selling.</h1>
-            <p class="hero-subheadline">
-                Santa Barbara's sales tax is down 6.1% while hotel tax is up 1.8%.
-                Your problem isn't a lack of tourists, it's a lack of spending. Our dashboard tells you <em>who</em> is in town and <em>what</em> they want, so you can stop missing out on revenue.
-            </p>
-            <a href="forecast.html" class="cta-button">View Free Forecast</a>
-        </div>
-    </header>
-
-    <section class="problem">
-        <div class="container">
-            <h2>Why Are Your Tables Empty When the Hotels Are Full?</h2>
-            <p>The data is in. High-volume domestic visitors have replaced high-spending international tourists. Your old marketing won't work. Stop staffing for "busy" weekends that end up being busts. Stop running promotions that don't convert.</p>
-        </div>
+    <section class="hero">
+        <h1>Santa Barbara Business Forecast</h1>
+        <p>7-day demand predictions for local businesses. Weather, cruise ships, events, and staffing recommendations. Updated daily.</p>
+        <a href="forecast.html">View this week's forecast</a>
     </section>
 
     <section class="features">
-        <div class="container">
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h3>See the Week Ahead</h3>
-                    <p>Get a 7-day demand forecast based on hotel bookings, cruise ship arrivals, and local event data. Finally, an accurate staffing and inventory plan.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Know Who's in Town</h3>
-                    <p>Simple insights on current visitor types and their spending habits. Stop wasting money on ads that target the wrong people.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Run Promotions That Work</h3>
-                    <p>A tool to push dynamic, real-time offers to high-value visitors and locals who are *actually* in your neighborhood.</p>
-                </div>
+        <h2>What you get</h2>
+        <div class="feature-grid">
+            <div class="feature">
+                <h3>Demand scores</h3>
+                <p>Each day scored 0-100 based on weather, day of week, and local events.</p>
+            </div>
+            <div class="feature">
+                <h3>Event detection</h3>
+                <p>Cruise ship arrivals, farmers markets, and SB Bowl concerts factored in automatically.</p>
+            </div>
+            <div class="feature">
+                <h3>Staffing guidance</h3>
+                <p>Clear recommendations for high, medium, and low demand days.</p>
             </div>
         </div>
     </section>
 
-    <section class="final-cta" id="join-beta">
-        <div class="container">
-            <h2>100% Free - Available Now</h2>
-            <p>No signup required. No credit card. Just bookmark the page and check back every Monday.</p>
-            <div style="margin-top: 30px;">
-                <a href="forecast.html" class="beta-button" style="text-decoration: none; display: inline-block;">View This Week's Forecast</a>
-            </div>
-        </div>
+    <section class="cta">
+        <h2>Free. No signup. No tracking.</h2>
+        <p>Bookmark the forecast page. Data refreshes every morning at 6 AM Pacific.</p>
+        <a href="forecast.html">View forecast</a>
     </section>
 
-    <footer>
-        <div class="container">
-            &copy; 2026 Santa Barbara Business Dashboard
-        </div>
-    </footer>
-
+    <footer>&copy; 2026 Santa Barbara Business Forecast</footer>
 </body>
 </html>

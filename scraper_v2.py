@@ -269,13 +269,13 @@ def calculate_demand_score(day, weather=None, events=None):
     # Determine level
     if score >= 75:
         level = "HIGH"
-        recommendation = "🔥 Staff up, extend hours, maximize capacity"
+        recommendation = "Staff up, extend hours, maximize capacity"
     elif score >= 55:
         level = "MEDIUM"
-        recommendation = "📊 Normal staffing, run targeted promotions"
+        recommendation = "Normal staffing, run targeted promotions"
     else:
         level = "LOW"
-        recommendation = "💡 Minimal staff, push deals to locals"
+        recommendation = "Minimal staff, push deals to locals"
 
     return {
         'score': min(100, max(0, int(score))),

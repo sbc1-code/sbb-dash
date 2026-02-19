@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-19T18:56:38.797200",
+  "generated_at": "2026-02-19T11:09:52.804980",
   "forecast": [
     {
       "date": "2026-02-19",
@@ -16,7 +16,7 @@
           "94% rain chance (-20)",
           "Cruise Ship Arrival (+25)"
         ],
-        "recommendation": "\ud83d\udca1 Minimal staff, push deals to locals",
+        "recommendation": "Minimal staff, push deals to locals",
         "events": [
           {
             "name": "Cruise Ship Arrival",
@@ -44,7 +44,7 @@
           "Friday evening (+20)",
           "Cool weather 56\u00b0F (-10)"
         ],
-        "recommendation": "\ud83d\udcca Normal staffing, run targeted promotions",
+        "recommendation": "Normal staffing, run targeted promotions",
         "events": []
       },
       "weather": {
@@ -68,7 +68,7 @@
           "Cool weather 59\u00b0F (-10)",
           "Saturday Farmers Market (+15)"
         ],
-        "recommendation": "\ud83d\udd25 Staff up, extend hours, maximize capacity",
+        "recommendation": "Staff up, extend hours, maximize capacity",
         "events": [
           {
             "name": "Saturday Farmers Market",
@@ -95,7 +95,7 @@
         "factors": [
           "Weekend traffic (+30)"
         ],
-        "recommendation": "\ud83d\udd25 Staff up, extend hours, maximize capacity",
+        "recommendation": "Staff up, extend hours, maximize capacity",
         "events": []
       },
       "weather": {
@@ -117,7 +117,7 @@
         "factors": [
           "Perfect weather 69\u00b0F (+15)"
         ],
-        "recommendation": "\ud83d\udcca Normal staffing, run targeted promotions",
+        "recommendation": "Normal staffing, run targeted promotions",
         "events": []
       },
       "weather": {
@@ -140,7 +140,7 @@
           "Perfect weather 70\u00b0F (+15)",
           "Downtown Farmers Market (+15)"
         ],
-        "recommendation": "\ud83d\udd25 Staff up, extend hours, maximize capacity",
+        "recommendation": "Staff up, extend hours, maximize capacity",
         "events": [
           {
             "name": "Downtown Farmers Market",
@@ -168,7 +168,7 @@
           "Midweek activity (+10)",
           "Perfect weather 68\u00b0F (+15)"
         ],
-        "recommendation": "\ud83d\udd25 Staff up, extend hours, maximize capacity",
+        "recommendation": "Staff up, extend hours, maximize capacity",
         "events": []
       },
       "weather": {
