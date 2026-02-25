@@ -1,39 +1,6 @@
 {
-  "generated_at": "2026-02-24T14:53:23.411764",
+  "generated_at": "2026-02-25T14:52:42.806435",
   "forecast": [
-    {
-      "date": "2026-02-24",
-      "day_name": "Tuesday",
-      "day_short": "TUE",
-      "day_of_week": 1,
-      "is_weekend": false,
-      "month_day": "02/24",
-      "demand": {
-        "score": 100,
-        "level": "HIGH",
-        "factors": [
-          "Perfect weather 70\u00b0F (+15)",
-          "Downtown Farmers Market (+15)",
-          "Cruise Ship Arrival (+25)"
-        ],
-        "recommendation": "Staff up, extend hours, maximize capacity",
-        "events": [
-          {
-            "name": "Downtown Farmers Market",
-            "type": "market"
-          },
-          {
-            "name": "Cruise Ship Arrival",
-            "type": "cruise"
-          }
-        ]
-      },
-      "weather": {
-        "temp_high": 70,
-        "temp_low": 52,
-        "rain_prob": 1
-      }
-    },
     {
       "date": "2026-02-25",
       "day_name": "Wednesday",
@@ -42,19 +9,25 @@
       "is_weekend": false,
       "month_day": "02/25",
       "demand": {
-        "score": 75,
+        "score": 100,
         "level": "HIGH",
         "factors": [
           "Midweek activity (+10)",
-          "Perfect weather 72\u00b0F (+15)"
+          "Perfect weather 68\u00b0F (+15)",
+          "Cruise Ship Arrival (+25)"
         ],
         "recommendation": "Staff up, extend hours, maximize capacity",
-        "events": []
+        "events": [
+          {
+            "name": "Cruise Ship Arrival",
+            "type": "cruise"
+          }
+        ]
       },
       "weather": {
-        "temp_high": 72,
-        "temp_low": 52,
-        "rain_prob": 2
+        "temp_high": 68,
+        "temp_low": 51,
+        "rain_prob": 0
       }
     },
     {
@@ -68,15 +41,15 @@
         "score": 65,
         "level": "MEDIUM",
         "factors": [
-          "Perfect weather 71\u00b0F (+15)"
+          "Perfect weather 72\u00b0F (+15)"
         ],
         "recommendation": "Normal staffing, run targeted promotions",
         "events": []
       },
       "weather": {
-        "temp_high": 71,
-        "temp_low": 61,
-        "rain_prob": 0
+        "temp_high": 72,
+        "temp_low": 53,
+        "rain_prob": 1
       }
     },
     {
@@ -91,14 +64,14 @@
         "level": "HIGH",
         "factors": [
           "Friday evening (+20)",
-          "Perfect weather 74\u00b0F (+15)"
+          "Perfect weather 76\u00b0F (+15)"
         ],
         "recommendation": "Staff up, extend hours, maximize capacity",
         "events": []
       },
       "weather": {
-        "temp_high": 74,
-        "temp_low": 63,
+        "temp_high": 76,
+        "temp_low": 58,
         "rain_prob": 0
       }
     },
@@ -150,7 +123,7 @@
       },
       "weather": {
         "temp_high": 68,
-        "temp_low": 57,
+        "temp_low": 59,
         "rain_prob": 1
       }
     },
@@ -165,26 +138,47 @@
         "score": 65,
         "level": "MEDIUM",
         "factors": [
-          "Perfect weather 71\u00b0F (+15)"
+          "Perfect weather 67\u00b0F (+15)"
         ],
         "recommendation": "Normal staffing, run targeted promotions",
         "events": []
       },
       "weather": {
-        "temp_high": 71,
-        "temp_low": 55,
+        "temp_high": 67,
+        "temp_low": 54,
         "rain_prob": 3
+      }
+    },
+    {
+      "date": "2026-03-03",
+      "day_name": "Tuesday",
+      "day_short": "TUE",
+      "day_of_week": 1,
+      "is_weekend": false,
+      "month_day": "03/03",
+      "demand": {
+        "score": 80,
+        "level": "HIGH",
+        "factors": [
+          "Perfect weather 66\u00b0F (+15)",
+          "Downtown Farmers Market (+15)"
+        ],
+        "recommendation": "Staff up, extend hours, maximize capacity",
+        "events": [
+          {
+            "name": "Downtown Farmers Market",
+            "type": "market"
+          }
+        ]
+      },
+      "weather": {
+        "temp_high": 66,
+        "temp_low": 54,
+        "rain_prob": 2
       }
     }
   ],
   "events": [
-    {
-      "date": "2026-02-24",
-      "name": "Downtown Farmers Market",
-      "type": "market",
-      "impact": "medium",
-      "estimated_visitors": 500
-    },
     {
       "date": "2026-02-28",
       "name": "Saturday Farmers Market",
@@ -207,7 +201,14 @@
       "estimated_visitors": 1000
     },
     {
-      "date": "2026-02-24",
+      "date": "2026-03-10",
+      "name": "Downtown Farmers Market",
+      "type": "market",
+      "impact": "medium",
+      "estimated_visitors": 500
+    },
+    {
+      "date": "2026-02-25",
       "name": "Cruise Ship Arrival",
       "type": "cruise",
       "impact": "high",
