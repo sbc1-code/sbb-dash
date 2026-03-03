@@ -1,34 +1,6 @@
 {
-  "generated_at": "2026-03-02T14:44:05.371642",
+  "generated_at": "2026-03-03T14:45:31.114606",
   "forecast": [
-    {
-      "date": "2026-03-02",
-      "day_name": "Monday",
-      "day_short": "MON",
-      "day_of_week": 0,
-      "is_weekend": false,
-      "month_day": "03/02",
-      "demand": {
-        "score": 90,
-        "level": "HIGH",
-        "factors": [
-          "Perfect weather 68\u00b0F (+15)",
-          "Cruise Ship Arrival (+25)"
-        ],
-        "recommendation": "Staff up, extend hours, maximize capacity",
-        "events": [
-          {
-            "name": "Cruise Ship Arrival",
-            "type": "cruise"
-          }
-        ]
-      },
-      "weather": {
-        "temp_high": 68,
-        "temp_low": 54,
-        "rain_prob": 0
-      }
-    },
     {
       "date": "2026-03-03",
       "day_name": "Tuesday",
@@ -37,23 +9,28 @@
       "is_weekend": false,
       "month_day": "03/03",
       "demand": {
-        "score": 80,
+        "score": 100,
         "level": "HIGH",
         "factors": [
-          "Perfect weather 66\u00b0F (+15)",
-          "Downtown Farmers Market (+15)"
+          "Perfect weather 65\u00b0F (+15)",
+          "Downtown Farmers Market (+15)",
+          "Cruise Ship Arrival (+25)"
         ],
         "recommendation": "Staff up, extend hours, maximize capacity",
         "events": [
           {
             "name": "Downtown Farmers Market",
             "type": "market"
+          },
+          {
+            "name": "Cruise Ship Arrival",
+            "type": "cruise"
           }
         ]
       },
       "weather": {
-        "temp_high": 66,
-        "temp_low": 54,
+        "temp_high": 65,
+        "temp_low": 51,
         "rain_prob": 0
       }
     },
@@ -65,18 +42,17 @@
       "is_weekend": false,
       "month_day": "03/04",
       "demand": {
-        "score": 75,
-        "level": "HIGH",
+        "score": 60,
+        "level": "MEDIUM",
         "factors": [
-          "Midweek activity (+10)",
-          "Perfect weather 67\u00b0F (+15)"
+          "Midweek activity (+10)"
         ],
-        "recommendation": "Staff up, extend hours, maximize capacity",
+        "recommendation": "Normal staffing, run targeted promotions",
         "events": []
       },
       "weather": {
-        "temp_high": 67,
-        "temp_low": 54,
+        "temp_high": 60,
+        "temp_low": 53,
         "rain_prob": 3
       }
     },
@@ -91,14 +67,14 @@
         "score": 65,
         "level": "MEDIUM",
         "factors": [
-          "Perfect weather 67\u00b0F (+15)"
+          "Perfect weather 69\u00b0F (+15)"
         ],
         "recommendation": "Normal staffing, run targeted promotions",
         "events": []
       },
       "weather": {
-        "temp_high": 67,
-        "temp_low": 50,
+        "temp_high": 69,
+        "temp_low": 51,
         "rain_prob": 3
       }
     },
@@ -110,16 +86,17 @@
       "is_weekend": false,
       "month_day": "03/06",
       "demand": {
-        "score": 70,
-        "level": "MEDIUM",
+        "score": 85,
+        "level": "HIGH",
         "factors": [
-          "Friday evening (+20)"
+          "Friday evening (+20)",
+          "Perfect weather 69\u00b0F (+15)"
         ],
-        "recommendation": "Normal staffing, run targeted promotions",
+        "recommendation": "Staff up, extend hours, maximize capacity",
         "events": []
       },
       "weather": {
-        "temp_high": 64,
+        "temp_high": 69,
         "temp_low": 51,
         "rain_prob": 0
       }
@@ -136,7 +113,7 @@
         "level": "HIGH",
         "factors": [
           "Weekend traffic (+30)",
-          "Perfect weather 65\u00b0F (+15)",
+          "Perfect weather 71\u00b0F (+15)",
           "Saturday Farmers Market (+15)"
         ],
         "recommendation": "Staff up, extend hours, maximize capacity",
@@ -148,8 +125,8 @@
         ]
       },
       "weather": {
-        "temp_high": 65,
-        "temp_low": 53,
+        "temp_high": 71,
+        "temp_low": 56,
         "rain_prob": 0
       }
     },
@@ -165,15 +142,35 @@
         "level": "HIGH",
         "factors": [
           "Weekend traffic (+30)",
-          "Perfect weather 70\u00b0F (+15)"
+          "Perfect weather 68\u00b0F (+15)"
         ],
         "recommendation": "Staff up, extend hours, maximize capacity",
         "events": []
       },
       "weather": {
-        "temp_high": 70,
-        "temp_low": 56,
-        "rain_prob": 0
+        "temp_high": 68,
+        "temp_low": 55,
+        "rain_prob": 2
+      }
+    },
+    {
+      "date": "2026-03-09",
+      "day_name": "Monday",
+      "day_short": "MON",
+      "day_of_week": 0,
+      "is_weekend": false,
+      "month_day": "03/09",
+      "demand": {
+        "score": 50,
+        "level": "LOW",
+        "factors": [],
+        "recommendation": "Minimal staff, push deals to locals",
+        "events": []
+      },
+      "weather": {
+        "temp_high": 63,
+        "temp_low": 55,
+        "rain_prob": 2
       }
     }
   ],
@@ -207,7 +204,7 @@
       "estimated_visitors": 1000
     },
     {
-      "date": "2026-03-02",
+      "date": "2026-03-03",
       "name": "Cruise Ship Arrival",
       "type": "cruise",
       "impact": "high",
