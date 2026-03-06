@@ -1,18 +1,19 @@
 {
-  "generated_at": "2026-03-05T14:49:41.886487",
+  "generated_at": "2026-03-06T14:39:36.229437",
   "forecast": [
     {
-      "date": "2026-03-05",
-      "day_name": "Thursday",
-      "day_short": "THU",
-      "day_of_week": 3,
+      "date": "2026-03-06",
+      "day_name": "Friday",
+      "day_short": "FRI",
+      "day_of_week": 4,
       "is_weekend": false,
-      "month_day": "03/05",
+      "month_day": "03/06",
       "demand": {
-        "score": 90,
+        "score": 100,
         "level": "HIGH",
         "factors": [
-          "Perfect weather 73\u00b0F (+15)",
+          "Friday evening (+20)",
+          "Perfect weather 68\u00b0F (+15)",
           "Cruise Ship Arrival (+25)"
         ],
         "recommendation": "Staff up, extend hours, maximize capacity",
@@ -24,31 +25,8 @@
         ]
       },
       "weather": {
-        "temp_high": 73,
-        "temp_low": 53,
-        "rain_prob": 1
-      }
-    },
-    {
-      "date": "2026-03-06",
-      "day_name": "Friday",
-      "day_short": "FRI",
-      "day_of_week": 4,
-      "is_weekend": false,
-      "month_day": "03/06",
-      "demand": {
-        "score": 85,
-        "level": "HIGH",
-        "factors": [
-          "Friday evening (+20)",
-          "Perfect weather 68\u00b0F (+15)"
-        ],
-        "recommendation": "Staff up, extend hours, maximize capacity",
-        "events": []
-      },
-      "weather": {
         "temp_high": 68,
-        "temp_low": 52,
+        "temp_low": 51,
         "rain_prob": 0
       }
     },
@@ -64,7 +42,7 @@
         "level": "HIGH",
         "factors": [
           "Weekend traffic (+30)",
-          "Perfect weather 69\u00b0F (+15)",
+          "Perfect weather 73\u00b0F (+15)",
           "Saturday Farmers Market (+15)"
         ],
         "recommendation": "Staff up, extend hours, maximize capacity",
@@ -76,8 +54,8 @@
         ]
       },
       "weather": {
-        "temp_high": 69,
-        "temp_low": 53,
+        "temp_high": 73,
+        "temp_low": 50,
         "rain_prob": 0
       }
     },
@@ -100,7 +78,7 @@
       },
       "weather": {
         "temp_high": 71,
-        "temp_low": 57,
+        "temp_low": 58,
         "rain_prob": 0
       }
     },
@@ -115,14 +93,14 @@
         "score": 65,
         "level": "MEDIUM",
         "factors": [
-          "Perfect weather 70\u00b0F (+15)"
+          "Perfect weather 71\u00b0F (+15)"
         ],
         "recommendation": "Normal staffing, run targeted promotions",
         "events": []
       },
       "weather": {
-        "temp_high": 70,
-        "temp_low": 58,
+        "temp_high": 71,
+        "temp_low": 59,
         "rain_prob": 0
       }
     },
@@ -149,7 +127,7 @@
       },
       "weather": {
         "temp_high": 62,
-        "temp_low": 55,
+        "temp_low": 56,
         "rain_prob": 0
       }
     },
@@ -165,14 +143,36 @@
         "level": "HIGH",
         "factors": [
           "Midweek activity (+10)",
-          "Perfect weather 65\u00b0F (+15)"
+          "Perfect weather 69\u00b0F (+15)"
         ],
         "recommendation": "Staff up, extend hours, maximize capacity",
         "events": []
       },
       "weather": {
-        "temp_high": 65,
-        "temp_low": 54,
+        "temp_high": 69,
+        "temp_low": 55,
+        "rain_prob": 0
+      }
+    },
+    {
+      "date": "2026-03-12",
+      "day_name": "Thursday",
+      "day_short": "THU",
+      "day_of_week": 3,
+      "is_weekend": false,
+      "month_day": "03/12",
+      "demand": {
+        "score": 65,
+        "level": "MEDIUM",
+        "factors": [
+          "Perfect weather 75\u00b0F (+15)"
+        ],
+        "recommendation": "Normal staffing, run targeted promotions",
+        "events": []
+      },
+      "weather": {
+        "temp_high": 75,
+        "temp_low": 63,
         "rain_prob": 0
       }
     }
@@ -207,7 +207,7 @@
       "estimated_visitors": 500
     },
     {
-      "date": "2026-03-05",
+      "date": "2026-03-06",
       "name": "Cruise Ship Arrival",
       "type": "cruise",
       "impact": "high",
