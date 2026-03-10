@@ -1,34 +1,6 @@
 {
-  "generated_at": "2026-03-09T14:53:55.578956",
+  "generated_at": "2026-03-10T14:52:28.349491",
   "forecast": [
-    {
-      "date": "2026-03-09",
-      "day_name": "Monday",
-      "day_short": "MON",
-      "day_of_week": 0,
-      "is_weekend": false,
-      "month_day": "03/09",
-      "demand": {
-        "score": 90,
-        "level": "HIGH",
-        "factors": [
-          "Perfect weather 67\u00b0F (+15)",
-          "Cruise Ship Arrival (+25)"
-        ],
-        "recommendation": "Staff up, extend hours, maximize capacity",
-        "events": [
-          {
-            "name": "Cruise Ship Arrival",
-            "type": "cruise"
-          }
-        ]
-      },
-      "weather": {
-        "temp_high": 67,
-        "temp_low": 54,
-        "rain_prob": 1
-      }
-    },
     {
       "date": "2026-03-10",
       "day_name": "Tuesday",
@@ -37,24 +9,28 @@
       "is_weekend": false,
       "month_day": "03/10",
       "demand": {
-        "score": 55,
-        "level": "MEDIUM",
+        "score": 90,
+        "level": "HIGH",
         "factors": [
-          "Cool weather 58\u00b0F (-10)",
-          "Downtown Farmers Market (+15)"
+          "Downtown Farmers Market (+15)",
+          "Cruise Ship Arrival (+25)"
         ],
-        "recommendation": "Normal staffing, run targeted promotions",
+        "recommendation": "Staff up, extend hours, maximize capacity",
         "events": [
           {
             "name": "Downtown Farmers Market",
             "type": "market"
+          },
+          {
+            "name": "Cruise Ship Arrival",
+            "type": "cruise"
           }
         ]
       },
       "weather": {
-        "temp_high": 58,
+        "temp_high": 60,
         "temp_low": 53,
-        "rain_prob": 1
+        "rain_prob": 0
       }
     },
     {
@@ -65,19 +41,18 @@
       "is_weekend": false,
       "month_day": "03/11",
       "demand": {
-        "score": 75,
-        "level": "HIGH",
+        "score": 60,
+        "level": "MEDIUM",
         "factors": [
-          "Midweek activity (+10)",
-          "Perfect weather 67\u00b0F (+15)"
+          "Midweek activity (+10)"
         ],
-        "recommendation": "Staff up, extend hours, maximize capacity",
+        "recommendation": "Normal staffing, run targeted promotions",
         "events": []
       },
       "weather": {
-        "temp_high": 67,
+        "temp_high": 62,
         "temp_low": 53,
-        "rain_prob": 0
+        "rain_prob": 1
       }
     },
     {
@@ -98,7 +73,7 @@
       },
       "weather": {
         "temp_high": 76,
-        "temp_low": 61,
+        "temp_low": 51,
         "rain_prob": 0
       }
     },
@@ -121,7 +96,7 @@
       },
       "weather": {
         "temp_high": 78,
-        "temp_low": 65,
+        "temp_low": 64,
         "rain_prob": 0
       }
     },
@@ -137,7 +112,7 @@
         "level": "HIGH",
         "factors": [
           "Weekend traffic (+30)",
-          "Perfect weather 72\u00b0F (+15)",
+          "Perfect weather 71\u00b0F (+15)",
           "Saturday Farmers Market (+15)"
         ],
         "recommendation": "Staff up, extend hours, maximize capacity",
@@ -149,8 +124,8 @@
         ]
       },
       "weather": {
-        "temp_high": 72,
-        "temp_low": 63,
+        "temp_high": 71,
+        "temp_low": 62,
         "rain_prob": 0
       }
     },
@@ -173,7 +148,29 @@
       },
       "weather": {
         "temp_high": 72,
-        "temp_low": 61,
+        "temp_low": 59,
+        "rain_prob": 0
+      }
+    },
+    {
+      "date": "2026-03-16",
+      "day_name": "Monday",
+      "day_short": "MON",
+      "day_of_week": 0,
+      "is_weekend": false,
+      "month_day": "03/16",
+      "demand": {
+        "score": 65,
+        "level": "MEDIUM",
+        "factors": [
+          "Perfect weather 73\u00b0F (+15)"
+        ],
+        "recommendation": "Normal staffing, run targeted promotions",
+        "events": []
+      },
+      "weather": {
+        "temp_high": 73,
+        "temp_low": 62,
         "rain_prob": 0
       }
     }
@@ -208,7 +205,7 @@
       "estimated_visitors": 1000
     },
     {
-      "date": "2026-03-09",
+      "date": "2026-03-10",
       "name": "Cruise Ship Arrival",
       "type": "cruise",
       "impact": "high",
