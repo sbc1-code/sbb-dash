@@ -1,19 +1,18 @@
 {
-  "generated_at": "2026-03-11T14:50:08.971224",
+  "generated_at": "2026-03-12T14:52:25.380237",
   "forecast": [
     {
-      "date": "2026-03-11",
-      "day_name": "Wednesday",
-      "day_short": "WED",
-      "day_of_week": 2,
+      "date": "2026-03-12",
+      "day_name": "Thursday",
+      "day_short": "THU",
+      "day_of_week": 3,
       "is_weekend": false,
-      "month_day": "03/11",
+      "month_day": "03/12",
       "demand": {
-        "score": 100,
+        "score": 90,
         "level": "HIGH",
         "factors": [
-          "Midweek activity (+10)",
-          "Perfect weather 66\u00b0F (+15)",
+          "Perfect weather 79\u00b0F (+15)",
           "Cruise Ship Arrival (+25)"
         ],
         "recommendation": "Staff up, extend hours, maximize capacity",
@@ -25,30 +24,8 @@
         ]
       },
       "weather": {
-        "temp_high": 66,
-        "temp_low": 48,
-        "rain_prob": 0
-      }
-    },
-    {
-      "date": "2026-03-12",
-      "day_name": "Thursday",
-      "day_short": "THU",
-      "day_of_week": 3,
-      "is_weekend": false,
-      "month_day": "03/12",
-      "demand": {
-        "score": 65,
-        "level": "MEDIUM",
-        "factors": [
-          "Perfect weather 80\u00b0F (+15)"
-        ],
-        "recommendation": "Normal staffing, run targeted promotions",
-        "events": []
-      },
-      "weather": {
-        "temp_high": 80,
-        "temp_low": 50,
+        "temp_high": 79,
+        "temp_low": 52,
         "rain_prob": 0
       }
     },
@@ -64,14 +41,14 @@
         "level": "HIGH",
         "factors": [
           "Friday evening (+20)",
-          "Perfect weather 76\u00b0F (+15)"
+          "Perfect weather 82\u00b0F (+15)"
         ],
         "recommendation": "Staff up, extend hours, maximize capacity",
         "events": []
       },
       "weather": {
-        "temp_high": 76,
-        "temp_low": 58,
+        "temp_high": 82,
+        "temp_low": 56,
         "rain_prob": 0
       }
     },
@@ -87,7 +64,7 @@
         "level": "HIGH",
         "factors": [
           "Weekend traffic (+30)",
-          "Perfect weather 72\u00b0F (+15)",
+          "Perfect weather 71\u00b0F (+15)",
           "Saturday Farmers Market (+15)"
         ],
         "recommendation": "Staff up, extend hours, maximize capacity",
@@ -99,8 +76,8 @@
         ]
       },
       "weather": {
-        "temp_high": 72,
-        "temp_low": 61,
+        "temp_high": 71,
+        "temp_low": 57,
         "rain_prob": 0
       }
     },
@@ -116,13 +93,13 @@
         "level": "HIGH",
         "factors": [
           "Weekend traffic (+30)",
-          "Perfect weather 72\u00b0F (+15)"
+          "Perfect weather 71\u00b0F (+15)"
         ],
         "recommendation": "Staff up, extend hours, maximize capacity",
         "events": []
       },
       "weather": {
-        "temp_high": 72,
+        "temp_high": 71,
         "temp_low": 58,
         "rain_prob": 0
       }
@@ -138,13 +115,13 @@
         "score": 65,
         "level": "MEDIUM",
         "factors": [
-          "Perfect weather 76\u00b0F (+15)"
+          "Perfect weather 74\u00b0F (+15)"
         ],
         "recommendation": "Normal staffing, run targeted promotions",
         "events": []
       },
       "weather": {
-        "temp_high": 76,
+        "temp_high": 74,
         "temp_low": 62,
         "rain_prob": 0
       }
@@ -160,7 +137,7 @@
         "score": 80,
         "level": "HIGH",
         "factors": [
-          "Perfect weather 78\u00b0F (+15)",
+          "Perfect weather 80\u00b0F (+15)",
           "Downtown Farmers Market (+15)"
         ],
         "recommendation": "Staff up, extend hours, maximize capacity",
@@ -172,8 +149,31 @@
         ]
       },
       "weather": {
-        "temp_high": 78,
-        "temp_low": 65,
+        "temp_high": 80,
+        "temp_low": 66,
+        "rain_prob": 0
+      }
+    },
+    {
+      "date": "2026-03-18",
+      "day_name": "Wednesday",
+      "day_short": "WED",
+      "day_of_week": 2,
+      "is_weekend": false,
+      "month_day": "03/18",
+      "demand": {
+        "score": 75,
+        "level": "HIGH",
+        "factors": [
+          "Midweek activity (+10)",
+          "Perfect weather 81\u00b0F (+15)"
+        ],
+        "recommendation": "Staff up, extend hours, maximize capacity",
+        "events": []
+      },
+      "weather": {
+        "temp_high": 81,
+        "temp_low": 68,
         "rain_prob": 0
       }
     }
@@ -208,7 +208,7 @@
       "estimated_visitors": 500
     },
     {
-      "date": "2026-03-11",
+      "date": "2026-03-12",
       "name": "Cruise Ship Arrival",
       "type": "cruise",
       "impact": "high",
