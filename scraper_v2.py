@@ -38,8 +38,9 @@ class EventScraper:
     @staticmethod
     def scrape_cruise_ships():
         """
-        Scrape cruise ship schedule from CruiseMapper
-        Returns: list of {date, ship_name, passengers}
+        Scrape cruise ship schedule from CruiseMapper.
+        Only returns arrivals within the next 14 days.
+        Validates dates carefully to avoid phantom entries.
         """
         print("🚢 Scraping cruise ship data...")
         url = "https://www.cruisemapper.com/ports/santa-barbara-ca-port-852"
@@ -50,33 +51,74 @@ class EventScraper:
             return []
 
         events = []
+        today = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
+        window_end = today + timedelta(days=14)
 
-        # Parse cruise schedule (basic regex approach)
-        # CruiseMapper format: date patterns and ship names
-        date_pattern = r'(\d{4}-\d{2}-\d{2})'
-        dates = re.findall(date_pattern, html)
+        # False positives: port names and generic text that appear on the page
+        false_positives = {
+            'santa barbara', 'port of', 'california', 'united states',
+            'cruise ship', 'cruisemapper', 'privacy policy', 'cookie',
+            'january', 'february', 'march', 'april', 'may', 'june',
+            'july', 'august', 'september', 'october', 'november', 'december'
+        }
 
-        # Look for ship names (typically in title case, 2-3 words)
-        ship_pattern = r'([A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,2})\s+\((?:arrives|departs)'
-        ships = re.findall(ship_pattern, html, re.IGNORECASE)
+        def is_valid_ship_name(name):
+            """Check if the matched text is a real ship name, not page chrome."""
+            clean = name.strip().lower()
+            if len(clean) < 4 or len(clean) > 40:
+                return False
+            for fp in false_positives:
+                if fp in clean:
+                    return False
+            return True
 
-        # Match dates with ships
-        for i, date_str in enumerate(dates[:5]):  # Limit to next 5 arrivals
+        # Look for known cruise ship name patterns near dates.
+        # Real ships: "Royal Princess", "Ruby Princess", "Brilliant Lady", etc.
+        ship_date_pattern = r'([A-Z][a-z]+(?:\s+(?:of\s+the\s+Seas|[A-Z][a-z]+)){1,4})\s*[^A-Za-z]*?(\d{4}-\d{2}-\d{2})'
+        matches = re.findall(ship_date_pattern, html)
+
+        date_ship_pattern = r'(\d{4}-\d{2}-\d{2})\s*[^A-Za-z]*?([A-Z][a-z]+(?:\s+(?:of\s+the\s+Seas|Princess|Lady|[A-Z][a-z]+)){1,3})'
+        matches2 = re.findall(date_ship_pattern, html)
+
+        seen_dates = set()
+
+        for ship_name, date_str in matches:
             try:
                 ship_date = datetime.strptime(date_str, '%Y-%m-%d')
-                ship_name = ships[i] if i < len(ships) else "Cruise Ship"
+                if today <= ship_date <= window_end and date_str not in seen_dates and is_valid_ship_name(ship_name):
+                    seen_dates.add(date_str)
+                    events.append({
+                        'date': date_str,
+                        'name': f"{ship_name.strip()} Arrival",
+                        'type': 'cruise',
+                        'impact': 'high',
+                        'estimated_visitors': 2000
+                    })
+                    print(f"    Found: {ship_name.strip()} on {date_str}")
+            except (ValueError, IndexError):
+                continue
 
-                events.append({
-                    'date': date_str,
-                    'name': f"{ship_name} Arrival",
-                    'type': 'cruise',
-                    'impact': 'high',
-                    'estimated_visitors': 2000
-                })
-            except Exception as e:
-                print(f"  ⚠️  Error parsing cruise: {e}")
+        for date_str, ship_name in matches2:
+            try:
+                ship_date = datetime.strptime(date_str, '%Y-%m-%d')
+                if today <= ship_date <= window_end and date_str not in seen_dates and is_valid_ship_name(ship_name):
+                    seen_dates.add(date_str)
+                    events.append({
+                        'date': date_str,
+                        'name': f"{ship_name.strip()} Arrival",
+                        'type': 'cruise',
+                        'impact': 'high',
+                        'estimated_visitors': 2000
+                    })
+                    print(f"    Found: {ship_name.strip()} on {date_str}")
+            except (ValueError, IndexError):
+                continue
 
-        print(f"  ✅ Found {len(events)} cruise arrivals")
+        if not events:
+            print("  ℹ️  No cruise arrivals in the next 14 days (normal for off-season)")
+        else:
+            print(f"  ✅ Found {len(events)} cruise arrivals in the next 14 days")
+
         return events
 
     @staticmethod
