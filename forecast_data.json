@@ -1,35 +1,6 @@
 {
-  "generated_at": "2026-03-21T14:29:50.913119",
+  "generated_at": "2026-03-22T14:30:57.400599",
   "forecast": [
-    {
-      "date": "2026-03-21",
-      "day_name": "Saturday",
-      "day_short": "SAT",
-      "day_of_week": 5,
-      "is_weekend": true,
-      "month_day": "03/21",
-      "demand": {
-        "score": 100,
-        "level": "HIGH",
-        "factors": [
-          "Weekend traffic (+30)",
-          "Perfect weather 69\u00b0F (+15)",
-          "Saturday Farmers Market (+15)"
-        ],
-        "recommendation": "Staff up, extend hours, maximize capacity",
-        "events": [
-          {
-            "name": "Saturday Farmers Market",
-            "type": "market"
-          }
-        ]
-      },
-      "weather": {
-        "temp_high": 69,
-        "temp_low": 55,
-        "rain_prob": 1
-      }
-    },
     {
       "date": "2026-03-22",
       "day_name": "Sunday",
@@ -42,15 +13,15 @@
         "level": "HIGH",
         "factors": [
           "Weekend traffic (+30)",
-          "Perfect weather 65\u00b0F (+15)"
+          "Perfect weather 66\u00b0F (+15)"
         ],
         "recommendation": "Staff up, extend hours, maximize capacity",
         "events": []
       },
       "weather": {
-        "temp_high": 65,
-        "temp_low": 55,
-        "rain_prob": 0
+        "temp_high": 66,
+        "temp_low": 59,
+        "rain_prob": 1
       }
     },
     {
@@ -64,13 +35,13 @@
         "score": 65,
         "level": "MEDIUM",
         "factors": [
-          "Perfect weather 73\u00b0F (+15)"
+          "Perfect weather 65\u00b0F (+15)"
         ],
         "recommendation": "Normal staffing, run targeted promotions",
         "events": []
       },
       "weather": {
-        "temp_high": 73,
+        "temp_high": 65,
         "temp_low": 57,
         "rain_prob": 0
       }
@@ -99,7 +70,7 @@
       },
       "weather": {
         "temp_high": 74,
-        "temp_low": 63,
+        "temp_low": 57,
         "rain_prob": 1
       }
     },
@@ -123,7 +94,7 @@
       "weather": {
         "temp_high": 74,
         "temp_low": 62,
-        "rain_prob": 0
+        "rain_prob": 1
       }
     },
     {
@@ -137,14 +108,14 @@
         "score": 65,
         "level": "MEDIUM",
         "factors": [
-          "Perfect weather 74\u00b0F (+15)"
+          "Perfect weather 73\u00b0F (+15)"
         ],
         "recommendation": "Normal staffing, run targeted promotions",
         "events": []
       },
       "weather": {
-        "temp_high": 74,
-        "temp_low": 63,
+        "temp_high": 73,
+        "temp_low": 61,
         "rain_prob": 0
       }
     },
@@ -160,26 +131,48 @@
         "level": "HIGH",
         "factors": [
           "Friday evening (+20)",
-          "Perfect weather 80\u00b0F (+15)"
+          "Perfect weather 77\u00b0F (+15)"
         ],
         "recommendation": "Staff up, extend hours, maximize capacity",
         "events": []
       },
       "weather": {
-        "temp_high": 80,
+        "temp_high": 77,
+        "temp_low": 64,
+        "rain_prob": 0
+      }
+    },
+    {
+      "date": "2026-03-28",
+      "day_name": "Saturday",
+      "day_short": "SAT",
+      "day_of_week": 5,
+      "is_weekend": true,
+      "month_day": "03/28",
+      "demand": {
+        "score": 100,
+        "level": "HIGH",
+        "factors": [
+          "Weekend traffic (+30)",
+          "Perfect weather 78\u00b0F (+15)",
+          "Saturday Farmers Market (+15)"
+        ],
+        "recommendation": "Staff up, extend hours, maximize capacity",
+        "events": [
+          {
+            "name": "Saturday Farmers Market",
+            "type": "market"
+          }
+        ]
+      },
+      "weather": {
+        "temp_high": 78,
         "temp_low": 66,
         "rain_prob": 0
       }
     }
   ],
   "events": [
-    {
-      "date": "2026-03-21",
-      "name": "Saturday Farmers Market",
-      "type": "market",
-      "impact": "medium",
-      "estimated_visitors": 1000
-    },
     {
       "date": "2026-03-24",
       "name": "Downtown Farmers Market",
@@ -200,6 +193,13 @@
       "type": "market",
       "impact": "medium",
       "estimated_visitors": 500
+    },
+    {
+      "date": "2026-04-04",
+      "name": "Saturday Farmers Market",
+      "type": "market",
+      "impact": "medium",
+      "estimated_visitors": 1000
     }
   ],
   "data_quality": {
