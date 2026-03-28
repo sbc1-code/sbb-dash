@@ -1,29 +1,6 @@
 {
-  "generated_at": "2026-03-27T14:53:25.606687",
+  "generated_at": "2026-03-28T14:34:39.533474",
   "forecast": [
-    {
-      "date": "2026-03-27",
-      "day_name": "Friday",
-      "day_short": "FRI",
-      "day_of_week": 4,
-      "is_weekend": false,
-      "month_day": "03/27",
-      "demand": {
-        "score": 85,
-        "level": "HIGH",
-        "factors": [
-          "Friday evening (+20)",
-          "Perfect weather 66\u00b0F (+15)"
-        ],
-        "recommendation": "Staff up, extend hours, maximize capacity",
-        "events": []
-      },
-      "weather": {
-        "temp_high": 66,
-        "temp_low": 56,
-        "rain_prob": 0
-      }
-    },
     {
       "date": "2026-03-28",
       "day_name": "Saturday",
@@ -36,7 +13,7 @@
         "level": "HIGH",
         "factors": [
           "Weekend traffic (+30)",
-          "Perfect weather 68\u00b0F (+15)",
+          "Perfect weather 66\u00b0F (+15)",
           "Saturday Farmers Market (+15)"
         ],
         "recommendation": "Staff up, extend hours, maximize capacity",
@@ -48,9 +25,9 @@
         ]
       },
       "weather": {
-        "temp_high": 68,
-        "temp_low": 55,
-        "rain_prob": 1
+        "temp_high": 66,
+        "temp_low": 57,
+        "rain_prob": 0
       }
     },
     {
@@ -65,15 +42,15 @@
         "level": "HIGH",
         "factors": [
           "Weekend traffic (+30)",
-          "Perfect weather 74\u00b0F (+15)"
+          "Perfect weather 70\u00b0F (+15)"
         ],
         "recommendation": "Staff up, extend hours, maximize capacity",
         "events": []
       },
       "weather": {
-        "temp_high": 74,
-        "temp_low": 54,
-        "rain_prob": 1
+        "temp_high": 70,
+        "temp_low": 53,
+        "rain_prob": 0
       }
     },
     {
@@ -94,8 +71,8 @@
       },
       "weather": {
         "temp_high": 69,
-        "temp_low": 60,
-        "rain_prob": 3
+        "temp_low": 54,
+        "rain_prob": 2
       }
     },
     {
@@ -109,7 +86,7 @@
         "score": 80,
         "level": "HIGH",
         "factors": [
-          "Perfect weather 70\u00b0F (+15)",
+          "Perfect weather 75\u00b0F (+15)",
           "Downtown Farmers Market (+15)"
         ],
         "recommendation": "Staff up, extend hours, maximize capacity",
@@ -121,9 +98,9 @@
         ]
       },
       "weather": {
-        "temp_high": 70,
+        "temp_high": 75,
         "temp_low": 58,
-        "rain_prob": 28
+        "rain_prob": 13
       }
     },
     {
@@ -138,15 +115,15 @@
         "level": "HIGH",
         "factors": [
           "Midweek activity (+10)",
-          "Perfect weather 69\u00b0F (+15)"
+          "Perfect weather 74\u00b0F (+15)"
         ],
         "recommendation": "Staff up, extend hours, maximize capacity",
         "events": []
       },
       "weather": {
-        "temp_high": 69,
-        "temp_low": 58,
-        "rain_prob": 22
+        "temp_high": 74,
+        "temp_low": 59,
+        "rain_prob": 18
       }
     },
     {
@@ -160,15 +137,38 @@
         "score": 65,
         "level": "MEDIUM",
         "factors": [
-          "Perfect weather 73\u00b0F (+15)"
+          "Perfect weather 72\u00b0F (+15)"
         ],
         "recommendation": "Normal staffing, run targeted promotions",
         "events": []
       },
       "weather": {
-        "temp_high": 73,
-        "temp_low": 56,
-        "rain_prob": 11
+        "temp_high": 72,
+        "temp_low": 59,
+        "rain_prob": 10
+      }
+    },
+    {
+      "date": "2026-04-03",
+      "day_name": "Friday",
+      "day_short": "FRI",
+      "day_of_week": 4,
+      "is_weekend": false,
+      "month_day": "04/03",
+      "demand": {
+        "score": 85,
+        "level": "HIGH",
+        "factors": [
+          "Friday evening (+20)",
+          "Perfect weather 65\u00b0F (+15)"
+        ],
+        "recommendation": "Staff up, extend hours, maximize capacity",
+        "events": []
+      },
+      "weather": {
+        "temp_high": 65,
+        "temp_low": 57,
+        "rain_prob": 1
       }
     }
   ],
