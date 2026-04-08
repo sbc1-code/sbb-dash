@@ -1,34 +1,6 @@
 {
-  "generated_at": "2026-04-07T15:11:25.236269",
+  "generated_at": "2026-04-08T15:12:37.099067",
   "forecast": [
-    {
-      "date": "2026-04-07",
-      "day_name": "Tuesday",
-      "day_short": "TUE",
-      "day_of_week": 1,
-      "is_weekend": false,
-      "month_day": "04/07",
-      "demand": {
-        "score": 80,
-        "level": "HIGH",
-        "factors": [
-          "Perfect weather 68\u00b0F (+15)",
-          "Downtown Farmers Market (+15)"
-        ],
-        "recommendation": "Staff up, extend hours, maximize capacity",
-        "events": [
-          {
-            "name": "Downtown Farmers Market",
-            "type": "market"
-          }
-        ]
-      },
-      "weather": {
-        "temp_high": 68,
-        "temp_low": 54,
-        "rain_prob": 0
-      }
-    },
     {
       "date": "2026-04-08",
       "day_name": "Wednesday",
@@ -41,14 +13,14 @@
         "level": "HIGH",
         "factors": [
           "Midweek activity (+10)",
-          "Perfect weather 76\u00b0F (+15)"
+          "Perfect weather 67\u00b0F (+15)"
         ],
         "recommendation": "Staff up, extend hours, maximize capacity",
         "events": []
       },
       "weather": {
-        "temp_high": 76,
-        "temp_low": 53,
+        "temp_high": 67,
+        "temp_low": 54,
         "rain_prob": 0
       }
     },
@@ -63,15 +35,15 @@
         "score": 65,
         "level": "MEDIUM",
         "factors": [
-          "Perfect weather 71\u00b0F (+15)"
+          "Perfect weather 72\u00b0F (+15)"
         ],
         "recommendation": "Normal staffing, run targeted promotions",
         "events": []
       },
       "weather": {
-        "temp_high": 71,
-        "temp_low": 59,
-        "rain_prob": 1
+        "temp_high": 72,
+        "temp_low": 58,
+        "rain_prob": 2
       }
     },
     {
@@ -82,19 +54,20 @@
       "is_weekend": false,
       "month_day": "04/10",
       "demand": {
-        "score": 60,
-        "level": "MEDIUM",
+        "score": 75,
+        "level": "HIGH",
         "factors": [
           "Friday evening (+20)",
-          "44% rain chance (-10)"
+          "Perfect weather 65\u00b0F (+15)",
+          "49% rain chance (-10)"
         ],
-        "recommendation": "Normal staffing, run targeted promotions",
+        "recommendation": "Staff up, extend hours, maximize capacity",
         "events": []
       },
       "weather": {
-        "temp_high": 64,
-        "temp_low": 56,
-        "rain_prob": 44
+        "temp_high": 65,
+        "temp_low": 55,
+        "rain_prob": 49
       }
     },
     {
@@ -109,7 +82,7 @@
         "level": "HIGH",
         "factors": [
           "Weekend traffic (+30)",
-          "41% rain chance (-10)",
+          "45% rain chance (-10)",
           "Saturday Farmers Market (+15)"
         ],
         "recommendation": "Staff up, extend hours, maximize capacity",
@@ -121,9 +94,9 @@
         ]
       },
       "weather": {
-        "temp_high": 64,
-        "temp_low": 54,
-        "rain_prob": 41
+        "temp_high": 63,
+        "temp_low": 53,
+        "rain_prob": 45
       }
     },
     {
@@ -134,11 +107,12 @@
       "is_weekend": true,
       "month_day": "04/12",
       "demand": {
-        "score": 70,
+        "score": 60,
         "level": "MEDIUM",
         "factors": [
           "Weekend traffic (+30)",
-          "Cool weather 59\u00b0F (-10)"
+          "Cool weather 59\u00b0F (-10)",
+          "33% rain chance (-10)"
         ],
         "recommendation": "Normal staffing, run targeted promotions",
         "events": []
@@ -146,7 +120,7 @@
       "weather": {
         "temp_high": 59,
         "temp_low": 51,
-        "rain_prob": 24
+        "rain_prob": 33
       }
     },
     {
@@ -170,16 +144,36 @@
         "temp_low": 48,
         "rain_prob": 6
       }
+    },
+    {
+      "date": "2026-04-14",
+      "day_name": "Tuesday",
+      "day_short": "TUE",
+      "day_of_week": 1,
+      "is_weekend": false,
+      "month_day": "04/14",
+      "demand": {
+        "score": 65,
+        "level": "MEDIUM",
+        "factors": [
+          "Downtown Farmers Market (+15)"
+        ],
+        "recommendation": "Normal staffing, run targeted promotions",
+        "events": [
+          {
+            "name": "Downtown Farmers Market",
+            "type": "market"
+          }
+        ]
+      },
+      "weather": {
+        "temp_high": 64,
+        "temp_low": 52,
+        "rain_prob": 1
+      }
     }
   ],
   "events": [
-    {
-      "date": "2026-04-07",
-      "name": "Downtown Farmers Market",
-      "type": "market",
-      "impact": "medium",
-      "estimated_visitors": 500
-    },
     {
       "date": "2026-04-11",
       "name": "Saturday Farmers Market",
@@ -200,6 +194,13 @@
       "type": "market",
       "impact": "medium",
       "estimated_visitors": 1000
+    },
+    {
+      "date": "2026-04-21",
+      "name": "Downtown Farmers Market",
+      "type": "market",
+      "impact": "medium",
+      "estimated_visitors": 500
     }
   ],
   "data_quality": {
