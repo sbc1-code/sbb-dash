@@ -1,28 +1,6 @@
 {
-  "generated_at": "2026-04-20T15:17:14.034924",
+  "generated_at": "2026-04-21T15:15:27.811743",
   "forecast": [
-    {
-      "date": "2026-04-20",
-      "day_name": "Monday",
-      "day_short": "MON",
-      "day_of_week": 0,
-      "is_weekend": false,
-      "month_day": "04/20",
-      "demand": {
-        "score": 65,
-        "level": "MEDIUM",
-        "factors": [
-          "Perfect weather 66\u00b0F (+15)"
-        ],
-        "recommendation": "Normal staffing, run targeted promotions",
-        "events": []
-      },
-      "weather": {
-        "temp_high": 66,
-        "temp_low": 49,
-        "rain_prob": 1
-      }
-    },
     {
       "date": "2026-04-21",
       "day_name": "Tuesday",
@@ -34,7 +12,7 @@
         "score": 45,
         "level": "LOW",
         "factors": [
-          "60% rain chance (-20)",
+          "65% rain chance (-20)",
           "Downtown Farmers Market (+15)"
         ],
         "recommendation": "Minimal staff, push deals to locals",
@@ -46,9 +24,9 @@
         ]
       },
       "weather": {
-        "temp_high": 61,
-        "temp_low": 54,
-        "rain_prob": 60
+        "temp_high": 63,
+        "temp_low": 52,
+        "rain_prob": 65
       }
     },
     {
@@ -63,15 +41,15 @@
         "level": "HIGH",
         "factors": [
           "Midweek activity (+10)",
-          "Perfect weather 68\u00b0F (+15)"
+          "Perfect weather 73\u00b0F (+15)"
         ],
         "recommendation": "Staff up, extend hours, maximize capacity",
         "events": []
       },
       "weather": {
-        "temp_high": 68,
+        "temp_high": 73,
         "temp_low": 50,
-        "rain_prob": 2
+        "rain_prob": 0
       }
     },
     {
@@ -92,7 +70,7 @@
       },
       "weather": {
         "temp_high": 67,
-        "temp_low": 53,
+        "temp_low": 54,
         "rain_prob": 1
       }
     },
@@ -108,14 +86,14 @@
         "level": "HIGH",
         "factors": [
           "Friday evening (+20)",
-          "Perfect weather 65\u00b0F (+15)"
+          "Perfect weather 66\u00b0F (+15)"
         ],
         "recommendation": "Staff up, extend hours, maximize capacity",
         "events": []
       },
       "weather": {
-        "temp_high": 65,
-        "temp_low": 54,
+        "temp_high": 66,
+        "temp_low": 55,
         "rain_prob": 1
       }
     },
@@ -142,9 +120,9 @@
         ]
       },
       "weather": {
-        "temp_high": 60,
-        "temp_low": 52,
-        "rain_prob": 5
+        "temp_high": 62,
+        "temp_low": 51,
+        "rain_prob": 8
       }
     },
     {
@@ -164,8 +142,28 @@
         "events": []
       },
       "weather": {
-        "temp_high": 63,
-        "temp_low": 49,
+        "temp_high": 62,
+        "temp_low": 51,
+        "rain_prob": 5
+      }
+    },
+    {
+      "date": "2026-04-27",
+      "day_name": "Monday",
+      "day_short": "MON",
+      "day_of_week": 0,
+      "is_weekend": false,
+      "month_day": "04/27",
+      "demand": {
+        "score": 50,
+        "level": "LOW",
+        "factors": [],
+        "recommendation": "Minimal staff, push deals to locals",
+        "events": []
+      },
+      "weather": {
+        "temp_high": 64,
+        "temp_low": 50,
         "rain_prob": 5
       }
     }
