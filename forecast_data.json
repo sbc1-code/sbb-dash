@@ -1,28 +1,6 @@
 {
-  "generated_at": "2026-04-26T14:47:11.028753",
+  "generated_at": "2026-04-27T15:49:40.728869",
   "forecast": [
-    {
-      "date": "2026-04-26",
-      "day_name": "Sunday",
-      "day_short": "SUN",
-      "day_of_week": 6,
-      "is_weekend": true,
-      "month_day": "04/26",
-      "demand": {
-        "score": 80,
-        "level": "HIGH",
-        "factors": [
-          "Weekend traffic (+30)"
-        ],
-        "recommendation": "Staff up, extend hours, maximize capacity",
-        "events": []
-      },
-      "weather": {
-        "temp_high": 63,
-        "temp_low": 51,
-        "rain_prob": 11
-      }
-    },
     {
       "date": "2026-04-27",
       "day_name": "Monday",
@@ -31,18 +9,16 @@
       "is_weekend": false,
       "month_day": "04/27",
       "demand": {
-        "score": 65,
-        "level": "MEDIUM",
-        "factors": [
-          "Perfect weather 65\u00b0F (+15)"
-        ],
-        "recommendation": "Normal staffing, run targeted promotions",
+        "score": 50,
+        "level": "LOW",
+        "factors": [],
+        "recommendation": "Minimal staff, push deals to locals",
         "events": []
       },
       "weather": {
-        "temp_high": 65,
-        "temp_low": 52,
-        "rain_prob": 1
+        "temp_high": 64,
+        "temp_low": 51,
+        "rain_prob": 0
       }
     },
     {
@@ -69,7 +45,7 @@
       },
       "weather": {
         "temp_high": 66,
-        "temp_low": 52,
+        "temp_low": 50,
         "rain_prob": 1
       }
     },
@@ -85,15 +61,15 @@
         "level": "HIGH",
         "factors": [
           "Midweek activity (+10)",
-          "Perfect weather 70\u00b0F (+15)"
+          "Perfect weather 67\u00b0F (+15)"
         ],
         "recommendation": "Staff up, extend hours, maximize capacity",
         "events": []
       },
       "weather": {
-        "temp_high": 70,
-        "temp_low": 55,
-        "rain_prob": 10
+        "temp_high": 67,
+        "temp_low": 52,
+        "rain_prob": 9
       }
     },
     {
@@ -104,16 +80,18 @@
       "is_weekend": false,
       "month_day": "04/30",
       "demand": {
-        "score": 50,
-        "level": "LOW",
-        "factors": [],
-        "recommendation": "Minimal staff, push deals to locals",
+        "score": 65,
+        "level": "MEDIUM",
+        "factors": [
+          "Perfect weather 66\u00b0F (+15)"
+        ],
+        "recommendation": "Normal staffing, run targeted promotions",
         "events": []
       },
       "weather": {
-        "temp_high": 64,
-        "temp_low": 55,
-        "rain_prob": 8
+        "temp_high": 66,
+        "temp_low": 56,
+        "rain_prob": 4
       }
     },
     {
@@ -128,15 +106,15 @@
         "level": "HIGH",
         "factors": [
           "Friday evening (+20)",
-          "Perfect weather 66\u00b0F (+15)"
+          "Perfect weather 68\u00b0F (+15)"
         ],
         "recommendation": "Staff up, extend hours, maximize capacity",
         "events": []
       },
       "weather": {
-        "temp_high": 66,
-        "temp_low": 57,
-        "rain_prob": 1
+        "temp_high": 68,
+        "temp_low": 55,
+        "rain_prob": 0
       }
     },
     {
@@ -151,7 +129,7 @@
         "level": "HIGH",
         "factors": [
           "Weekend traffic (+30)",
-          "Perfect weather 65\u00b0F (+15)",
+          "Perfect weather 67\u00b0F (+15)",
           "Saturday Farmers Market (+15)"
         ],
         "recommendation": "Staff up, extend hours, maximize capacity",
@@ -163,9 +141,32 @@
         ]
       },
       "weather": {
+        "temp_high": 67,
+        "temp_low": 56,
+        "rain_prob": 0
+      }
+    },
+    {
+      "date": "2026-05-03",
+      "day_name": "Sunday",
+      "day_short": "SUN",
+      "day_of_week": 6,
+      "is_weekend": true,
+      "month_day": "05/03",
+      "demand": {
+        "score": 95,
+        "level": "HIGH",
+        "factors": [
+          "Weekend traffic (+30)",
+          "Perfect weather 65\u00b0F (+15)"
+        ],
+        "recommendation": "Staff up, extend hours, maximize capacity",
+        "events": []
+      },
+      "weather": {
         "temp_high": 65,
-        "temp_low": 55,
-        "rain_prob": 1
+        "temp_low": 53,
+        "rain_prob": 2
       }
     }
   ],
