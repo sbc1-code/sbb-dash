@@ -1,28 +1,6 @@
 {
-  "generated_at": "2026-05-15T16:03:54.220462",
+  "generated_at": "2026-05-16T14:58:30.936962",
   "forecast": [
-    {
-      "date": "2026-05-15",
-      "day_name": "Friday",
-      "day_short": "FRI",
-      "day_of_week": 4,
-      "is_weekend": false,
-      "month_day": "05/15",
-      "demand": {
-        "score": 70,
-        "level": "MEDIUM",
-        "factors": [
-          "Friday evening (+20)"
-        ],
-        "recommendation": "Normal staffing, run targeted promotions",
-        "events": []
-      },
-      "weather": {
-        "temp_high": 64,
-        "temp_low": 55,
-        "rain_prob": 2
-      }
-    },
     {
       "date": "2026-05-16",
       "day_name": "Saturday",
@@ -35,7 +13,7 @@
         "level": "HIGH",
         "factors": [
           "Weekend traffic (+30)",
-          "Perfect weather 81\u00b0F (+15)",
+          "Perfect weather 77\u00b0F (+15)",
           "Saturday Farmers Market (+15)"
         ],
         "recommendation": "Staff up, extend hours, maximize capacity",
@@ -47,7 +25,7 @@
         ]
       },
       "weather": {
-        "temp_high": 81,
+        "temp_high": 77,
         "temp_low": 54,
         "rain_prob": 0
       }
@@ -64,15 +42,15 @@
         "level": "HIGH",
         "factors": [
           "Weekend traffic (+30)",
-          "Perfect weather 67\u00b0F (+15)"
+          "Perfect weather 75\u00b0F (+15)"
         ],
         "recommendation": "Staff up, extend hours, maximize capacity",
         "events": []
       },
       "weather": {
-        "temp_high": 67,
-        "temp_low": 54,
-        "rain_prob": 1
+        "temp_high": 75,
+        "temp_low": 53,
+        "rain_prob": 0
       }
     },
     {
@@ -86,14 +64,14 @@
         "score": 65,
         "level": "MEDIUM",
         "factors": [
-          "Perfect weather 71\u00b0F (+15)"
+          "Perfect weather 69\u00b0F (+15)"
         ],
         "recommendation": "Normal staffing, run targeted promotions",
         "events": []
       },
       "weather": {
-        "temp_high": 71,
-        "temp_low": 55,
+        "temp_high": 69,
+        "temp_low": 54,
         "rain_prob": 0
       }
     },
@@ -108,7 +86,7 @@
         "score": 80,
         "level": "HIGH",
         "factors": [
-          "Perfect weather 71\u00b0F (+15)",
+          "Perfect weather 72\u00b0F (+15)",
           "Downtown Farmers Market (+15)"
         ],
         "recommendation": "Staff up, extend hours, maximize capacity",
@@ -120,7 +98,7 @@
         ]
       },
       "weather": {
-        "temp_high": 71,
+        "temp_high": 72,
         "temp_low": 57,
         "rain_prob": 0
       }
@@ -137,14 +115,14 @@
         "level": "HIGH",
         "factors": [
           "Midweek activity (+10)",
-          "Perfect weather 73\u00b0F (+15)"
+          "Perfect weather 72\u00b0F (+15)"
         ],
         "recommendation": "Staff up, extend hours, maximize capacity",
         "events": []
       },
       "weather": {
-        "temp_high": 73,
-        "temp_low": 60,
+        "temp_high": 72,
+        "temp_low": 59,
         "rain_prob": 0
       }
     },
@@ -159,15 +137,38 @@
         "score": 65,
         "level": "MEDIUM",
         "factors": [
-          "Perfect weather 70\u00b0F (+15)"
+          "Perfect weather 72\u00b0F (+15)"
         ],
         "recommendation": "Normal staffing, run targeted promotions",
         "events": []
       },
       "weather": {
-        "temp_high": 70,
+        "temp_high": 72,
+        "temp_low": 58,
+        "rain_prob": 1
+      }
+    },
+    {
+      "date": "2026-05-22",
+      "day_name": "Friday",
+      "day_short": "FRI",
+      "day_of_week": 4,
+      "is_weekend": false,
+      "month_day": "05/22",
+      "demand": {
+        "score": 85,
+        "level": "HIGH",
+        "factors": [
+          "Friday evening (+20)",
+          "Perfect weather 69\u00b0F (+15)"
+        ],
+        "recommendation": "Staff up, extend hours, maximize capacity",
+        "events": []
+      },
+      "weather": {
+        "temp_high": 69,
         "temp_low": 57,
-        "rain_prob": 0
+        "rain_prob": 2
       }
     }
   ],
