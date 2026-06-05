@@ -3,342 +3,700 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Santa Barbara 7-Day Business Forecast</title>
-    <meta name="description" content="7-day demand forecast for Santa Barbara businesses. Weather, events, and staffing recommendations updated daily.">
+    <title>Local Business Demand Forecaster</title>
+    <meta name="description" content="7-day demand forecast for any US ZIP using live weather, day-of-week patterns, and supported local event signals.">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
+        :root {
+            color-scheme: light;
+            --bg: #f6f5f0;
+            --panel: #ffffff;
+            --ink: #1d1d1b;
+            --muted: #676762;
+            --line: #dedbd2;
+            --accent: #256f5b;
+            --accent-dark: #174f40;
+            --high: #c43d3d;
+            --medium: #b76b21;
+            --low: #257a48;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: #f5f5f0;
-            color: #1a1a1a;
+            background: var(--bg);
+            color: var(--ink);
             min-height: 100vh;
+            line-height: 1.5;
         }
+
+        a { color: var(--accent-dark); }
 
         .container {
-            max-width: 960px;
+            max-width: 1120px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 32px 20px 48px;
         }
 
-        /* Header */
         header {
-            margin-bottom: 40px;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 360px;
+            gap: 28px;
+            align-items: end;
+            margin-bottom: 24px;
         }
 
-        header h1 {
-            font-size: 1.6em;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 4px;
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
         }
 
-        header p {
-            font-size: 0.95em;
-            color: #666;
+        .lede {
+            color: var(--muted);
+            max-width: 720px;
         }
 
         .status-bar {
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
-            gap: 16px;
-            margin-top: 12px;
-            font-size: 0.82em;
-            color: #888;
+            gap: 10px 16px;
+            margin-top: 14px;
+            font-size: 0.86rem;
+            color: var(--muted);
         }
 
-        .status-bar .live-dot {
+        .live-dot {
             display: inline-block;
             width: 8px;
             height: 8px;
-            background: #22c55e;
+            background: #23a45a;
             border-radius: 50%;
-            margin-right: 4px;
+            margin-right: 6px;
         }
 
-        /* Summary */
-        .summary {
-            background: #fff;
-            border: 1px solid #e0e0e0;
+        .zip-form {
+            background: var(--panel);
+            border: 1px solid var(--line);
             border-radius: 8px;
-            padding: 24px;
-            margin-bottom: 32px;
+            padding: 18px;
         }
 
-        .summary h2 {
-            font-size: 1em;
-            font-weight: 600;
+        .zip-form label {
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--muted);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: #888;
-            margin-bottom: 16px;
+            letter-spacing: 0.04em;
+            margin-bottom: 8px;
         }
 
-        .summary-grid {
+        .zip-row {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 16px;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 10px;
+        }
+
+        input {
+            width: 100%;
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            padding: 12px 13px;
+            font: inherit;
+            color: var(--ink);
+            background: #fff;
+        }
+
+        button {
+            border: 0;
+            border-radius: 6px;
+            padding: 12px 16px;
+            font: inherit;
+            font-weight: 700;
+            color: #fff;
+            background: var(--accent);
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        button:hover { background: var(--accent-dark); }
+        button:disabled { background: #8a908a; cursor: wait; }
+
+        .hint {
+            font-size: 0.82rem;
+            color: var(--muted);
+            margin-top: 8px;
+        }
+
+        .notice {
+            display: none;
+            margin: 18px 0 24px;
+            padding: 12px 14px;
+            border: 1px solid #d7c693;
+            background: #fff8df;
+            border-radius: 8px;
+            color: #6a5512;
+            font-size: 0.92rem;
+        }
+
+        .notice.visible { display: block; }
+
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+
+        .summary-item,
+        .day-card {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 8px;
         }
 
         .summary-item {
-            padding: 12px;
-            background: #fafafa;
-            border-radius: 6px;
+            padding: 16px;
         }
 
         .summary-item .label {
-            font-size: 0.78em;
-            color: #888;
+            font-size: 0.74rem;
+            color: var(--muted);
             text-transform: uppercase;
-            letter-spacing: 0.3px;
-            margin-bottom: 4px;
+            letter-spacing: 0.04em;
+            margin-bottom: 6px;
+            font-weight: 700;
         }
 
         .summary-item .value {
-            font-size: 1.1em;
-            font-weight: 600;
+            font-size: 1.15rem;
+            font-weight: 700;
         }
 
         .summary-item .detail {
-            font-size: 0.82em;
-            color: #666;
-            margin-top: 2px;
+            font-size: 0.84rem;
+            color: var(--muted);
+            margin-top: 3px;
         }
 
-        /* Forecast Grid */
         .forecast-grid {
             display: grid;
-            grid-template-columns: repeat(7, 1fr);
+            grid-template-columns: repeat(7, minmax(0, 1fr));
             gap: 12px;
-            margin-bottom: 40px;
+            margin-bottom: 28px;
         }
 
         .day-card {
-            background: #fff;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
+            min-height: 360px;
             padding: 16px 12px;
-            text-align: center;
-            border-top: 3px solid #e0e0e0;
+            border-top: 4px solid var(--line);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
 
-        .day-card.high { border-top-color: #dc2626; }
-        .day-card.medium { border-top-color: #d97706; }
-        .day-card.low { border-top-color: #16a34a; }
+        .day-card.high { border-top-color: var(--high); }
+        .day-card.medium { border-top-color: var(--medium); }
+        .day-card.low { border-top-color: var(--low); }
 
-        .day-card .day-name {
-            font-size: 0.75em;
-            font-weight: 600;
-            color: #888;
-            letter-spacing: 1px;
+        .day-name {
+            font-size: 0.76rem;
+            font-weight: 800;
+            color: var(--muted);
+            letter-spacing: 0.06em;
             text-transform: uppercase;
         }
 
-        .day-card .day-date {
-            font-size: 0.85em;
-            color: #666;
-            margin: 4px 0 12px;
+        .day-date {
+            font-size: 0.85rem;
+            color: var(--muted);
         }
 
-        .day-card .score {
-            font-size: 1.8em;
-            font-weight: 700;
-            color: #1a1a1a;
+        .score {
+            font-size: 2rem;
+            font-weight: 800;
             line-height: 1;
         }
 
-        .day-card .level {
-            display: inline-block;
-            padding: 3px 10px;
-            border-radius: 100px;
-            font-size: 0.7em;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            margin: 8px 0 12px;
+        .level {
+            width: max-content;
+            padding: 4px 9px;
+            border-radius: 999px;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
         }
 
-        .day-card.high .level { background: #fef2f2; color: #dc2626; }
-        .day-card.medium .level { background: #fffbeb; color: #b45309; }
-        .day-card.low .level { background: #f0fdf4; color: #16a34a; }
+        .high .level { color: var(--high); background: #fff0f0; }
+        .medium .level { color: var(--medium); background: #fff5e8; }
+        .low .level { color: var(--low); background: #edf8f0; }
 
-        .day-card .weather {
-            font-size: 0.78em;
-            color: #666;
-            padding: 8px 0;
-            border-top: 1px solid #f0f0f0;
-            line-height: 1.6;
-        }
-
-        .day-card .factors {
-            list-style: none;
-            text-align: left;
-            font-size: 0.75em;
-            color: #888;
+        .weather {
+            font-size: 0.84rem;
+            color: var(--muted);
             padding-top: 8px;
-            border-top: 1px solid #f0f0f0;
+            border-top: 1px solid #ece9df;
         }
 
-        .day-card .factors li {
-            padding: 2px 0;
+        .factors {
+            list-style: none;
+            display: grid;
+            gap: 5px;
+            color: var(--muted);
+            font-size: 0.78rem;
+            padding-top: 8px;
+            border-top: 1px solid #ece9df;
+            flex: 1;
         }
 
-        .day-card .rec {
-            font-size: 0.75em;
+        .rec {
             color: #fff;
-            padding: 8px;
-            border-radius: 4px;
-            margin-top: 10px;
-            line-height: 1.4;
+            padding: 9px;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            line-height: 1.35;
         }
 
-        .day-card.high .rec { background: #dc2626; }
-        .day-card.medium .rec { background: #d97706; }
-        .day-card.low .rec { background: #16a34a; }
+        .high .rec { background: var(--high); }
+        .medium .rec { background: var(--medium); }
+        .low .rec { background: var(--low); }
 
-        /* Footer */
         footer {
-            text-align: center;
-            padding: 24px 0;
-            font-size: 0.82em;
-            color: #aaa;
-            border-top: 1px solid #e0e0e0;
+            padding-top: 22px;
+            border-top: 1px solid var(--line);
+            font-size: 0.84rem;
+            color: var(--muted);
         }
 
-        footer a {
-            color: #888;
-            text-decoration: none;
+        @media (max-width: 1000px) {
+            header { grid-template-columns: 1fr; align-items: start; }
+            .zip-form { max-width: 480px; }
+            .summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .forecast-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         }
 
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .forecast-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .summary-grid {
-                grid-template-columns: 1fr;
-            }
-            header h1 {
-                font-size: 1.3em;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .forecast-grid {
-                grid-template-columns: 1fr;
-            }
+        @media (max-width: 560px) {
+            .container { padding: 24px 14px 40px; }
+            h1 { font-size: 1.55rem; }
+            .zip-row { grid-template-columns: 1fr; }
+            .summary { grid-template-columns: 1fr; }
+            .forecast-grid { grid-template-columns: 1fr; }
+            .day-card { min-height: 0; }
         }
     </style>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Santa Barbara Business Forecast</h1>
-            <p>7-day demand predictions based on weather, events, and seasonal patterns.</p>
-            <div class="status-bar">
-                <span><span class="live-dot"></span> Updated daily at 6 AM</span>
-                <span id="update-time"></span>
+            <div>
+                <h1 id="page-title">Local Business Demand Forecaster</h1>
+                <p class="lede">Enter any US ZIP to generate a 7-day demand forecast from live weather and calendar patterns. Santa Barbara ZIPs include the supported local event adapters.</p>
+                <div class="status-bar">
+                    <span><span class="live-dot"></span><span id="status-label">Ready</span></span>
+                    <span id="update-time"></span>
+                    <span id="source-scope"></span>
+                </div>
             </div>
+            <form class="zip-form" id="zip-form">
+                <label for="zip-input">US ZIP code</label>
+                <div class="zip-row">
+                    <input id="zip-input" name="zip" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" value="93101" autocomplete="postal-code" aria-describedby="zip-hint">
+                    <button id="run-button" type="submit">Run Forecast</button>
+                </div>
+                <p class="hint" id="zip-hint">Default checked-in forecast: 93101. Custom ZIPs calculate live in your browser.</p>
+            </form>
         </header>
 
-        <div class="summary" id="summary">
-            <h2>Week at a glance</h2>
-            <div class="summary-grid" id="summary-content">
-                <div class="summary-item"><div class="label">Loading</div><div class="value">...</div></div>
-            </div>
-        </div>
-
-        <div class="forecast-grid" id="forecast"></div>
+        <div class="notice" id="notice" role="status"></div>
+        <section class="summary" id="summary" aria-label="Forecast summary"></section>
+        <section class="forecast-grid" id="forecast" aria-label="7-day forecast"></section>
 
         <footer>
-            <p>Data sources: <a href="https://open-meteo.com/">Open-Meteo</a> (weather), public event schedules, cruise ship arrivals.</p>
-            <p style="margin-top: 4px;">No tracking. No cookies. No data collection. Built by <a href="https://github.com/sbc1-code">Sebastian Becerra</a>.</p>
+            <p>Sources: <a href="https://api.zippopotam.us/">Zippopotam</a> for US ZIP geocoding and <a href="https://open-meteo.com/">Open-Meteo</a> for weather. No tracking, cookies, accounts, or submitted data storage.</p>
+            <p>The score is a planning signal, not a guarantee of sales demand.</p>
         </footer>
     </div>
 
     <script>
-        fetch('forecast_data.json?t=' + Math.floor(Date.now() / 3600000))
-            .then(r => r.json())
-            .then(data => {
-                renderForecast(data);
-                renderSummary(data);
-                showUpdateTime(data.generated_at);
-            })
-            .catch(() => {
-                document.getElementById('forecast').innerHTML =
-                    '<p style="text-align:center;color:#888;padding:40px;">Unable to load forecast data. Please refresh.</p>';
+        const DEFAULT_ZIP = "93101";
+        const MODEL_VERSION = "2026-06-05-general-zip-v1";
+
+        const els = {
+            form: document.getElementById("zip-form"),
+            input: document.getElementById("zip-input"),
+            button: document.getElementById("run-button"),
+            title: document.getElementById("page-title"),
+            status: document.getElementById("status-label"),
+            update: document.getElementById("update-time"),
+            source: document.getElementById("source-scope"),
+            notice: document.getElementById("notice"),
+            summary: document.getElementById("summary"),
+            forecast: document.getElementById("forecast"),
+        };
+
+        init();
+
+        function init() {
+            els.form.addEventListener("submit", event => {
+                event.preventDefault();
+                const zip = normalizeZip(els.input.value);
+                if (!zip) {
+                    showNotice("Enter a valid 5-digit US ZIP.");
+                    return;
+                }
+                loadZipForecast(zip, true);
             });
+
+            const requestedZip = normalizeZip(new URLSearchParams(window.location.search).get("zip"));
+            if (requestedZip && requestedZip !== DEFAULT_ZIP) {
+                els.input.value = requestedZip;
+                loadZipForecast(requestedZip, false);
+            } else {
+                els.input.value = DEFAULT_ZIP;
+                loadDefaultForecast();
+            }
+        }
+
+        function normalizeZip(value) {
+            const zip = String(value || "").trim();
+            return /^\d{5}$/.test(zip) ? zip : "";
+        }
+
+        async function loadDefaultForecast() {
+            setLoading(true, "Loading checked-in forecast");
+            try {
+                const data = await fetchJson("forecast_data.json?t=" + Math.floor(Date.now() / 3600000));
+                renderForecastData(data, "checked-in");
+                hideNotice();
+            } catch (error) {
+                showNotice("The checked-in forecast could not be loaded, so this page is calculating 93101 live instead.");
+                await loadZipForecast(DEFAULT_ZIP, false);
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        async function loadZipForecast(zip, updateUrl) {
+            setLoading(true, "Calculating forecast for " + zip);
+            try {
+                const location = await geocodeZip(zip);
+                const weather = await fetchWeather(location);
+                const data = buildClientForecast(location, weather);
+                renderForecastData(data, "live");
+                hideNotice();
+                if (updateUrl) {
+                    const url = new URL(window.location.href);
+                    url.searchParams.set("zip", zip);
+                    window.history.replaceState({}, "", url);
+                }
+            } catch (error) {
+                showNotice(error.message || "Unable to generate this ZIP forecast. Try another US ZIP.");
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        async function fetchJson(url) {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error("Request failed: " + response.status);
+            }
+            return response.json();
+        }
+
+        async function geocodeZip(zip) {
+            const data = await fetchJson("https://api.zippopotam.us/us/" + encodeURIComponent(zip));
+            if (!data.places || !data.places.length) {
+                throw new Error("No US location found for ZIP " + zip + ".");
+            }
+            const place = data.places[0];
+            return {
+                zip,
+                city: place["place name"],
+                state: place.state,
+                state_code: place["state abbreviation"],
+                country: data.country || "United States",
+                latitude: Number(place.latitude),
+                longitude: Number(place.longitude),
+                label: `${place["place name"]}, ${place["state abbreviation"]} ${zip}`,
+            };
+        }
+
+        async function fetchWeather(location) {
+            const params = new URLSearchParams({
+                latitude: location.latitude,
+                longitude: location.longitude,
+                daily: "temperature_2m_max,temperature_2m_min,precipitation_probability_max,weathercode",
+                temperature_unit: "fahrenheit",
+                timezone: "auto",
+                forecast_days: "7",
+            });
+            const data = await fetchJson("https://api.open-meteo.com/v1/forecast?" + params.toString());
+            if (!data.daily || !data.daily.time || data.daily.time.length < 7) {
+                throw new Error("Weather data was incomplete for " + location.label + ".");
+            }
+            return data.daily;
+        }
+
+        function buildClientForecast(location, weather) {
+            const days = weather.time.slice(0, 7).map(dayFromDate);
+            const events = getClientEvents(location, days);
+            const forecast = days.map((day, idx) => ({
+                ...day,
+                demand: calculateDemand(day, weather, idx, events),
+                weather: {
+                    temp_high: Math.round(weather.temperature_2m_max[idx]),
+                    temp_low: Math.round(weather.temperature_2m_min[idx]),
+                    rain_prob: Math.round(weather.precipitation_probability_max[idx]),
+                },
+            }));
+            const santaBarbara = isSantaBarbara(location);
+
+            return {
+                generated_at: new Date().toISOString(),
+                model_version: MODEL_VERSION,
+                location,
+                forecast,
+                events,
+                data_quality: {
+                    weather_available: true,
+                    events_count: events.length,
+                    event_scope: santaBarbara ? "santa_barbara_recurring_client" : "weather_and_calendar_only",
+                    forecast_days: forecast.length,
+                    sources: ["Zippopotam US ZIP geocoding", "Open-Meteo weather"].concat(santaBarbara ? ["Santa Barbara recurring events"] : []),
+                },
+            };
+        }
+
+        function dayFromDate(dateString) {
+            const date = new Date(dateString + "T12:00:00");
+            const names = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            const dayOfWeek = (date.getDay() + 6) % 7;
+            return {
+                date: dateString,
+                day_name: names[date.getDay()],
+                day_short: names[date.getDay()].slice(0, 3).toUpperCase(),
+                day_of_week: dayOfWeek,
+                is_weekend: date.getDay() === 0 || date.getDay() === 6,
+                month_day: String(date.getMonth() + 1).padStart(2, "0") + "/" + String(date.getDate()).padStart(2, "0"),
+            };
+        }
+
+        function getClientEvents(location, days) {
+            if (!isSantaBarbara(location)) return [];
+            return days.flatMap(day => {
+                if (day.day_of_week === 1) {
+                    return [{ date: day.date, name: "Downtown Santa Barbara Farmers Market", type: "market", impact: "medium" }];
+                }
+                if (day.day_of_week === 5) {
+                    return [{ date: day.date, name: "Saturday Santa Barbara Farmers Market", type: "market", impact: "medium" }];
+                }
+                return [];
+            });
+        }
+
+        function isSantaBarbara(location) {
+            return String(location.state_code || "").toUpperCase() === "CA"
+                && (String(location.zip || "").startsWith("931") || String(location.city || "").toLowerCase().includes("santa barbara"));
+        }
+
+        function calculateDemand(day, weather, idx, events) {
+            let score = 50;
+            const factors = [];
+
+            if (day.is_weekend) {
+                score += 25;
+                factors.push("Weekend traffic (+25)");
+            } else if (day.day_of_week === 4) {
+                score += 15;
+                factors.push("Friday activity (+15)");
+            } else if (day.day_of_week === 2) {
+                score += 5;
+                factors.push("Midweek activity (+5)");
+            }
+
+            const temp = Number(weather.temperature_2m_max[idx]);
+            const rain = Number(weather.precipitation_probability_max[idx]);
+
+            if (temp >= 65 && temp <= 82) {
+                score += 12;
+                factors.push(`Ideal weather ${Math.round(temp)}F (+12)`);
+            } else if (temp > 82 && temp <= 92) {
+                score -= 5;
+                factors.push(`Hot weather ${Math.round(temp)}F (-5)`);
+            } else if (temp > 92) {
+                score -= 10;
+                factors.push(`Extreme heat ${Math.round(temp)}F (-10)`);
+            } else if (temp < 45) {
+                score -= 10;
+                factors.push(`Cold weather ${Math.round(temp)}F (-10)`);
+            } else if (temp < 60) {
+                score -= 5;
+                factors.push(`Cool weather ${Math.round(temp)}F (-5)`);
+            }
+
+            if (rain > 60) {
+                score -= 20;
+                factors.push(`${Math.round(rain)}% rain chance (-20)`);
+            } else if (rain > 35) {
+                score -= 10;
+                factors.push(`${Math.round(rain)}% rain chance (-10)`);
+            }
+
+            const dayEvents = events.filter(event => event.date === day.date);
+            dayEvents.forEach(event => {
+                if (event.impact === "high") {
+                    score += 25;
+                    factors.push(`${event.name} (+25)`);
+                } else if (event.impact === "medium") {
+                    score += 15;
+                    factors.push(`${event.name} (+15)`);
+                }
+            });
+
+            const bounded = Math.max(0, Math.min(100, Math.round(score)));
+            let level = "LOW";
+            let recommendation = "Keep staffing lean and push targeted offers";
+            if (bounded >= 75) {
+                level = "HIGH";
+                recommendation = "Staff up, protect inventory, and prep for heavier foot traffic";
+            } else if (bounded >= 55) {
+                level = "MEDIUM";
+                recommendation = "Use normal staffing and monitor afternoon demand";
+            }
+
+            return {
+                score: bounded,
+                level,
+                factors,
+                recommendation,
+                events: dayEvents.map(event => ({ name: event.name, type: event.type })),
+            };
+        }
+
+        function renderForecastData(data, mode) {
+            if (!data || !Array.isArray(data.forecast) || data.forecast.length !== 7) {
+                throw new Error("Forecast data failed validation.");
+            }
+
+            const location = data.location || { zip: DEFAULT_ZIP, label: "Santa Barbara, CA 93101" };
+            els.input.value = location.zip || DEFAULT_ZIP;
+            els.title.textContent = location.label ? location.label + " Demand Forecast" : "Local Business Demand Forecaster";
+            els.status.textContent = mode === "checked-in" ? "Checked-in forecast" : "Live ZIP forecast";
+            els.source.textContent = eventScopeLabel(data.data_quality && data.data_quality.event_scope);
+            showUpdateTime(data.generated_at);
+            renderSummary(data);
+            renderForecastCards(data);
+        }
 
         function renderSummary(data) {
             const forecast = data.forecast;
             const sorted = [...forecast].sort((a, b) => b.demand.score - a.demand.score);
             const best = sorted[0];
             const slow = sorted[sorted.length - 1];
+            const high = forecast.filter(d => d.demand.level === "HIGH").length;
+            const med = forecast.filter(d => d.demand.level === "MEDIUM").length;
+            const low = forecast.filter(d => d.demand.level === "LOW").length;
 
-            const high = forecast.filter(d => d.demand.level === 'HIGH').length;
-            const med = forecast.filter(d => d.demand.level === 'MEDIUM').length;
-            const low = forecast.filter(d => d.demand.level === 'LOW').length;
-
-            document.getElementById('summary-content').innerHTML = `
+            els.summary.innerHTML = `
+                <div class="summary-item">
+                    <div class="label">Location</div>
+                    <div class="value">${escapeHtml(data.location && data.location.label ? data.location.label : "Custom ZIP")}</div>
+                    <div class="detail">US ZIP forecast</div>
+                </div>
                 <div class="summary-item">
                     <div class="label">Peak day</div>
-                    <div class="value">${best.day_name} ${best.month_day}</div>
+                    <div class="value">${escapeHtml(best.day_name)} ${escapeHtml(best.month_day)}</div>
                     <div class="detail">Score: ${best.demand.score}/100</div>
                 </div>
                 <div class="summary-item">
                     <div class="label">Slowest day</div>
-                    <div class="value">${slow.day_name} ${slow.month_day}</div>
+                    <div class="value">${escapeHtml(slow.day_name)} ${escapeHtml(slow.month_day)}</div>
                     <div class="detail">Score: ${slow.demand.score}/100</div>
                 </div>
                 <div class="summary-item">
-                    <div class="label">Week breakdown</div>
+                    <div class="label">Week mix</div>
                     <div class="value">${high} high, ${med} medium, ${low} low</div>
-                    <div class="detail">Out of 7 days</div>
+                    <div class="detail">${eventScopeLabel(data.data_quality && data.data_quality.event_scope)}</div>
                 </div>
             `;
         }
 
-        function cleanRec(text) {
-            return text.replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE00}-\u{FE0F}\u{1F900}-\u{1F9FF}]/gu, '').trim();
-        }
-
-        function renderForecast(data) {
-            const html = data.forecast.map(day => {
-                const lc = day.demand.level.toLowerCase();
-                const rainIcon = day.weather.rain_prob > 50 ? 'Rain' : day.weather.rain_prob > 30 ? 'Chance rain' : 'Clear';
+        function renderForecastCards(data) {
+            els.forecast.innerHTML = data.forecast.map(day => {
+                const levelClass = day.demand.level.toLowerCase();
+                const rain = Number(day.weather && day.weather.rain_prob);
+                const rainLabel = rain > 60 ? "Rain likely" : rain > 35 ? "Chance rain" : "Low rain";
+                const factors = day.demand.factors.length
+                    ? day.demand.factors.map(factor => `<li>${escapeHtml(factor)}</li>`).join("")
+                    : "<li>No major demand factors</li>";
 
                 return `
-                    <div class="day-card ${lc}">
-                        <div class="day-name">${day.day_short}</div>
-                        <div class="day-date">${day.month_day}</div>
-                        <div class="score">${day.demand.score}</div>
-                        <div class="level">${day.demand.level}</div>
-                        <div class="weather">
-                            ${day.weather.temp_high}° / ${day.weather.temp_low}°F<br>
-                            ${rainIcon} (${day.weather.rain_prob}%)
+                    <article class="day-card ${levelClass}">
+                        <div>
+                            <div class="day-name">${escapeHtml(day.day_short)}</div>
+                            <div class="day-date">${escapeHtml(day.month_day)}</div>
                         </div>
-                        <ul class="factors">
-                            ${day.demand.factors.map(f => `<li>${f}</li>`).join('')}
-                        </ul>
-                        <div class="rec">${cleanRec(day.demand.recommendation)}</div>
-                    </div>
+                        <div class="score">${day.demand.score}</div>
+                        <div class="level">${escapeHtml(day.demand.level)}</div>
+                        <div class="weather">
+                            ${Number(day.weather.temp_high)}&deg; / ${Number(day.weather.temp_low)}&deg;F<br>
+                            ${rainLabel} (${Number(day.weather.rain_prob)}%)
+                        </div>
+                        <ul class="factors">${factors}</ul>
+                        <div class="rec">${escapeHtml(day.demand.recommendation)}</div>
+                    </article>
                 `;
-            }).join('');
+            }).join("");
+        }
 
-            document.getElementById('forecast').innerHTML = html;
+        function eventScopeLabel(scope) {
+            if (scope === "santa_barbara_enriched") return "SB weather + local event adapters";
+            if (scope === "santa_barbara_recurring_client") return "SB weather + recurring events";
+            return "Weather + calendar model";
         }
 
         function showUpdateTime(timestamp) {
+            if (!timestamp) {
+                els.update.textContent = "";
+                return;
+            }
             const d = new Date(timestamp);
-            const formatted = d.toLocaleDateString('en-US', {
-                month: 'short', day: 'numeric', year: 'numeric'
-            }) + ' at ' + d.toLocaleTimeString('en-US', {
-                hour: 'numeric', minute: '2-digit'
+            els.update.textContent = "Generated: " + d.toLocaleDateString("en-US", {
+                month: "short",
+                day: "numeric",
+                year: "numeric",
+            }) + " at " + d.toLocaleTimeString("en-US", {
+                hour: "numeric",
+                minute: "2-digit",
             });
-            document.getElementById('update-time').textContent = 'Last update: ' + formatted;
+        }
+
+        function setLoading(isLoading, label) {
+            els.button.disabled = isLoading;
+            if (label) els.status.textContent = label;
+        }
+
+        function showNotice(message) {
+            els.notice.textContent = message;
+            els.notice.classList.add("visible");
+        }
+
+        function hideNotice() {
+            els.notice.textContent = "";
+            els.notice.classList.remove("visible");
+        }
+
+        function escapeHtml(value) {
+            return String(value ?? "")
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
         }
     </script>
 </body>

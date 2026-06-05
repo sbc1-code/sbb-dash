@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: '0 14 * * *'  # 6 AM Pacific daily
   workflow_dispatch:
+    inputs:
+      zip:
+        description: 'US ZIP code to generate into forecast_data.json'
+        required: false
+        default: '93101'
 
 permissions:
   contents: write
@@ -11,6 +16,8 @@ permissions:
 jobs:
   update-forecast:
     runs-on: ubuntu-latest
+    env:
+      FORECAST_ZIP: ${{ github.event.inputs.zip || '93101' }}
 
     steps:
       - name: Checkout repository
@@ -22,7 +29,7 @@ jobs:
           python-version: '3.12'
 
       - name: Generate forecast data
-        run: python3 scraper_v2.py
+        run: python3 scraper_v2.py --zip "$FORECAST_ZIP"
 
       - name: Commit and push if changed
         run: |

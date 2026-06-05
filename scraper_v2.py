@@ -1,435 +1,451 @@
 #!/usr/bin/env python3
 """
-Santa Barbara Business Forecast - Advanced Scraper
-Quality-assured, automated data collection with fallbacks
+Local business demand forecaster.
+
+Generates a 7-day forecast for any US ZIP using live weather, day-of-week
+patterns, and optional local event enrichments when a supported adapter exists.
+Santa Barbara ZIPs keep the original local event adapters.
 """
 
+import argparse
 import json
-import urllib.request
-import urllib.error
+import os
 import re
-from datetime import datetime, timedelta
-from html.parser import HTMLParser
+import sys
 import time
+import urllib.error
+import urllib.parse
+import urllib.request
+from datetime import datetime, timedelta
+
+
+MODEL_VERSION = "2026-06-05-general-zip-v1"
+DEFAULT_ZIP = "93101"
+USER_AGENT = (
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+    "AppleWebKit/537.36 local-demand-forecaster/1.0"
+)
+ZIP_RE = re.compile(r"^\d{5}$")
+
+
+def fetch_json(url, timeout=12):
+    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+    with urllib.request.urlopen(req, timeout=timeout) as response:
+        return json.loads(response.read().decode("utf-8"))
+
+
+def fetch_text(url, timeout=10):
+    headers = {"User-Agent": USER_AGENT}
+    for attempt in range(3):
+        try:
+            req = urllib.request.Request(url, headers=headers)
+            with urllib.request.urlopen(req, timeout=timeout) as response:
+                return response.read().decode("utf-8", errors="replace")
+        except Exception as exc:
+            print(f"  Warning: fetch attempt {attempt + 1}/3 failed for {url}: {exc}")
+            if attempt < 2:
+                time.sleep(2)
+    return None
+
+
+def validate_zip(zip_code):
+    cleaned = str(zip_code or "").strip()
+    if not ZIP_RE.match(cleaned):
+        raise ValueError("ZIP must be exactly 5 digits")
+    return cleaned
+
+
+def geocode_zip(zip_code):
+    """Resolve a US ZIP to city, state, latitude, and longitude."""
+    zip_code = validate_zip(zip_code)
+    url = f"https://api.zippopotam.us/us/{urllib.parse.quote(zip_code)}"
+    data = fetch_json(url)
+    places = data.get("places") or []
+    if not places:
+        raise ValueError(f"No location found for ZIP {zip_code}")
+
+    place = places[0]
+    lat = float(place["latitude"])
+    lon = float(place["longitude"])
+    return {
+        "zip": zip_code,
+        "city": place.get("place name", ""),
+        "state": place.get("state", ""),
+        "state_code": place.get("state abbreviation", ""),
+        "country": data.get("country", "United States"),
+        "latitude": lat,
+        "longitude": lon,
+        "label": f"{place.get('place name', zip_code)}, {place.get('state abbreviation', '').strip()} {zip_code}".strip(),
+    }
+
+
+def is_santa_barbara_location(location):
+    city = (location.get("city") or "").lower()
+    state_code = (location.get("state_code") or "").upper()
+    return state_code == "CA" and (location.get("zip", "").startswith("931") or "santa barbara" in city)
+
+
+def get_weather_forecast(location):
+    """Get 7-day weather from Open-Meteo for a resolved location."""
+    params = urllib.parse.urlencode(
+        {
+            "latitude": location["latitude"],
+            "longitude": location["longitude"],
+            "daily": "temperature_2m_max,temperature_2m_min,precipitation_probability_max,weathercode",
+            "temperature_unit": "fahrenheit",
+            "timezone": "auto",
+            "forecast_days": 7,
+        }
+    )
+    url = f"https://api.open-meteo.com/v1/forecast?{params}"
+    data = fetch_json(url)
+    daily = data.get("daily")
+    if not daily or len(daily.get("time", [])) < 7:
+        raise ValueError("Open-Meteo returned incomplete daily forecast data")
+    return daily
+
+
+def get_next_7_days(weather=None):
+    """Generate date metadata, preferring weather API dates when available."""
+    days = []
+    day_names = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    weather_dates = (weather or {}).get("time") or []
+
+    for i in range(7):
+        if i < len(weather_dates):
+            date = datetime.strptime(weather_dates[i], "%Y-%m-%d")
+        else:
+            date = datetime.now() + timedelta(days=i)
+
+        days.append(
+            {
+                "date": date.strftime("%Y-%m-%d"),
+                "day_name": day_names[date.weekday()],
+                "day_short": day_names[date.weekday()][:3].upper(),
+                "day_of_week": date.weekday(),
+                "is_weekend": date.weekday() >= 5,
+                "month_day": date.strftime("%m/%d"),
+            }
+        )
+
+    return days
+
 
 class EventScraper:
-    """Quality-assured web scraping with error handling"""
-
-    @staticmethod
-    def fetch_url(url, timeout=10):
-        """Fetch URL with retry logic and error handling"""
-        headers = {
-            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36'
-        }
-
-        for attempt in range(3):
-            try:
-                req = urllib.request.Request(url, headers=headers)
-                with urllib.request.urlopen(req, timeout=timeout) as response:
-                    return response.read().decode('utf-8')
-            except Exception as e:
-                print(f"  ⚠️  Attempt {attempt + 1}/3 failed: {e}")
-                if attempt < 2:
-                    time.sleep(2)
-                else:
-                    return None
-        return None
+    """Local event enrichments. Only Santa Barbara adapters are implemented."""
 
     @staticmethod
     def scrape_cruise_ships():
-        """
-        Scrape cruise ship schedule from CruiseMapper.
-        Only returns arrivals within the next 14 days.
-        Validates dates carefully to avoid phantom entries.
-        """
-        print("🚢 Scraping cruise ship data...")
+        print("Fetching Santa Barbara cruise ship data...")
         url = "https://www.cruisemapper.com/ports/santa-barbara-ca-port-852"
-
-        html = EventScraper.fetch_url(url)
+        html = fetch_text(url)
         if not html:
-            print("  ❌ Failed to fetch cruise data, using fallback")
+            print("  Cruise data unavailable")
             return []
 
         events = []
         today = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
         window_end = today + timedelta(days=14)
-
-        # False positives: port names and generic text that appear on the page
         false_positives = {
-            'santa barbara', 'port of', 'california', 'united states',
-            'cruise ship', 'cruisemapper', 'privacy policy', 'cookie',
-            'january', 'february', 'march', 'april', 'may', 'june',
-            'july', 'august', 'september', 'october', 'november', 'december'
+            "santa barbara",
+            "port of",
+            "california",
+            "united states",
+            "cruise ship",
+            "cruisemapper",
+            "privacy policy",
+            "cookie",
         }
 
         def is_valid_ship_name(name):
-            """Check if the matched text is a real ship name, not page chrome."""
             clean = name.strip().lower()
-            if len(clean) < 4 or len(clean) > 40:
-                return False
-            for fp in false_positives:
-                if fp in clean:
-                    return False
-            return True
+            return 4 <= len(clean) <= 40 and not any(fp in clean for fp in false_positives)
 
-        # Look for known cruise ship name patterns near dates.
-        # Real ships: "Royal Princess", "Ruby Princess", "Brilliant Lady", etc.
-        ship_date_pattern = r'([A-Z][a-z]+(?:\s+(?:of\s+the\s+Seas|[A-Z][a-z]+)){1,4})\s*[^A-Za-z]*?(\d{4}-\d{2}-\d{2})'
-        matches = re.findall(ship_date_pattern, html)
-
-        date_ship_pattern = r'(\d{4}-\d{2}-\d{2})\s*[^A-Za-z]*?([A-Z][a-z]+(?:\s+(?:of\s+the\s+Seas|Princess|Lady|[A-Z][a-z]+)){1,3})'
-        matches2 = re.findall(date_ship_pattern, html)
-
+        patterns = [
+            r"([A-Z][a-z]+(?:\s+(?:of\s+the\s+Seas|[A-Z][a-z]+)){1,4})\s*[^A-Za-z]*?(\d{4}-\d{2}-\d{2})",
+            r"(\d{4}-\d{2}-\d{2})\s*[^A-Za-z]*?([A-Z][a-z]+(?:\s+(?:of\s+the\s+Seas|Princess|Lady|[A-Z][a-z]+)){1,3})",
+        ]
         seen_dates = set()
 
-        for ship_name, date_str in matches:
-            try:
-                ship_date = datetime.strptime(date_str, '%Y-%m-%d')
-                if today <= ship_date <= window_end and date_str not in seen_dates and is_valid_ship_name(ship_name):
+        for pattern in patterns:
+            for first, second in re.findall(pattern, html):
+                date_str, ship_name = (second, first) if first[0].isalpha() else (first, second)
+                try:
+                    event_date = datetime.strptime(date_str, "%Y-%m-%d")
+                except ValueError:
+                    continue
+
+                if today <= event_date <= window_end and date_str not in seen_dates and is_valid_ship_name(ship_name):
                     seen_dates.add(date_str)
-                    events.append({
-                        'date': date_str,
-                        'name': f"{ship_name.strip()} Arrival",
-                        'type': 'cruise',
-                        'impact': 'high',
-                        'estimated_visitors': 2000
-                    })
-                    print(f"    Found: {ship_name.strip()} on {date_str}")
-            except (ValueError, IndexError):
-                continue
+                    events.append(
+                        {
+                            "date": date_str,
+                            "name": f"{ship_name.strip()} Arrival",
+                            "type": "cruise",
+                            "impact": "high",
+                            "estimated_visitors": 2000,
+                        }
+                    )
 
-        for date_str, ship_name in matches2:
-            try:
-                ship_date = datetime.strptime(date_str, '%Y-%m-%d')
-                if today <= ship_date <= window_end and date_str not in seen_dates and is_valid_ship_name(ship_name):
-                    seen_dates.add(date_str)
-                    events.append({
-                        'date': date_str,
-                        'name': f"{ship_name.strip()} Arrival",
-                        'type': 'cruise',
-                        'impact': 'high',
-                        'estimated_visitors': 2000
-                    })
-                    print(f"    Found: {ship_name.strip()} on {date_str}")
-            except (ValueError, IndexError):
-                continue
-
-        if not events:
-            print("  ℹ️  No cruise arrivals in the next 14 days (normal for off-season)")
-        else:
-            print(f"  ✅ Found {len(events)} cruise arrivals in the next 14 days")
-
+        print(f"  Cruise arrivals found: {len(events)}")
         return events
 
     @staticmethod
     def scrape_sb_bowl():
-        """
-        Scrape Santa Barbara Bowl concerts
-        Returns: list of {date, artist, type}
-        """
-        print("🎵 Scraping SB Bowl concerts...")
+        print("Fetching Santa Barbara Bowl concerts...")
         url = "https://sbbowl.com/concerts/"
-
-        html = EventScraper.fetch_url(url)
+        html = fetch_text(url)
         if not html:
-            print("  ❌ Failed to fetch concert data, using fallback")
+            print("  Concert data unavailable")
             return []
 
         events = []
-
-        # Look for date patterns near artist names
-        # SB Bowl typically uses formats like "Sep 26" or "September 26"
-        concert_pattern = r'([A-Z][a-z]{2,8})\s+(\d{1,2}).*?([A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,3})'
-        matches = re.findall(concert_pattern, html)
-
         current_year = datetime.now().year
+        month_map = {
+            "Jan": 1,
+            "Feb": 2,
+            "Mar": 3,
+            "Apr": 4,
+            "May": 5,
+            "Jun": 6,
+            "Jul": 7,
+            "Aug": 8,
+            "Sep": 9,
+            "Oct": 10,
+            "Nov": 11,
+            "Dec": 12,
+        }
 
-        for month_str, day_str, artist in matches[:10]:  # Limit to next 10 concerts
+        for month_str, day_str, artist in re.findall(r"([A-Z][a-z]{2,8})\s+(\d{1,2}).*?([A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,3})", html)[:10]:
+            month = month_map.get(month_str[:3])
+            if not month:
+                continue
             try:
-                # Parse date
-                month_map = {
-                    'Jan': 1, 'Feb': 2, 'Mar': 3, 'Apr': 4, 'May': 5, 'Jun': 6,
-                    'Jul': 7, 'Aug': 8, 'Sep': 9, 'Oct': 10, 'Nov': 11, 'Dec': 12
+                event_date = datetime(current_year, month, int(day_str))
+                if event_date < datetime.now():
+                    event_date = datetime(current_year + 1, month, int(day_str))
+            except ValueError:
+                continue
+
+            events.append(
+                {
+                    "date": event_date.strftime("%Y-%m-%d"),
+                    "name": f"{artist} at SB Bowl",
+                    "type": "concert",
+                    "impact": "high",
+                    "estimated_visitors": 4500,
                 }
+            )
 
-                month = month_map.get(month_str[:3])
-                if not month:
-                    continue
-
-                day = int(day_str)
-                concert_date = datetime(current_year, month, day)
-
-                # If date is in the past, assume next year
-                if concert_date < datetime.now():
-                    concert_date = datetime(current_year + 1, month, day)
-
-                events.append({
-                    'date': concert_date.strftime('%Y-%m-%d'),
-                    'name': f"{artist} at SB Bowl",
-                    'type': 'concert',
-                    'impact': 'high',
-                    'estimated_visitors': 4500
-                })
-            except Exception as e:
-                print(f"  ⚠️  Error parsing concert: {e}")
-
-        print(f"  ✅ Found {len(events)} concerts")
+        print(f"  Concerts found: {len(events)}")
         return events
 
     @staticmethod
-    def get_static_events():
-        """
-        Reliable fallback events that happen regularly
-        """
+    def get_static_santa_barbara_events():
         events = []
-
-        # Weekly recurring events
         today = datetime.now()
-        for i in range(14):  # Next 2 weeks
+        for i in range(14):
             date = today + timedelta(days=i)
-
-            # Tuesday Farmers Market
             if date.weekday() == 1:
-                events.append({
-                    'date': date.strftime('%Y-%m-%d'),
-                    'name': 'Downtown Farmers Market',
-                    'type': 'market',
-                    'impact': 'medium',
-                    'estimated_visitors': 500
-                })
-
-            # Saturday Farmers Market (larger)
+                events.append(
+                    {
+                        "date": date.strftime("%Y-%m-%d"),
+                        "name": "Downtown Santa Barbara Farmers Market",
+                        "type": "market",
+                        "impact": "medium",
+                        "estimated_visitors": 500,
+                    }
+                )
             if date.weekday() == 5:
-                events.append({
-                    'date': date.strftime('%Y-%m-%d'),
-                    'name': 'Saturday Farmers Market',
-                    'type': 'market',
-                    'impact': 'medium',
-                    'estimated_visitors': 1000
-                })
-
-        print(f"  ✅ Added {len(events)} recurring events")
+                events.append(
+                    {
+                        "date": date.strftime("%Y-%m-%d"),
+                        "name": "Saturday Santa Barbara Farmers Market",
+                        "type": "market",
+                        "impact": "medium",
+                        "estimated_visitors": 1000,
+                    }
+                )
         return events
 
 
-def get_weather_forecast():
-    """Get 7-day weather from Open-Meteo (free, no API key)"""
-    print("🌤️  Fetching weather data...")
-    url = "https://api.open-meteo.com/v1/forecast?latitude=34.4208&longitude=-119.6982&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max,weathercode&temperature_unit=fahrenheit&timezone=America/Los_Angeles&forecast_days=7"
+def collect_events(location):
+    if not is_santa_barbara_location(location):
+        return [], "weather_and_calendar_only"
 
-    try:
-        with urllib.request.urlopen(url, timeout=10) as response:
-            data = json.loads(response.read().decode())
-            print("  ✅ Weather data fetched")
-            return data['daily']
-    except Exception as e:
-        print(f"  ❌ Weather fetch failed: {e}")
-        return None
+    events = EventScraper.get_static_santa_barbara_events()
+    for fetcher in (EventScraper.scrape_cruise_ships, EventScraper.scrape_sb_bowl):
+        try:
+            events.extend(fetcher())
+        except Exception as exc:
+            print(f"  Warning: event adapter failed: {exc}")
+    return events, "santa_barbara_enriched"
 
 
-def get_next_7_days():
-    """Generate next 7 days with metadata"""
-    days = []
-    day_names = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-
-    for i in range(7):
-        date = datetime.now() + timedelta(days=i)
-        days.append({
-            'date': date.strftime('%Y-%m-%d'),
-            'day_name': day_names[date.weekday()],
-            'day_short': day_names[date.weekday()][:3].upper(),
-            'day_of_week': date.weekday(),
-            'is_weekend': date.weekday() >= 5,
-            'month_day': date.strftime('%m/%d')
-        })
-
-    return days
-
-
-def calculate_demand_score(day, weather=None, events=None):
-    """
-    Enhanced demand scoring with event impact
-    Returns: score (0-100), level (LOW/MEDIUM/HIGH), reasoning
-    """
-    score = 50  # baseline
+def calculate_demand_score(day, weather=None, events=None, weather_index=None):
+    """Return score, level, factors, recommendation, and matching events."""
+    score = 50
     factors = []
 
-    # Day of week impact
-    if day['is_weekend']:
-        score += 30
-        factors.append("Weekend traffic (+30)")
-    elif day['day_of_week'] == 4:  # Friday
-        score += 20
-        factors.append("Friday evening (+20)")
-    elif day['day_of_week'] == 2:  # Wednesday
-        score += 10
-        factors.append("Midweek activity (+10)")
+    if day["is_weekend"]:
+        score += 25
+        factors.append("Weekend traffic (+25)")
+    elif day["day_of_week"] == 4:
+        score += 15
+        factors.append("Friday activity (+15)")
+    elif day["day_of_week"] == 2:
+        score += 5
+        factors.append("Midweek activity (+5)")
 
-    # Weather impact
-    if weather:
+    if weather is not None:
         try:
-            idx = [d['date'] for d in get_next_7_days()].index(day['date'])
-            temp = weather['temperature_2m_max'][idx]
-            rain_prob = weather['precipitation_probability_max'][idx]
+            idx = weather_index if weather_index is not None else weather["time"].index(day["date"])
+            temp = weather["temperature_2m_max"][idx]
+            rain_prob = weather["precipitation_probability_max"][idx]
 
-            # Perfect weather = higher demand
-            if 65 <= temp <= 85:
-                score += 15
-                factors.append(f"Perfect weather {int(temp)}°F (+15)")
-            elif temp > 85:
+            if 65 <= temp <= 82:
+                score += 12
+                factors.append(f"Ideal weather {int(temp)}F (+12)")
+            elif 82 < temp <= 92:
                 score -= 5
-                factors.append(f"Hot weather {int(temp)}°F (-5)")
+                factors.append(f"Hot weather {int(temp)}F (-5)")
+            elif temp > 92:
+                score -= 10
+                factors.append(f"Extreme heat {int(temp)}F (-10)")
+            elif temp < 45:
+                score -= 10
+                factors.append(f"Cold weather {int(temp)}F (-10)")
             elif temp < 60:
-                score -= 10
-                factors.append(f"Cool weather {int(temp)}°F (-10)")
+                score -= 5
+                factors.append(f"Cool weather {int(temp)}F (-5)")
 
-            # Rain = lower demand
-            if rain_prob > 50:
+            if rain_prob > 60:
                 score -= 20
-                factors.append(f"{rain_prob}% rain chance (-20)")
-            elif rain_prob > 30:
+                factors.append(f"{int(rain_prob)}% rain chance (-20)")
+            elif rain_prob > 35:
                 score -= 10
-                factors.append(f"{rain_prob}% rain chance (-10)")
-        except Exception as e:
-            print(f"  ⚠️  Weather impact calculation error: {e}")
+                factors.append(f"{int(rain_prob)}% rain chance (-10)")
+        except (KeyError, ValueError, IndexError, TypeError) as exc:
+            factors.append(f"Weather scoring unavailable ({exc})")
 
-    # Event impact
-    day_events = []
-    if events:
-        day_events = [e for e in events if e['date'] == day['date']]
+    day_events = [event for event in (events or []) if event.get("date") == day["date"]]
+    for event in day_events:
+        if event.get("impact") == "high":
+            score += 25
+            factors.append(f"{event['name']} (+25)")
+        elif event.get("impact") == "medium":
+            score += 15
+            factors.append(f"{event['name']} (+15)")
 
-        for event in day_events:
-            if event['impact'] == 'high':
-                boost = 25
-                score += boost
-                factors.append(f"{event['name']} (+{boost})")
-            elif event['impact'] == 'medium':
-                boost = 15
-                score += boost
-                factors.append(f"{event['name']} (+{boost})")
-
-    # Determine level
-    if score >= 75:
+    bounded = min(100, max(0, int(round(score))))
+    if bounded >= 75:
         level = "HIGH"
-        recommendation = "Staff up, extend hours, maximize capacity"
-    elif score >= 55:
+        recommendation = "Staff up, protect inventory, and prep for heavier foot traffic"
+    elif bounded >= 55:
         level = "MEDIUM"
-        recommendation = "Normal staffing, run targeted promotions"
+        recommendation = "Use normal staffing and monitor afternoon demand"
     else:
         level = "LOW"
-        recommendation = "Minimal staff, push deals to locals"
+        recommendation = "Keep staffing lean and push targeted offers"
 
     return {
-        'score': min(100, max(0, int(score))),
-        'level': level,
-        'factors': factors,
-        'recommendation': recommendation,
-        'events': [{'name': e['name'], 'type': e['type']} for e in day_events]
+        "score": bounded,
+        "level": level,
+        "factors": factors,
+        "recommendation": recommendation,
+        "events": [{"name": e["name"], "type": e["type"]} for e in day_events],
     }
 
 
-def generate_forecast_data():
-    """
-    Main function: generate complete forecast with quality checks
-    """
-    print("\n" + "="*60)
-    print("🌴 SANTA BARBARA BUSINESS FORECAST GENERATOR")
-    print("="*60 + "\n")
-
-    # Fetch all data sources
-    days = get_next_7_days()
-    weather = get_weather_forecast()
-
-    # Gather events from multiple sources
-    all_events = []
-
-    # Always include static/recurring events
-    all_events.extend(EventScraper.get_static_events())
-
-    # Try to scrape cruise ships (non-critical)
-    try:
-        cruise_events = EventScraper.scrape_cruise_ships()
-        all_events.extend(cruise_events)
-    except Exception as e:
-        print(f"  ⚠️  Cruise scraping failed: {e}")
-
-    # Try to scrape SB Bowl (non-critical)
-    try:
-        concert_events = EventScraper.scrape_sb_bowl()
-        all_events.extend(concert_events)
-    except Exception as e:
-        print(f"  ⚠️  Concert scraping failed: {e}")
-
-    print(f"\n📅 Total events collected: {len(all_events)}")
-
-    # Generate forecast for each day
+def build_forecast(location, weather, events):
+    days = get_next_7_days(weather)
     forecast = []
-    for day in days:
-        demand = calculate_demand_score(day, weather, all_events)
 
-        day_forecast = {
-            **day,
-            'demand': demand,
-            'weather': {}
-        }
+    for idx, day in enumerate(days):
+        demand = calculate_demand_score(day, weather, events, idx)
+        forecast.append(
+            {
+                **day,
+                "demand": demand,
+                "weather": {
+                    "temp_high": int(round(weather["temperature_2m_max"][idx])),
+                    "temp_low": int(round(weather["temperature_2m_min"][idx])),
+                    "rain_prob": int(round(weather["precipitation_probability_max"][idx])),
+                },
+            }
+        )
 
-        # Add weather data
-        if weather:
-            try:
-                idx = days.index(day)
-                day_forecast['weather'] = {
-                    'temp_high': int(weather['temperature_2m_max'][idx]),
-                    'temp_low': int(weather['temperature_2m_min'][idx]),
-                    'rain_prob': weather['precipitation_probability_max'][idx]
-                }
-            except Exception as e:
-                print(f"  ⚠️  Weather assignment error: {e}")
+    if len(forecast) != 7:
+        raise ValueError("Forecast quality check failed: expected exactly 7 days")
+    return forecast
 
-        forecast.append(day_forecast)
 
-    # Quality check
-    if not forecast or len(forecast) != 7:
-        print("  ❌ QUALITY CHECK FAILED: Invalid forecast data")
-        return None
+def generate_forecast_data(zip_code=DEFAULT_ZIP):
+    zip_code = validate_zip(zip_code or DEFAULT_ZIP)
+    print("=" * 60)
+    print("LOCAL BUSINESS DEMAND FORECAST GENERATOR")
+    print("=" * 60)
+    print(f"ZIP: {zip_code}")
 
-    print("\n✅ QUALITY CHECKS PASSED")
+    location = geocode_zip(zip_code)
+    print(f"Location: {location['label']} ({location['latitude']}, {location['longitude']})")
+
+    weather = get_weather_forecast(location)
+    print("Weather: available")
+
+    events, event_scope = collect_events(location)
+    print(f"Events: {len(events)} ({event_scope})")
+
+    forecast = build_forecast(location, weather, events)
+    print("Quality checks: passed")
 
     return {
-        'generated_at': datetime.now().isoformat(),
-        'forecast': forecast,
-        'events': all_events,
-        'data_quality': {
-            'weather_available': weather is not None,
-            'events_count': len(all_events),
-            'forecast_days': len(forecast)
-        }
+        "generated_at": datetime.now().astimezone().isoformat(),
+        "model_version": MODEL_VERSION,
+        "location": location,
+        "forecast": forecast,
+        "events": events,
+        "data_quality": {
+            "weather_available": True,
+            "events_count": len(events),
+            "event_scope": event_scope,
+            "forecast_days": len(forecast),
+            "sources": ["Zippopotam US ZIP geocoding", "Open-Meteo weather"]
+            + (["Santa Barbara local event adapters"] if event_scope == "santa_barbara_enriched" else []),
+        },
     }
 
 
-if __name__ == '__main__':
-    data = generate_forecast_data()
+def parse_args(argv):
+    parser = argparse.ArgumentParser(description="Generate a local business demand forecast for a US ZIP.")
+    parser.add_argument("--zip", default=os.getenv("FORECAST_ZIP", DEFAULT_ZIP), help="US ZIP code to forecast")
+    parser.add_argument("--output", default="forecast_data.json", help="Output JSON path")
+    return parser.parse_args(argv)
 
-    if not data:
-        print("\n❌ FATAL ERROR: Could not generate forecast")
-        exit(1)
 
-    # Save to JSON
-    with open('forecast_data.json', 'w') as f:
-        json.dump(data, f, indent=2)
+def main(argv=None):
+    args = parse_args(argv or sys.argv[1:])
+    try:
+        data = generate_forecast_data(args.zip)
+    except (ValueError, urllib.error.URLError, TimeoutError, OSError) as exc:
+        print(f"Fatal: could not generate forecast: {exc}", file=sys.stderr)
+        return 1
 
-    print(f"\n{'='*60}")
-    print("✅ FORECAST GENERATED SUCCESSFULLY")
-    print(f"{'='*60}")
-    print(f"📊 {len(data['forecast'])} days forecasted")
-    print(f"🎉 {data['data_quality']['events_count']} events included")
-    print(f"🌤️  Weather: {'✅' if data['data_quality']['weather_available'] else '❌'}")
-    print(f"🕐 Generated: {data['generated_at']}")
+    with open(args.output, "w", encoding="utf-8") as out:
+        json.dump(data, out, indent=2)
 
-    # Print summary
-    print(f"\n📈 WEEK OVERVIEW:")
-    print("-" * 60)
-    for day in data['forecast']:
-        events_str = f" ({len(day['demand']['events'])} events)" if day['demand']['events'] else ""
-        print(f"  {day['day_name']:9} {day['month_day']:5} → {day['demand']['level']:6} ({day['demand']['score']:3}/100){events_str}")
+    print("=" * 60)
+    print("FORECAST GENERATED")
+    print("=" * 60)
+    print(f"Output: {args.output}")
+    print(f"Days: {len(data['forecast'])}")
+    print(f"Generated: {data['generated_at']}")
+    for day in data["forecast"]:
+        event_count = len(day["demand"]["events"])
+        suffix = f" ({event_count} events)" if event_count else ""
+        print(f"  {day['day_name']:9} {day['month_day']:5} -> {day['demand']['level']:6} ({day['demand']['score']:3}/100){suffix}")
+    return 0
 
-    print(f"\n{'='*60}\n")
+
+if __name__ == "__main__":
+    raise SystemExit(main())
