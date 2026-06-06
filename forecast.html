@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Local Business Demand Forecaster</title>
-    <meta name="description" content="7-day demand forecast for any US ZIP using live weather, day-of-week patterns, and supported local event signals.">
+    <title>Weekly Local Demand Plan</title>
+    <meta name="description" content="A practical 7-day staffing and prep signal for local operators using ZIP-level weather, weekday patterns, and supported event signals.">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             color-scheme: light;
-            --bg: #f6f5f0;
+            --bg: #f7f8f5;
             --panel: #ffffff;
             --ink: #1d1d1b;
             --muted: #676762;
-            --line: #dedbd2;
+            --line: #dde2d8;
             --accent: #256f5b;
             --accent-dark: #174f40;
             --high: #c43d3d;
@@ -28,6 +28,7 @@
             color: var(--ink);
             min-height: 100vh;
             line-height: 1.5;
+            overflow-x: hidden;
         }
 
         a { color: var(--accent-dark); }
@@ -46,15 +47,21 @@
             margin-bottom: 24px;
         }
 
+        header > * {
+            min-width: 0;
+        }
+
         h1 {
             font-size: 2rem;
             font-weight: 700;
             margin-bottom: 8px;
+            overflow-wrap: anywhere;
         }
 
         .lede {
             color: var(--muted);
             max-width: 720px;
+            overflow-wrap: anywhere;
         }
 
         .status-bar {
@@ -65,6 +72,11 @@
             margin-top: 14px;
             font-size: 0.86rem;
             color: var(--muted);
+        }
+
+        .status-bar span {
+            min-width: 0;
+            overflow-wrap: anywhere;
         }
 
         .live-dot {
@@ -81,6 +93,7 @@
             border: 1px solid var(--line);
             border-radius: 8px;
             padding: 18px;
+            width: 100%;
         }
 
         .zip-form label {
@@ -128,17 +141,29 @@
             font-size: 0.82rem;
             color: var(--muted);
             margin-top: 8px;
+            overflow-wrap: anywhere;
         }
 
+        .operator-note,
         .notice {
             display: none;
             margin: 18px 0 24px;
             padding: 12px 14px;
-            border: 1px solid #d7c693;
-            background: #fff8df;
+            border: 1px solid #cfd9ca;
+            background: #ffffff;
             border-radius: 8px;
-            color: #6a5512;
+            color: #4e594c;
             font-size: 0.92rem;
+        }
+
+        .operator-note {
+            display: block;
+            margin-top: 0;
+            overflow-wrap: anywhere;
+        }
+
+        .operator-note strong {
+            color: var(--ink);
         }
 
         .notice.visible { display: block; }
@@ -268,6 +293,7 @@
             border-top: 1px solid var(--line);
             font-size: 0.84rem;
             color: var(--muted);
+            overflow-wrap: anywhere;
         }
 
         @media (max-width: 1000px) {
@@ -280,7 +306,10 @@
         @media (max-width: 560px) {
             .container { padding: 24px 14px 40px; }
             h1 { font-size: 1.55rem; }
+            header { gap: 18px; }
+            .zip-form { max-width: none; }
             .zip-row { grid-template-columns: 1fr; }
+            button { width: 100%; }
             .summary { grid-template-columns: 1fr; }
             .forecast-grid { grid-template-columns: 1fr; }
             .day-card { min-height: 0; }
@@ -292,8 +321,8 @@
     <div class="container">
         <header>
             <div>
-                <h1 id="page-title">Local Business Demand Forecaster</h1>
-                <p class="lede">Enter any US ZIP to generate a 7-day demand forecast from live weather and calendar patterns. Santa Barbara ZIPs include the supported local event adapters.</p>
+                <h1 id="page-title">Plan staffing and prep for the week ahead</h1>
+                <p class="lede">For restaurants, cafes, retail shops, and local service teams that need a quick weekly read before scheduling labor, ordering inventory, or timing promotions.</p>
                 <div class="status-bar">
                     <span><span class="live-dot"></span><span id="status-label">Ready</span></span>
                     <span id="update-time"></span>
@@ -306,9 +335,13 @@
                     <input id="zip-input" name="zip" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" value="93101" autocomplete="postal-code" aria-describedby="zip-hint">
                     <button id="run-button" type="submit">Run Forecast</button>
                 </div>
-                <p class="hint" id="zip-hint">Default checked-in forecast: 93101. Custom ZIPs calculate live in your browser.</p>
+                <p class="hint" id="zip-hint">Default checked-in forecast: 93101. Custom ZIPs calculate live in your browser and are not stored.</p>
             </form>
         </header>
+
+        <div class="operator-note">
+            <strong>How to read this:</strong> higher scores mean protect staffing and prep; medium scores support normal coverage; lower scores suggest lean staffing and targeted offers. The model is a planning signal, not a sales guarantee.
+        </div>
 
         <div class="notice" id="notice" role="status"></div>
         <section class="summary" id="summary" aria-label="Forecast summary"></section>
@@ -584,7 +617,7 @@
 
             const location = data.location || { zip: DEFAULT_ZIP, label: "Santa Barbara, CA 93101" };
             els.input.value = location.zip || DEFAULT_ZIP;
-            els.title.textContent = location.label ? location.label + " Demand Forecast" : "Local Business Demand Forecaster";
+            els.title.textContent = location.label ? location.label + " Weekly Demand Plan" : "Plan staffing and prep for the week ahead";
             els.status.textContent = mode === "checked-in" ? "Checked-in forecast" : "Live ZIP forecast";
             els.source.textContent = eventScopeLabel(data.data_quality && data.data_quality.event_scope);
             showUpdateTime(data.generated_at);
@@ -605,7 +638,7 @@
                 <div class="summary-item">
                     <div class="label">Location</div>
                     <div class="value">${escapeHtml(data.location && data.location.label ? data.location.label : "Custom ZIP")}</div>
-                    <div class="detail">US ZIP forecast</div>
+                    <div class="detail">Staffing and prep planning area</div>
                 </div>
                 <div class="summary-item">
                     <div class="label">Peak day</div>
@@ -618,7 +651,7 @@
                     <div class="detail">Score: ${slow.demand.score}/100</div>
                 </div>
                 <div class="summary-item">
-                    <div class="label">Week mix</div>
+                    <div class="label">Operating mix</div>
                     <div class="value">${high} high, ${med} medium, ${low} low</div>
                     <div class="detail">${eventScopeLabel(data.data_quality && data.data_quality.event_scope)}</div>
                 </div>

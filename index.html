@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Local Business Demand Forecaster</title>
-    <meta name="description" content="Free 7-day demand forecast for any US ZIP using live weather, calendar patterns, and supported local event signals.">
+    <title>Plan staffing and prep for the week ahead</title>
+    <meta name="description" content="A practical 7-day demand planning tool for local operators using live weather, weekday patterns, and supported event signals by ZIP.">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             color: #1b1b19;
-            background: #f6f5f0;
+            background: #f7f8f5;
             line-height: 1.6;
             min-height: 100vh;
         }
@@ -145,9 +145,9 @@
     <main>
         <section class="hero">
             <div>
-                <h1>Local Business Demand Forecaster</h1>
-                <p class="lede">Generate a 7-day staffing and foot-traffic planning signal for any US ZIP. The model uses live weather, day-of-week patterns, and supported local event adapters where available.</p>
-                <a class="button" href="forecast.html?zip=93101">Open default forecast</a>
+                <h1>Plan staffing and prep for the week ahead</h1>
+                <p class="lede">A ZIP-level demand signal for restaurants, cafes, retail shops, and local service teams. Use live weather, weekday patterns, and supported local events to decide when to staff up, protect inventory, or keep the floor lean.</p>
+                <a class="button" href="forecast.html?zip=93101">Open this week's forecast</a>
             </div>
             <form class="zip-panel" action="forecast.html" method="get">
                 <label for="zip">US ZIP code</label>
@@ -155,22 +155,22 @@
                     <input id="zip" name="zip" value="93101" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" autocomplete="postal-code">
                     <button type="submit">Run Forecast</button>
                 </div>
-                <p class="hint">Try 93101, 10001, 60601, 78701, or any valid US ZIP.</p>
+                <p class="hint">Try 93101, 10001, 60601, 78701, or any valid US ZIP. Santa Barbara ZIPs include local event adapters.</p>
             </form>
         </section>
 
         <section class="features" aria-label="What the forecast includes">
             <div class="feature">
-                <h2>Demand scores</h2>
-                <p>Each day is scored 0-100 from weather, day-of-week behavior, and event signals.</p>
+                <h2>Who it is for</h2>
+                <p>Independent operators who need a weekly read on likely foot traffic before writing schedules or ordering prep.</p>
             </div>
             <div class="feature">
-                <h2>ZIP-aware weather</h2>
-                <p>Custom forecasts use ZIP geocoding and Open-Meteo data for the selected location.</p>
+                <h2>What it checks</h2>
+                <p>Any US ZIP gets live weather and calendar effects; supported markets also include local event adapters.</p>
             </div>
             <div class="feature">
-                <h2>Staffing guidance</h2>
-                <p>Recommendations translate high, medium, and low demand days into operating moves.</p>
+                <h2>How to use it</h2>
+                <p>Treat the 0-100 score as an operating signal for staffing, inventory protection, and promo timing.</p>
             </div>
         </section>
 
