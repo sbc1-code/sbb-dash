@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T16:57:17.617078+00:00",
+  "generated_at": "2026-06-19T16:31:56.210703+00:00",
   "model_version": "2026-06-05-general-zip-v1",
   "location": {
     "zip": "93101",
@@ -13,28 +13,6 @@
   },
   "forecast": [
     {
-      "date": "2026-06-18",
-      "day_name": "Thursday",
-      "day_short": "THU",
-      "day_of_week": 3,
-      "is_weekend": false,
-      "month_day": "06/18",
-      "demand": {
-        "score": 62,
-        "level": "MEDIUM",
-        "factors": [
-          "Ideal weather 68F (+12)"
-        ],
-        "recommendation": "Use normal staffing and monitor afternoon demand",
-        "events": []
-      },
-      "weather": {
-        "temp_high": 68,
-        "temp_low": 57,
-        "rain_prob": 0
-      }
-    },
-    {
       "date": "2026-06-19",
       "day_name": "Friday",
       "day_short": "FRI",
@@ -46,14 +24,14 @@
         "level": "HIGH",
         "factors": [
           "Friday activity (+15)",
-          "Ideal weather 67F (+12)"
+          "Ideal weather 66F (+12)"
         ],
         "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
         "events": []
       },
       "weather": {
-        "temp_high": 68,
-        "temp_low": 57,
+        "temp_high": 67,
+        "temp_low": 58,
         "rain_prob": 0
       }
     },
@@ -81,9 +59,9 @@
         ]
       },
       "weather": {
-        "temp_high": 69,
+        "temp_high": 68,
         "temp_low": 55,
-        "rain_prob": 2
+        "rain_prob": 0
       }
     },
     {
@@ -105,7 +83,7 @@
       },
       "weather": {
         "temp_high": 70,
-        "temp_low": 58,
+        "temp_low": 55,
         "rain_prob": 0
       }
     },
@@ -128,7 +106,7 @@
       "weather": {
         "temp_high": 72,
         "temp_low": 59,
-        "rain_prob": 2
+        "rain_prob": 1
       }
     },
     {
@@ -156,7 +134,7 @@
       "weather": {
         "temp_high": 75,
         "temp_low": 61,
-        "rain_prob": 2
+        "rain_prob": 1
       }
     },
     {
@@ -171,15 +149,37 @@
         "level": "MEDIUM",
         "factors": [
           "Midweek activity (+5)",
-          "Ideal weather 78F (+12)"
+          "Ideal weather 77F (+12)"
         ],
         "recommendation": "Use normal staffing and monitor afternoon demand",
         "events": []
       },
       "weather": {
-        "temp_high": 78,
-        "temp_low": 66,
-        "rain_prob": 2
+        "temp_high": 77,
+        "temp_low": 65,
+        "rain_prob": 6
+      }
+    },
+    {
+      "date": "2026-06-25",
+      "day_name": "Thursday",
+      "day_short": "THU",
+      "day_of_week": 3,
+      "is_weekend": false,
+      "month_day": "06/25",
+      "demand": {
+        "score": 62,
+        "level": "MEDIUM",
+        "factors": [
+          "Ideal weather 75F (+12)"
+        ],
+        "recommendation": "Use normal staffing and monitor afternoon demand",
+        "events": []
+      },
+      "weather": {
+        "temp_high": 76,
+        "temp_low": 63,
+        "rain_prob": 4
       }
     }
   ],
