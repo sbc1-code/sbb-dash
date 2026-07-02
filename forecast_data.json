@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-01T16:27:20.183320+00:00",
+  "generated_at": "2026-07-02T16:05:31.758343+00:00",
   "model_version": "2026-06-05-general-zip-v1",
   "location": {
     "zip": "93101",
@@ -13,29 +13,6 @@
   },
   "forecast": [
     {
-      "date": "2026-07-01",
-      "day_name": "Wednesday",
-      "day_short": "WED",
-      "day_of_week": 2,
-      "is_weekend": false,
-      "month_day": "07/01",
-      "demand": {
-        "score": 67,
-        "level": "MEDIUM",
-        "factors": [
-          "Midweek activity (+5)",
-          "Ideal weather 67F (+12)"
-        ],
-        "recommendation": "Use normal staffing and monitor afternoon demand",
-        "events": []
-      },
-      "weather": {
-        "temp_high": 68,
-        "temp_low": 56,
-        "rain_prob": 0
-      }
-    },
-    {
       "date": "2026-07-02",
       "day_name": "Thursday",
       "day_short": "THU",
@@ -46,15 +23,15 @@
         "score": 62,
         "level": "MEDIUM",
         "factors": [
-          "Ideal weather 65F (+12)"
+          "Ideal weather 68F (+12)"
         ],
         "recommendation": "Use normal staffing and monitor afternoon demand",
         "events": []
       },
       "weather": {
-        "temp_high": 65,
-        "temp_low": 56,
-        "rain_prob": 1
+        "temp_high": 68,
+        "temp_low": 53,
+        "rain_prob": 0
       }
     },
     {
@@ -69,13 +46,13 @@
         "level": "HIGH",
         "factors": [
           "Friday activity (+15)",
-          "Ideal weather 72F (+12)"
+          "Ideal weather 67F (+12)"
         ],
         "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
         "events": []
       },
       "weather": {
-        "temp_high": 72,
+        "temp_high": 67,
         "temp_low": 56,
         "rain_prob": 0
       }
@@ -105,7 +82,7 @@
       },
       "weather": {
         "temp_high": 74,
-        "temp_low": 60,
+        "temp_low": 57,
         "rain_prob": 1
       }
     },
@@ -121,14 +98,14 @@
         "level": "HIGH",
         "factors": [
           "Weekend traffic (+25)",
-          "Ideal weather 74F (+12)"
+          "Ideal weather 73F (+12)"
         ],
         "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
         "events": []
       },
       "weather": {
-        "temp_high": 74,
-        "temp_low": 62,
+        "temp_high": 73,
+        "temp_low": 61,
         "rain_prob": 1
       }
     },
@@ -143,14 +120,14 @@
         "score": 62,
         "level": "MEDIUM",
         "factors": [
-          "Ideal weather 75F (+12)"
+          "Ideal weather 78F (+12)"
         ],
         "recommendation": "Use normal staffing and monitor afternoon demand",
         "events": []
       },
       "weather": {
-        "temp_high": 76,
-        "temp_low": 62,
+        "temp_high": 78,
+        "temp_low": 60,
         "rain_prob": 0
       }
     },
@@ -178,7 +155,30 @@
       },
       "weather": {
         "temp_high": 78,
-        "temp_low": 64,
+        "temp_low": 63,
+        "rain_prob": 0
+      }
+    },
+    {
+      "date": "2026-07-08",
+      "day_name": "Wednesday",
+      "day_short": "WED",
+      "day_of_week": 2,
+      "is_weekend": false,
+      "month_day": "07/08",
+      "demand": {
+        "score": 67,
+        "level": "MEDIUM",
+        "factors": [
+          "Midweek activity (+5)",
+          "Ideal weather 78F (+12)"
+        ],
+        "recommendation": "Use normal staffing and monitor afternoon demand",
+        "events": []
+      },
+      "weather": {
+        "temp_high": 78,
+        "temp_low": 63,
         "rain_prob": 0
       }
     }
