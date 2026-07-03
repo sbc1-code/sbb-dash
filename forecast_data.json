@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-02T16:05:31.758343+00:00",
+  "generated_at": "2026-07-03T15:52:38.896252+00:00",
   "model_version": "2026-06-05-general-zip-v1",
   "location": {
     "zip": "93101",
@@ -13,28 +13,6 @@
   },
   "forecast": [
     {
-      "date": "2026-07-02",
-      "day_name": "Thursday",
-      "day_short": "THU",
-      "day_of_week": 3,
-      "is_weekend": false,
-      "month_day": "07/02",
-      "demand": {
-        "score": 62,
-        "level": "MEDIUM",
-        "factors": [
-          "Ideal weather 68F (+12)"
-        ],
-        "recommendation": "Use normal staffing and monitor afternoon demand",
-        "events": []
-      },
-      "weather": {
-        "temp_high": 68,
-        "temp_low": 53,
-        "rain_prob": 0
-      }
-    },
-    {
       "date": "2026-07-03",
       "day_name": "Friday",
       "day_short": "FRI",
@@ -46,14 +24,14 @@
         "level": "HIGH",
         "factors": [
           "Friday activity (+15)",
-          "Ideal weather 67F (+12)"
+          "Ideal weather 71F (+12)"
         ],
         "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
         "events": []
       },
       "weather": {
-        "temp_high": 67,
-        "temp_low": 56,
+        "temp_high": 71,
+        "temp_low": 54,
         "rain_prob": 0
       }
     },
@@ -69,7 +47,7 @@
         "level": "HIGH",
         "factors": [
           "Weekend traffic (+25)",
-          "Ideal weather 73F (+12)",
+          "Ideal weather 70F (+12)",
           "Saturday Santa Barbara Farmers Market (+15)"
         ],
         "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
@@ -81,9 +59,9 @@
         ]
       },
       "weather": {
-        "temp_high": 74,
+        "temp_high": 70,
         "temp_low": 57,
-        "rain_prob": 1
+        "rain_prob": 3
       }
     },
     {
@@ -98,15 +76,15 @@
         "level": "HIGH",
         "factors": [
           "Weekend traffic (+25)",
-          "Ideal weather 73F (+12)"
+          "Ideal weather 75F (+12)"
         ],
         "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
         "events": []
       },
       "weather": {
-        "temp_high": 73,
-        "temp_low": 61,
-        "rain_prob": 1
+        "temp_high": 75,
+        "temp_low": 59,
+        "rain_prob": 0
       }
     },
     {
@@ -120,14 +98,14 @@
         "score": 62,
         "level": "MEDIUM",
         "factors": [
-          "Ideal weather 78F (+12)"
+          "Ideal weather 75F (+12)"
         ],
         "recommendation": "Use normal staffing and monitor afternoon demand",
         "events": []
       },
       "weather": {
-        "temp_high": 78,
-        "temp_low": 60,
+        "temp_high": 76,
+        "temp_low": 62,
         "rain_prob": 0
       }
     },
@@ -171,15 +149,37 @@
         "level": "MEDIUM",
         "factors": [
           "Midweek activity (+5)",
-          "Ideal weather 78F (+12)"
+          "Ideal weather 79F (+12)"
         ],
         "recommendation": "Use normal staffing and monitor afternoon demand",
         "events": []
       },
       "weather": {
-        "temp_high": 78,
-        "temp_low": 63,
+        "temp_high": 80,
+        "temp_low": 65,
         "rain_prob": 0
+      }
+    },
+    {
+      "date": "2026-07-09",
+      "day_name": "Thursday",
+      "day_short": "THU",
+      "day_of_week": 3,
+      "is_weekend": false,
+      "month_day": "07/09",
+      "demand": {
+        "score": 62,
+        "level": "MEDIUM",
+        "factors": [
+          "Ideal weather 79F (+12)"
+        ],
+        "recommendation": "Use normal staffing and monitor afternoon demand",
+        "events": []
+      },
+      "weather": {
+        "temp_high": 79,
+        "temp_low": 66,
+        "rain_prob": 1
       }
     }
   ],
