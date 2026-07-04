@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-03T15:52:38.896252+00:00",
+  "generated_at": "2026-07-04T15:06:34.784349+00:00",
   "model_version": "2026-06-05-general-zip-v1",
   "location": {
     "zip": "93101",
@@ -12,29 +12,6 @@
     "label": "Santa Barbara, CA 93101"
   },
   "forecast": [
-    {
-      "date": "2026-07-03",
-      "day_name": "Friday",
-      "day_short": "FRI",
-      "day_of_week": 4,
-      "is_weekend": false,
-      "month_day": "07/03",
-      "demand": {
-        "score": 77,
-        "level": "HIGH",
-        "factors": [
-          "Friday activity (+15)",
-          "Ideal weather 71F (+12)"
-        ],
-        "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
-        "events": []
-      },
-      "weather": {
-        "temp_high": 71,
-        "temp_low": 54,
-        "rain_prob": 0
-      }
-    },
     {
       "date": "2026-07-04",
       "day_name": "Saturday",
@@ -59,8 +36,8 @@
         ]
       },
       "weather": {
-        "temp_high": 70,
-        "temp_low": 57,
+        "temp_high": 71,
+        "temp_low": 56,
         "rain_prob": 3
       }
     },
@@ -76,15 +53,15 @@
         "level": "HIGH",
         "factors": [
           "Weekend traffic (+25)",
-          "Ideal weather 75F (+12)"
+          "Ideal weather 69F (+12)"
         ],
         "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
         "events": []
       },
       "weather": {
-        "temp_high": 75,
-        "temp_low": 59,
-        "rain_prob": 0
+        "temp_high": 69,
+        "temp_low": 60,
+        "rain_prob": 4
       }
     },
     {
@@ -98,14 +75,14 @@
         "score": 62,
         "level": "MEDIUM",
         "factors": [
-          "Ideal weather 75F (+12)"
+          "Ideal weather 76F (+12)"
         ],
         "recommendation": "Use normal staffing and monitor afternoon demand",
         "events": []
       },
       "weather": {
         "temp_high": 76,
-        "temp_low": 62,
+        "temp_low": 59,
         "rain_prob": 0
       }
     },
@@ -120,7 +97,7 @@
         "score": 77,
         "level": "HIGH",
         "factors": [
-          "Ideal weather 78F (+12)",
+          "Ideal weather 79F (+12)",
           "Downtown Santa Barbara Farmers Market (+15)"
         ],
         "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
@@ -132,8 +109,8 @@
         ]
       },
       "weather": {
-        "temp_high": 78,
-        "temp_low": 63,
+        "temp_high": 79,
+        "temp_low": 65,
         "rain_prob": 0
       }
     },
@@ -149,14 +126,14 @@
         "level": "MEDIUM",
         "factors": [
           "Midweek activity (+5)",
-          "Ideal weather 79F (+12)"
+          "Ideal weather 81F (+12)"
         ],
         "recommendation": "Use normal staffing and monitor afternoon demand",
         "events": []
       },
       "weather": {
-        "temp_high": 80,
-        "temp_low": 65,
+        "temp_high": 81,
+        "temp_low": 68,
         "rain_prob": 0
       }
     },
@@ -168,18 +145,41 @@
       "is_weekend": false,
       "month_day": "07/09",
       "demand": {
-        "score": 62,
-        "level": "MEDIUM",
+        "score": 45,
+        "level": "LOW",
         "factors": [
-          "Ideal weather 79F (+12)"
+          "Hot weather 82F (-5)"
         ],
-        "recommendation": "Use normal staffing and monitor afternoon demand",
+        "recommendation": "Keep staffing lean and push targeted offers",
         "events": []
       },
       "weather": {
-        "temp_high": 79,
-        "temp_low": 66,
-        "rain_prob": 1
+        "temp_high": 82,
+        "temp_low": 67,
+        "rain_prob": 0
+      }
+    },
+    {
+      "date": "2026-07-10",
+      "day_name": "Friday",
+      "day_short": "FRI",
+      "day_of_week": 4,
+      "is_weekend": false,
+      "month_day": "07/10",
+      "demand": {
+        "score": 77,
+        "level": "HIGH",
+        "factors": [
+          "Friday activity (+15)",
+          "Ideal weather 77F (+12)"
+        ],
+        "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
+        "events": []
+      },
+      "weather": {
+        "temp_high": 77,
+        "temp_low": 65,
+        "rain_prob": 3
       }
     }
   ],
