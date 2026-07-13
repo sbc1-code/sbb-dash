@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-12T14:58:12.935827+00:00",
+  "generated_at": "2026-07-13T16:35:21.893669+00:00",
   "model_version": "2026-06-05-general-zip-v1",
   "location": {
     "zip": "93101",
@@ -13,29 +13,6 @@
   },
   "forecast": [
     {
-      "date": "2026-07-12",
-      "day_name": "Sunday",
-      "day_short": "SUN",
-      "day_of_week": 6,
-      "is_weekend": true,
-      "month_day": "07/12",
-      "demand": {
-        "score": 87,
-        "level": "HIGH",
-        "factors": [
-          "Weekend traffic (+25)",
-          "Ideal weather 79F (+12)"
-        ],
-        "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
-        "events": []
-      },
-      "weather": {
-        "temp_high": 79,
-        "temp_low": 61,
-        "rain_prob": 14
-      }
-    },
-    {
       "date": "2026-07-13",
       "day_name": "Monday",
       "day_short": "MON",
@@ -46,15 +23,15 @@
         "score": 62,
         "level": "MEDIUM",
         "factors": [
-          "Ideal weather 76F (+12)"
+          "Ideal weather 75F (+12)"
         ],
         "recommendation": "Use normal staffing and monitor afternoon demand",
         "events": []
       },
       "weather": {
-        "temp_high": 77,
-        "temp_low": 59,
-        "rain_prob": 4
+        "temp_high": 76,
+        "temp_low": 61,
+        "rain_prob": 3
       }
     },
     {
@@ -65,13 +42,13 @@
       "is_weekend": false,
       "month_day": "07/14",
       "demand": {
-        "score": 60,
-        "level": "MEDIUM",
+        "score": 77,
+        "level": "HIGH",
         "factors": [
-          "Hot weather 82F (-5)",
+          "Ideal weather 76F (+12)",
           "Downtown Santa Barbara Farmers Market (+15)"
         ],
-        "recommendation": "Use normal staffing and monitor afternoon demand",
+        "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
         "events": [
           {
             "name": "Downtown Santa Barbara Farmers Market",
@@ -80,9 +57,9 @@
         ]
       },
       "weather": {
-        "temp_high": 82,
-        "temp_low": 60,
-        "rain_prob": 0
+        "temp_high": 77,
+        "temp_low": 59,
+        "rain_prob": 2
       }
     },
     {
@@ -97,14 +74,14 @@
         "level": "LOW",
         "factors": [
           "Midweek activity (+5)",
-          "Hot weather 86F (-5)"
+          "Hot weather 84F (-5)"
         ],
         "recommendation": "Keep staffing lean and push targeted offers",
         "events": []
       },
       "weather": {
-        "temp_high": 87,
-        "temp_low": 72,
+        "temp_high": 84,
+        "temp_low": 61,
         "rain_prob": 0
       }
     },
@@ -119,15 +96,15 @@
         "score": 45,
         "level": "LOW",
         "factors": [
-          "Hot weather 82F (-5)"
+          "Hot weather 85F (-5)"
         ],
         "recommendation": "Keep staffing lean and push targeted offers",
         "events": []
       },
       "weather": {
-        "temp_high": 82,
-        "temp_low": 68,
-        "rain_prob": 1
+        "temp_high": 86,
+        "temp_low": 70,
+        "rain_prob": 0
       }
     },
     {
@@ -142,15 +119,15 @@
         "level": "HIGH",
         "factors": [
           "Friday activity (+15)",
-          "Ideal weather 75F (+12)"
+          "Ideal weather 77F (+12)"
         ],
         "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
         "events": []
       },
       "weather": {
-        "temp_high": 76,
-        "temp_low": 66,
-        "rain_prob": 3
+        "temp_high": 77,
+        "temp_low": 65,
+        "rain_prob": 1
       }
     },
     {
@@ -165,7 +142,7 @@
         "level": "HIGH",
         "factors": [
           "Weekend traffic (+25)",
-          "Ideal weather 78F (+12)",
+          "Ideal weather 77F (+12)",
           "Saturday Santa Barbara Farmers Market (+15)"
         ],
         "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
@@ -179,7 +156,30 @@
       "weather": {
         "temp_high": 78,
         "temp_low": 65,
-        "rain_prob": 7
+        "rain_prob": 3
+      }
+    },
+    {
+      "date": "2026-07-19",
+      "day_name": "Sunday",
+      "day_short": "SUN",
+      "day_of_week": 6,
+      "is_weekend": true,
+      "month_day": "07/19",
+      "demand": {
+        "score": 87,
+        "level": "HIGH",
+        "factors": [
+          "Weekend traffic (+25)",
+          "Ideal weather 79F (+12)"
+        ],
+        "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
+        "events": []
+      },
+      "weather": {
+        "temp_high": 80,
+        "temp_low": 66,
+        "rain_prob": 1
       }
     }
   ],
