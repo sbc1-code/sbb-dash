@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-29T15:49:36.694142+00:00",
+  "generated_at": "2026-07-30T15:51:41.554695+00:00",
   "model_version": "2026-06-05-general-zip-v1",
   "location": {
     "zip": "93101",
@@ -13,29 +13,6 @@
   },
   "forecast": [
     {
-      "date": "2026-07-29",
-      "day_name": "Wednesday",
-      "day_short": "WED",
-      "day_of_week": 2,
-      "is_weekend": false,
-      "month_day": "07/29",
-      "demand": {
-        "score": 67,
-        "level": "MEDIUM",
-        "factors": [
-          "Midweek activity (+5)",
-          "Ideal weather 75F (+12)"
-        ],
-        "recommendation": "Use normal staffing and monitor afternoon demand",
-        "events": []
-      },
-      "weather": {
-        "temp_high": 76,
-        "temp_low": 60,
-        "rain_prob": 0
-      }
-    },
-    {
       "date": "2026-07-30",
       "day_name": "Thursday",
       "day_short": "THU",
@@ -46,14 +23,14 @@
         "score": 62,
         "level": "MEDIUM",
         "factors": [
-          "Ideal weather 74F (+12)"
+          "Ideal weather 76F (+12)"
         ],
         "recommendation": "Use normal staffing and monitor afternoon demand",
         "events": []
       },
       "weather": {
-        "temp_high": 74,
-        "temp_low": 62,
+        "temp_high": 77,
+        "temp_low": 61,
         "rain_prob": 0
       }
     },
@@ -65,19 +42,19 @@
       "is_weekend": false,
       "month_day": "07/31",
       "demand": {
-        "score": 60,
-        "level": "MEDIUM",
+        "score": 77,
+        "level": "HIGH",
         "factors": [
           "Friday activity (+15)",
-          "Hot weather 82F (-5)"
+          "Ideal weather 76F (+12)"
         ],
-        "recommendation": "Use normal staffing and monitor afternoon demand",
+        "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
         "events": []
       },
       "weather": {
-        "temp_high": 83,
-        "temp_low": 62,
-        "rain_prob": 2
+        "temp_high": 76,
+        "temp_low": 61,
+        "rain_prob": 1
       }
     },
     {
@@ -105,8 +82,8 @@
       },
       "weather": {
         "temp_high": 86,
-        "temp_low": 70,
-        "rain_prob": 0
+        "temp_low": 63,
+        "rain_prob": 1
       }
     },
     {
@@ -121,13 +98,13 @@
         "level": "MEDIUM",
         "factors": [
           "Weekend traffic (+25)",
-          "Hot weather 82F (-5)"
+          "Hot weather 83F (-5)"
         ],
         "recommendation": "Use normal staffing and monitor afternoon demand",
         "events": []
       },
       "weather": {
-        "temp_high": 83,
+        "temp_high": 84,
         "temp_low": 68,
         "rain_prob": 0
       }
@@ -143,7 +120,7 @@
         "score": 62,
         "level": "MEDIUM",
         "factors": [
-          "Ideal weather 81F (+12)"
+          "Ideal weather 80F (+12)"
         ],
         "recommendation": "Use normal staffing and monitor afternoon demand",
         "events": []
@@ -151,7 +128,7 @@
       "weather": {
         "temp_high": 81,
         "temp_low": 67,
-        "rain_prob": 2
+        "rain_prob": 0
       }
     },
     {
@@ -180,6 +157,29 @@
         "temp_high": 80,
         "temp_low": 66,
         "rain_prob": 2
+      }
+    },
+    {
+      "date": "2026-08-05",
+      "day_name": "Wednesday",
+      "day_short": "WED",
+      "day_of_week": 2,
+      "is_weekend": false,
+      "month_day": "08/05",
+      "demand": {
+        "score": 67,
+        "level": "MEDIUM",
+        "factors": [
+          "Midweek activity (+5)",
+          "Ideal weather 81F (+12)"
+        ],
+        "recommendation": "Use normal staffing and monitor afternoon demand",
+        "events": []
+      },
+      "weather": {
+        "temp_high": 81,
+        "temp_low": 64,
+        "rain_prob": 1
       }
     }
   ],
