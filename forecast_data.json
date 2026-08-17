@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-16T14:24:14.670129+00:00",
+  "generated_at": "2026-08-17T14:29:00.715045+00:00",
   "model_version": "2026-06-05-general-zip-v1",
   "location": {
     "zip": "93101",
@@ -12,29 +12,6 @@
     "label": "Santa Barbara, CA 93101"
   },
   "forecast": [
-    {
-      "date": "2026-08-16",
-      "day_name": "Sunday",
-      "day_short": "SUN",
-      "day_of_week": 6,
-      "is_weekend": true,
-      "month_day": "08/16",
-      "demand": {
-        "score": 87,
-        "level": "HIGH",
-        "factors": [
-          "Weekend traffic (+25)",
-          "Ideal weather 77F (+12)"
-        ],
-        "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
-        "events": []
-      },
-      "weather": {
-        "temp_high": 77,
-        "temp_low": 62,
-        "rain_prob": 0
-      }
-    },
     {
       "date": "2026-08-17",
       "day_name": "Monday",
@@ -53,8 +30,8 @@
       },
       "weather": {
         "temp_high": 80,
-        "temp_low": 63,
-        "rain_prob": 0
+        "temp_low": 62,
+        "rain_prob": 1
       }
     },
     {
@@ -68,7 +45,7 @@
         "score": 60,
         "level": "MEDIUM",
         "factors": [
-          "Hot weather 84F (-5)",
+          "Hot weather 82F (-5)",
           "Downtown Santa Barbara Farmers Market (+15)"
         ],
         "recommendation": "Use normal staffing and monitor afternoon demand",
@@ -80,9 +57,9 @@
         ]
       },
       "weather": {
-        "temp_high": 85,
-        "temp_low": 66,
-        "rain_prob": 0
+        "temp_high": 82,
+        "temp_low": 64,
+        "rain_prob": 1
       }
     },
     {
@@ -103,7 +80,7 @@
         "events": []
       },
       "weather": {
-        "temp_high": 84,
+        "temp_high": 85,
         "temp_low": 70,
         "rain_prob": 0
       }
@@ -119,7 +96,7 @@
         "score": 45,
         "level": "LOW",
         "factors": [
-          "Hot weather 85F (-5)"
+          "Hot weather 84F (-5)"
         ],
         "recommendation": "Keep staffing lean and push targeted offers",
         "events": []
@@ -148,9 +125,9 @@
         "events": []
       },
       "weather": {
-        "temp_high": 85,
-        "temp_low": 69,
-        "rain_prob": 0
+        "temp_high": 84,
+        "temp_low": 70,
+        "rain_prob": 1
       }
     },
     {
@@ -177,9 +154,32 @@
         ]
       },
       "weather": {
-        "temp_high": 86,
+        "temp_high": 85,
+        "temp_low": 71,
+        "rain_prob": 0
+      }
+    },
+    {
+      "date": "2026-08-23",
+      "day_name": "Sunday",
+      "day_short": "SUN",
+      "day_of_week": 6,
+      "is_weekend": true,
+      "month_day": "08/23",
+      "demand": {
+        "score": 70,
+        "level": "MEDIUM",
+        "factors": [
+          "Weekend traffic (+25)",
+          "Hot weather 84F (-5)"
+        ],
+        "recommendation": "Use normal staffing and monitor afternoon demand",
+        "events": []
+      },
+      "weather": {
+        "temp_high": 85,
         "temp_low": 70,
-        "rain_prob": 1
+        "rain_prob": 0
       }
     }
   ],
