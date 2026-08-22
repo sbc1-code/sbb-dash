@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T14:36:20.049978+00:00",
+  "generated_at": "2026-08-22T14:22:51.031207+00:00",
   "model_version": "2026-06-05-general-zip-v1",
   "location": {
     "zip": "93101",
@@ -13,29 +13,6 @@
   },
   "forecast": [
     {
-      "date": "2026-08-21",
-      "day_name": "Friday",
-      "day_short": "FRI",
-      "day_of_week": 4,
-      "is_weekend": false,
-      "month_day": "08/21",
-      "demand": {
-        "score": 60,
-        "level": "MEDIUM",
-        "factors": [
-          "Friday activity (+15)",
-          "Hot weather 82F (-5)"
-        ],
-        "recommendation": "Use normal staffing and monitor afternoon demand",
-        "events": []
-      },
-      "weather": {
-        "temp_high": 82,
-        "temp_low": 63,
-        "rain_prob": 2
-      }
-    },
-    {
       "date": "2026-08-22",
       "day_name": "Saturday",
       "day_short": "SAT",
@@ -43,11 +20,11 @@
       "is_weekend": true,
       "month_day": "08/22",
       "demand": {
-        "score": 100,
+        "score": 85,
         "level": "HIGH",
         "factors": [
           "Weekend traffic (+25)",
-          "Ideal weather 80F (+12)",
+          "Hot weather 83F (-5)",
           "Saturday Santa Barbara Farmers Market (+15)"
         ],
         "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
@@ -59,8 +36,8 @@
         ]
       },
       "weather": {
-        "temp_high": 80,
-        "temp_low": 63,
+        "temp_high": 83,
+        "temp_low": 65,
         "rain_prob": 1
       }
     },
@@ -76,15 +53,15 @@
         "level": "MEDIUM",
         "factors": [
           "Weekend traffic (+25)",
-          "Hot weather 84F (-5)"
+          "Hot weather 83F (-5)"
         ],
         "recommendation": "Use normal staffing and monitor afternoon demand",
         "events": []
       },
       "weather": {
-        "temp_high": 85,
-        "temp_low": 65,
-        "rain_prob": 0
+        "temp_high": 83,
+        "temp_low": 63,
+        "rain_prob": 1
       }
     },
     {
@@ -105,7 +82,7 @@
       },
       "weather": {
         "temp_high": 86,
-        "temp_low": 74,
+        "temp_low": 65,
         "rain_prob": 0
       }
     },
@@ -117,10 +94,10 @@
       "is_weekend": false,
       "month_day": "08/25",
       "demand": {
-        "score": 55,
+        "score": 60,
         "level": "MEDIUM",
         "factors": [
-          "Extreme heat 92F (-10)",
+          "Hot weather 87F (-5)",
           "Downtown Santa Barbara Farmers Market (+15)"
         ],
         "recommendation": "Use normal staffing and monitor afternoon demand",
@@ -132,8 +109,8 @@
         ]
       },
       "weather": {
-        "temp_high": 92,
-        "temp_low": 76,
+        "temp_high": 87,
+        "temp_low": 72,
         "rain_prob": 0
       }
     },
@@ -149,13 +126,13 @@
         "level": "LOW",
         "factors": [
           "Midweek activity (+5)",
-          "Hot weather 86F (-5)"
+          "Hot weather 91F (-5)"
         ],
         "recommendation": "Keep staffing lean and push targeted offers",
         "events": []
       },
       "weather": {
-        "temp_high": 86,
+        "temp_high": 91,
         "temp_low": 78,
         "rain_prob": 0
       }
@@ -171,15 +148,38 @@
         "score": 45,
         "level": "LOW",
         "factors": [
-          "Hot weather 84F (-5)"
+          "Hot weather 90F (-5)"
         ],
         "recommendation": "Keep staffing lean and push targeted offers",
         "events": []
       },
       "weather": {
-        "temp_high": 84,
+        "temp_high": 90,
         "temp_low": 75,
-        "rain_prob": 0
+        "rain_prob": 2
+      }
+    },
+    {
+      "date": "2026-08-28",
+      "day_name": "Friday",
+      "day_short": "FRI",
+      "day_of_week": 4,
+      "is_weekend": false,
+      "month_day": "08/28",
+      "demand": {
+        "score": 60,
+        "level": "MEDIUM",
+        "factors": [
+          "Friday activity (+15)",
+          "Hot weather 87F (-5)"
+        ],
+        "recommendation": "Use normal staffing and monitor afternoon demand",
+        "events": []
+      },
+      "weather": {
+        "temp_high": 87,
+        "temp_low": 75,
+        "rain_prob": 1
       }
     }
   ],
