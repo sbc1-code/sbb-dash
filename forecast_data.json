@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-01T17:40:23.947876+00:00",
+  "generated_at": "2026-09-03T17:36:33.664790+00:00",
   "model_version": "2026-06-05-general-zip-v1",
   "location": {
     "zip": "93101",
@@ -12,57 +12,6 @@
     "label": "Santa Barbara, CA 93101"
   },
   "forecast": [
-    {
-      "date": "2026-09-01",
-      "day_name": "Tuesday",
-      "day_short": "TUE",
-      "day_of_week": 1,
-      "is_weekend": false,
-      "month_day": "09/01",
-      "demand": {
-        "score": 77,
-        "level": "HIGH",
-        "factors": [
-          "Ideal weather 75F (+12)",
-          "Downtown Santa Barbara Farmers Market (+15)"
-        ],
-        "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
-        "events": [
-          {
-            "name": "Downtown Santa Barbara Farmers Market",
-            "type": "market"
-          }
-        ]
-      },
-      "weather": {
-        "temp_high": 75,
-        "temp_low": 58,
-        "rain_prob": 0
-      }
-    },
-    {
-      "date": "2026-09-02",
-      "day_name": "Wednesday",
-      "day_short": "WED",
-      "day_of_week": 2,
-      "is_weekend": false,
-      "month_day": "09/02",
-      "demand": {
-        "score": 67,
-        "level": "MEDIUM",
-        "factors": [
-          "Midweek activity (+5)",
-          "Ideal weather 79F (+12)"
-        ],
-        "recommendation": "Use normal staffing and monitor afternoon demand",
-        "events": []
-      },
-      "weather": {
-        "temp_high": 79,
-        "temp_low": 59,
-        "rain_prob": 0
-      }
-    },
     {
       "date": "2026-09-03",
       "day_name": "Thursday",
@@ -81,7 +30,7 @@
       },
       "weather": {
         "temp_high": 76,
-        "temp_low": 63,
+        "temp_low": 60,
         "rain_prob": 0
       }
     },
@@ -97,14 +46,14 @@
         "level": "HIGH",
         "factors": [
           "Friday activity (+15)",
-          "Ideal weather 75F (+12)"
+          "Ideal weather 74F (+12)"
         ],
         "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
         "events": []
       },
       "weather": {
-        "temp_high": 76,
-        "temp_low": 64,
+        "temp_high": 74,
+        "temp_low": 60,
         "rain_prob": 0
       }
     },
@@ -120,7 +69,7 @@
         "level": "HIGH",
         "factors": [
           "Weekend traffic (+25)",
-          "Ideal weather 77F (+12)",
+          "Ideal weather 76F (+12)",
           "Saturday Santa Barbara Farmers Market (+15)"
         ],
         "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
@@ -132,9 +81,9 @@
         ]
       },
       "weather": {
-        "temp_high": 78,
-        "temp_low": 64,
-        "rain_prob": 16
+        "temp_high": 77,
+        "temp_low": 63,
+        "rain_prob": 2
       }
     },
     {
@@ -149,15 +98,15 @@
         "level": "HIGH",
         "factors": [
           "Weekend traffic (+25)",
-          "Ideal weather 77F (+12)"
+          "Ideal weather 78F (+12)"
         ],
         "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
         "events": []
       },
       "weather": {
-        "temp_high": 77,
-        "temp_low": 67,
-        "rain_prob": 34
+        "temp_high": 79,
+        "temp_low": 65,
+        "rain_prob": 18
       }
     },
     {
@@ -171,26 +120,70 @@
         "score": 62,
         "level": "MEDIUM",
         "factors": [
-          "Ideal weather 74F (+12)"
+          "Ideal weather 79F (+12)"
         ],
         "recommendation": "Use normal staffing and monitor afternoon demand",
         "events": []
       },
       "weather": {
-        "temp_high": 75,
-        "temp_low": 69,
-        "rain_prob": 22
+        "temp_high": 80,
+        "temp_low": 66,
+        "rain_prob": 5
+      }
+    },
+    {
+      "date": "2026-09-08",
+      "day_name": "Tuesday",
+      "day_short": "TUE",
+      "day_of_week": 1,
+      "is_weekend": false,
+      "month_day": "09/08",
+      "demand": {
+        "score": 77,
+        "level": "HIGH",
+        "factors": [
+          "Ideal weather 79F (+12)",
+          "Downtown Santa Barbara Farmers Market (+15)"
+        ],
+        "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
+        "events": [
+          {
+            "name": "Downtown Santa Barbara Farmers Market",
+            "type": "market"
+          }
+        ]
+      },
+      "weather": {
+        "temp_high": 80,
+        "temp_low": 66,
+        "rain_prob": 16
+      }
+    },
+    {
+      "date": "2026-09-09",
+      "day_name": "Wednesday",
+      "day_short": "WED",
+      "day_of_week": 2,
+      "is_weekend": false,
+      "month_day": "09/09",
+      "demand": {
+        "score": 50,
+        "level": "LOW",
+        "factors": [
+          "Midweek activity (+5)",
+          "Hot weather 83F (-5)"
+        ],
+        "recommendation": "Keep staffing lean and push targeted offers",
+        "events": []
+      },
+      "weather": {
+        "temp_high": 83,
+        "temp_low": 72,
+        "rain_prob": 7
       }
     }
   ],
   "events": [
-    {
-      "date": "2026-09-01",
-      "name": "Downtown Santa Barbara Farmers Market",
-      "type": "market",
-      "impact": "medium",
-      "estimated_visitors": 500
-    },
     {
       "date": "2026-09-05",
       "name": "Saturday Santa Barbara Farmers Market",
@@ -211,6 +204,13 @@
       "type": "market",
       "impact": "medium",
       "estimated_visitors": 1000
+    },
+    {
+      "date": "2026-09-15",
+      "name": "Downtown Santa Barbara Farmers Market",
+      "type": "market",
+      "impact": "medium",
+      "estimated_visitors": 500
     }
   ],
   "data_quality": {
