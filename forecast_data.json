@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-06T16:45:00.887282+00:00",
+  "generated_at": "2026-09-07T18:37:49.749745+00:00",
   "model_version": "2026-06-05-general-zip-v1",
   "location": {
     "zip": "93101",
@@ -12,29 +12,6 @@
     "label": "Santa Barbara, CA 93101"
   },
   "forecast": [
-    {
-      "date": "2026-09-06",
-      "day_name": "Sunday",
-      "day_short": "SUN",
-      "day_of_week": 6,
-      "is_weekend": true,
-      "month_day": "09/06",
-      "demand": {
-        "score": 87,
-        "level": "HIGH",
-        "factors": [
-          "Weekend traffic (+25)",
-          "Ideal weather 79F (+12)"
-        ],
-        "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
-        "events": []
-      },
-      "weather": {
-        "temp_high": 79,
-        "temp_low": 62,
-        "rain_prob": 4
-      }
-    },
     {
       "date": "2026-09-07",
       "day_name": "Monday",
@@ -52,8 +29,8 @@
         "events": []
       },
       "weather": {
-        "temp_high": 86,
-        "temp_low": 65,
+        "temp_high": 87,
+        "temp_low": 62,
         "rain_prob": 2
       }
     },
@@ -68,7 +45,7 @@
         "score": 60,
         "level": "MEDIUM",
         "factors": [
-          "Hot weather 86F (-5)",
+          "Hot weather 89F (-5)",
           "Downtown Santa Barbara Farmers Market (+15)"
         ],
         "recommendation": "Use normal staffing and monitor afternoon demand",
@@ -80,9 +57,9 @@
         ]
       },
       "weather": {
-        "temp_high": 86,
-        "temp_low": 67,
-        "rain_prob": 14
+        "temp_high": 89,
+        "temp_low": 66,
+        "rain_prob": 5
       }
     },
     {
@@ -97,15 +74,15 @@
         "level": "LOW",
         "factors": [
           "Midweek activity (+5)",
-          "Hot weather 89F (-5)"
+          "Hot weather 85F (-5)"
         ],
         "recommendation": "Keep staffing lean and push targeted offers",
         "events": []
       },
       "weather": {
-        "temp_high": 89,
-        "temp_low": 78,
-        "rain_prob": 7
+        "temp_high": 86,
+        "temp_low": 69,
+        "rain_prob": 3
       }
     },
     {
@@ -119,15 +96,15 @@
         "score": 45,
         "level": "LOW",
         "factors": [
-          "Hot weather 87F (-5)"
+          "Hot weather 84F (-5)"
         ],
         "recommendation": "Keep staffing lean and push targeted offers",
         "events": []
       },
       "weather": {
-        "temp_high": 87,
-        "temp_low": 77,
-        "rain_prob": 0
+        "temp_high": 85,
+        "temp_low": 72,
+        "rain_prob": 1
       }
     },
     {
@@ -142,14 +119,14 @@
         "level": "HIGH",
         "factors": [
           "Friday activity (+15)",
-          "Ideal weather 80F (+12)"
+          "Ideal weather 79F (+12)"
         ],
         "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
         "events": []
       },
       "weather": {
-        "temp_high": 80,
-        "temp_low": 71,
+        "temp_high": 79,
+        "temp_low": 69,
         "rain_prob": 0
       }
     },
@@ -165,7 +142,7 @@
         "level": "HIGH",
         "factors": [
           "Weekend traffic (+25)",
-          "Ideal weather 78F (+12)",
+          "Ideal weather 75F (+12)",
           "Saturday Santa Barbara Farmers Market (+15)"
         ],
         "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
@@ -177,9 +154,32 @@
         ]
       },
       "weather": {
-        "temp_high": 79,
+        "temp_high": 75,
         "temp_low": 66,
-        "rain_prob": 1
+        "rain_prob": 0
+      }
+    },
+    {
+      "date": "2026-09-13",
+      "day_name": "Sunday",
+      "day_short": "SUN",
+      "day_of_week": 6,
+      "is_weekend": true,
+      "month_day": "09/13",
+      "demand": {
+        "score": 87,
+        "level": "HIGH",
+        "factors": [
+          "Weekend traffic (+25)",
+          "Ideal weather 75F (+12)"
+        ],
+        "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
+        "events": []
+      },
+      "weather": {
+        "temp_high": 75,
+        "temp_low": 65,
+        "rain_prob": 0
       }
     }
   ],
