@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-09T17:39:27.457659+00:00",
+  "generated_at": "2026-09-10T17:31:44.411215+00:00",
   "model_version": "2026-06-05-general-zip-v1",
   "location": {
     "zip": "93101",
@@ -12,29 +12,6 @@
     "label": "Santa Barbara, CA 93101"
   },
   "forecast": [
-    {
-      "date": "2026-09-09",
-      "day_name": "Wednesday",
-      "day_short": "WED",
-      "day_of_week": 2,
-      "is_weekend": false,
-      "month_day": "09/09",
-      "demand": {
-        "score": 45,
-        "level": "LOW",
-        "factors": [
-          "Midweek activity (+5)",
-          "Extreme heat 100F (-10)"
-        ],
-        "recommendation": "Keep staffing lean and push targeted offers",
-        "events": []
-      },
-      "weather": {
-        "temp_high": 101,
-        "temp_low": 66,
-        "rain_prob": 2
-      }
-    },
     {
       "date": "2026-09-10",
       "day_name": "Thursday",
@@ -52,9 +29,9 @@
         "events": []
       },
       "weather": {
-        "temp_high": 87,
+        "temp_high": 88,
         "temp_low": 69,
-        "rain_prob": 3
+        "rain_prob": 2
       }
     },
     {
@@ -69,15 +46,15 @@
         "level": "HIGH",
         "factors": [
           "Friday activity (+15)",
-          "Ideal weather 80F (+12)"
+          "Ideal weather 79F (+12)"
         ],
         "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
         "events": []
       },
       "weather": {
-        "temp_high": 81,
-        "temp_low": 69,
-        "rain_prob": 0
+        "temp_high": 80,
+        "temp_low": 65,
+        "rain_prob": 1
       }
     },
     {
@@ -92,7 +69,7 @@
         "level": "HIGH",
         "factors": [
           "Weekend traffic (+25)",
-          "Ideal weather 78F (+12)",
+          "Ideal weather 79F (+12)",
           "Saturday Santa Barbara Farmers Market (+15)"
         ],
         "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
@@ -105,7 +82,7 @@
       },
       "weather": {
         "temp_high": 79,
-        "temp_low": 66,
+        "temp_low": 64,
         "rain_prob": 0
       }
     },
@@ -121,14 +98,14 @@
         "level": "HIGH",
         "factors": [
           "Weekend traffic (+25)",
-          "Ideal weather 79F (+12)"
+          "Ideal weather 78F (+12)"
         ],
         "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
         "events": []
       },
       "weather": {
-        "temp_high": 80,
-        "temp_low": 66,
+        "temp_high": 79,
+        "temp_low": 67,
         "rain_prob": 0
       }
     },
@@ -143,14 +120,14 @@
         "score": 62,
         "level": "MEDIUM",
         "factors": [
-          "Ideal weather 74F (+12)"
+          "Ideal weather 77F (+12)"
         ],
         "recommendation": "Use normal staffing and monitor afternoon demand",
         "events": []
       },
       "weather": {
-        "temp_high": 75,
-        "temp_low": 65,
+        "temp_high": 77,
+        "temp_low": 64,
         "rain_prob": 0
       }
     },
@@ -165,7 +142,7 @@
         "score": 77,
         "level": "HIGH",
         "factors": [
-          "Ideal weather 74F (+12)",
+          "Ideal weather 75F (+12)",
           "Downtown Santa Barbara Farmers Market (+15)"
         ],
         "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
@@ -178,6 +155,29 @@
       },
       "weather": {
         "temp_high": 75,
+        "temp_low": 64,
+        "rain_prob": 0
+      }
+    },
+    {
+      "date": "2026-09-16",
+      "day_name": "Wednesday",
+      "day_short": "WED",
+      "day_of_week": 2,
+      "is_weekend": false,
+      "month_day": "09/16",
+      "demand": {
+        "score": 67,
+        "level": "MEDIUM",
+        "factors": [
+          "Midweek activity (+5)",
+          "Ideal weather 77F (+12)"
+        ],
+        "recommendation": "Use normal staffing and monitor afternoon demand",
+        "events": []
+      },
+      "weather": {
+        "temp_high": 77,
         "temp_low": 65,
         "rain_prob": 0
       }
