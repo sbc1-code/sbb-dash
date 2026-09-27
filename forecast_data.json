@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-25T18:18:20.052626+00:00",
+  "generated_at": "2026-09-27T18:05:33.505997+00:00",
   "model_version": "2026-06-05-general-zip-v1",
   "location": {
     "zip": "93101",
@@ -13,58 +13,6 @@
   },
   "forecast": [
     {
-      "date": "2026-09-25",
-      "day_name": "Friday",
-      "day_short": "FRI",
-      "day_of_week": 4,
-      "is_weekend": false,
-      "month_day": "09/25",
-      "demand": {
-        "score": 77,
-        "level": "HIGH",
-        "factors": [
-          "Friday activity (+15)",
-          "Ideal weather 77F (+12)"
-        ],
-        "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
-        "events": []
-      },
-      "weather": {
-        "temp_high": 77,
-        "temp_low": 63,
-        "rain_prob": 0
-      }
-    },
-    {
-      "date": "2026-09-26",
-      "day_name": "Saturday",
-      "day_short": "SAT",
-      "day_of_week": 5,
-      "is_weekend": true,
-      "month_day": "09/26",
-      "demand": {
-        "score": 100,
-        "level": "HIGH",
-        "factors": [
-          "Weekend traffic (+25)",
-          "Ideal weather 77F (+12)",
-          "Saturday Santa Barbara Farmers Market (+15)"
-        ],
-        "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
-        "events": [
-          {
-            "name": "Saturday Santa Barbara Farmers Market",
-            "type": "market"
-          }
-        ]
-      },
-      "weather": {
-        "temp_high": 78,
-        "temp_low": 65,
-        "rain_prob": 0
-      }
-    },
-    {
       "date": "2026-09-27",
       "day_name": "Sunday",
       "day_short": "SUN",
@@ -76,15 +24,15 @@
         "level": "HIGH",
         "factors": [
           "Weekend traffic (+25)",
-          "Ideal weather 78F (+12)"
+          "Ideal weather 77F (+12)"
         ],
         "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
         "events": []
       },
       "weather": {
-        "temp_high": 79,
-        "temp_low": 66,
-        "rain_prob": 1
+        "temp_high": 77,
+        "temp_low": 64,
+        "rain_prob": 0
       }
     },
     {
@@ -98,15 +46,15 @@
         "score": 45,
         "level": "LOW",
         "factors": [
-          "Hot weather 83F (-5)"
+          "Hot weather 85F (-5)"
         ],
         "recommendation": "Keep staffing lean and push targeted offers",
         "events": []
       },
       "weather": {
-        "temp_high": 84,
-        "temp_low": 62,
-        "rain_prob": 3
+        "temp_high": 86,
+        "temp_low": 60,
+        "rain_prob": 0
       }
     },
     {
@@ -120,7 +68,7 @@
         "score": 60,
         "level": "MEDIUM",
         "factors": [
-          "Hot weather 85F (-5)",
+          "Hot weather 83F (-5)",
           "Downtown Santa Barbara Farmers Market (+15)"
         ],
         "recommendation": "Use normal staffing and monitor afternoon demand",
@@ -132,9 +80,9 @@
         ]
       },
       "weather": {
-        "temp_high": 85,
+        "temp_high": 84,
         "temp_low": 68,
-        "rain_prob": 1
+        "rain_prob": 0
       }
     },
     {
@@ -149,14 +97,14 @@
         "level": "MEDIUM",
         "factors": [
           "Midweek activity (+5)",
-          "Ideal weather 78F (+12)"
+          "Ideal weather 77F (+12)"
         ],
         "recommendation": "Use normal staffing and monitor afternoon demand",
         "events": []
       },
       "weather": {
-        "temp_high": 78,
-        "temp_low": 66,
+        "temp_high": 77,
+        "temp_low": 67,
         "rain_prob": 0
       }
     },
@@ -168,29 +116,74 @@
       "is_weekend": false,
       "month_day": "10/01",
       "demand": {
-        "score": 62,
+        "score": 45,
+        "level": "LOW",
+        "factors": [
+          "Hot weather 82F (-5)"
+        ],
+        "recommendation": "Keep staffing lean and push targeted offers",
+        "events": []
+      },
+      "weather": {
+        "temp_high": 82,
+        "temp_low": 68,
+        "rain_prob": 0
+      }
+    },
+    {
+      "date": "2026-10-02",
+      "day_name": "Friday",
+      "day_short": "FRI",
+      "day_of_week": 4,
+      "is_weekend": false,
+      "month_day": "10/02",
+      "demand": {
+        "score": 60,
         "level": "MEDIUM",
         "factors": [
-          "Ideal weather 76F (+12)"
+          "Friday activity (+15)",
+          "Hot weather 89F (-5)"
         ],
         "recommendation": "Use normal staffing and monitor afternoon demand",
         "events": []
       },
       "weather": {
-        "temp_high": 77,
-        "temp_low": 65,
+        "temp_high": 89,
+        "temp_low": 72,
+        "rain_prob": 0
+      }
+    },
+    {
+      "date": "2026-10-03",
+      "day_name": "Saturday",
+      "day_short": "SAT",
+      "day_of_week": 5,
+      "is_weekend": true,
+      "month_day": "10/03",
+      "demand": {
+        "score": 80,
+        "level": "HIGH",
+        "factors": [
+          "Weekend traffic (+25)",
+          "Extreme heat 92F (-10)",
+          "Saturday Santa Barbara Farmers Market (+15)"
+        ],
+        "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
+        "events": [
+          {
+            "name": "Saturday Santa Barbara Farmers Market",
+            "type": "market"
+          }
+        ]
+      },
+      "weather": {
+        "temp_high": 93,
+        "temp_low": 79,
         "rain_prob": 0
       }
     }
   ],
   "events": [
-    {
-      "date": "2026-09-26",
-      "name": "Saturday Santa Barbara Farmers Market",
-      "type": "market",
-      "impact": "medium",
-      "estimated_visitors": 1000
-    },
     {
       "date": "2026-09-29",
       "name": "Downtown Santa Barbara Farmers Market",
@@ -211,6 +204,13 @@
       "type": "market",
       "impact": "medium",
       "estimated_visitors": 500
+    },
+    {
+      "date": "2026-10-10",
+      "name": "Saturday Santa Barbara Farmers Market",
+      "type": "market",
+      "impact": "medium",
+      "estimated_visitors": 1000
     }
   ],
   "data_quality": {
