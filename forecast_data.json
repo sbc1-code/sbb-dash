@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T20:24:26.024595+00:00",
+  "generated_at": "2026-09-29T19:10:38.092604+00:00",
   "model_version": "2026-06-05-general-zip-v1",
   "location": {
     "zip": "93101",
@@ -13,28 +13,6 @@
   },
   "forecast": [
     {
-      "date": "2026-09-28",
-      "day_name": "Monday",
-      "day_short": "MON",
-      "day_of_week": 0,
-      "is_weekend": false,
-      "month_day": "09/28",
-      "demand": {
-        "score": 45,
-        "level": "LOW",
-        "factors": [
-          "Hot weather 86F (-5)"
-        ],
-        "recommendation": "Keep staffing lean and push targeted offers",
-        "events": []
-      },
-      "weather": {
-        "temp_high": 86,
-        "temp_low": 60,
-        "rain_prob": 0
-      }
-    },
-    {
       "date": "2026-09-29",
       "day_name": "Tuesday",
       "day_short": "TUE",
@@ -42,10 +20,10 @@
       "is_weekend": false,
       "month_day": "09/29",
       "demand": {
-        "score": 55,
+        "score": 60,
         "level": "MEDIUM",
         "factors": [
-          "Extreme heat 94F (-10)",
+          "Hot weather 86F (-5)",
           "Downtown Santa Barbara Farmers Market (+15)"
         ],
         "recommendation": "Use normal staffing and monitor afternoon demand",
@@ -57,8 +35,8 @@
         ]
       },
       "weather": {
-        "temp_high": 95,
-        "temp_low": 66,
+        "temp_high": 87,
+        "temp_low": 64,
         "rain_prob": 0
       }
     },
@@ -82,7 +60,7 @@
       "weather": {
         "temp_high": 78,
         "temp_low": 65,
-        "rain_prob": 5
+        "rain_prob": 2
       }
     },
     {
@@ -96,14 +74,14 @@
         "score": 62,
         "level": "MEDIUM",
         "factors": [
-          "Ideal weather 79F (+12)"
+          "Ideal weather 80F (+12)"
         ],
         "recommendation": "Use normal staffing and monitor afternoon demand",
         "events": []
       },
       "weather": {
-        "temp_high": 79,
-        "temp_low": 66,
+        "temp_high": 80,
+        "temp_low": 64,
         "rain_prob": 0
       }
     },
@@ -119,13 +97,13 @@
         "level": "MEDIUM",
         "factors": [
           "Friday activity (+15)",
-          "Hot weather 84F (-5)"
+          "Hot weather 85F (-5)"
         ],
         "recommendation": "Use normal staffing and monitor afternoon demand",
         "events": []
       },
       "weather": {
-        "temp_high": 84,
+        "temp_high": 86,
         "temp_low": 69,
         "rain_prob": 0
       }
@@ -154,7 +132,7 @@
         ]
       },
       "weather": {
-        "temp_high": 89,
+        "temp_high": 88,
         "temp_low": 74,
         "rain_prob": 0
       }
@@ -177,9 +155,31 @@
         "events": []
       },
       "weather": {
-        "temp_high": 90,
-        "temp_low": 77,
+        "temp_high": 91,
+        "temp_low": 76,
         "rain_prob": 0
+      }
+    },
+    {
+      "date": "2026-10-05",
+      "day_name": "Monday",
+      "day_short": "MON",
+      "day_of_week": 0,
+      "is_weekend": false,
+      "month_day": "10/05",
+      "demand": {
+        "score": 45,
+        "level": "LOW",
+        "factors": [
+          "Hot weather 91F (-5)"
+        ],
+        "recommendation": "Keep staffing lean and push targeted offers",
+        "events": []
+      },
+      "weather": {
+        "temp_high": 91,
+        "temp_low": 78,
+        "rain_prob": 1
       }
     }
   ],
