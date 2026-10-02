@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-01T19:18:53.082775+00:00",
+  "generated_at": "2026-10-02T19:02:08.505589+00:00",
   "model_version": "2026-06-05-general-zip-v1",
   "location": {
     "zip": "93101",
@@ -13,28 +13,6 @@
   },
   "forecast": [
     {
-      "date": "2026-10-01",
-      "day_name": "Thursday",
-      "day_short": "THU",
-      "day_of_week": 3,
-      "is_weekend": false,
-      "month_day": "10/01",
-      "demand": {
-        "score": 62,
-        "level": "MEDIUM",
-        "factors": [
-          "Ideal weather 75F (+12)"
-        ],
-        "recommendation": "Use normal staffing and monitor afternoon demand",
-        "events": []
-      },
-      "weather": {
-        "temp_high": 75,
-        "temp_low": 64,
-        "rain_prob": 0
-      }
-    },
-    {
       "date": "2026-10-02",
       "day_name": "Friday",
       "day_short": "FRI",
@@ -46,13 +24,13 @@
         "level": "MEDIUM",
         "factors": [
           "Friday activity (+15)",
-          "Hot weather 85F (-5)"
+          "Hot weather 82F (-5)"
         ],
         "recommendation": "Use normal staffing and monitor afternoon demand",
         "events": []
       },
       "weather": {
-        "temp_high": 85,
+        "temp_high": 83,
         "temp_low": 62,
         "rain_prob": 1
       }
@@ -69,7 +47,7 @@
         "level": "HIGH",
         "factors": [
           "Weekend traffic (+25)",
-          "Hot weather 89F (-5)",
+          "Hot weather 90F (-5)",
           "Saturday Santa Barbara Farmers Market (+15)"
         ],
         "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
@@ -82,8 +60,8 @@
       },
       "weather": {
         "temp_high": 90,
-        "temp_low": 66,
-        "rain_prob": 0
+        "temp_low": 64,
+        "rain_prob": 2
       }
     },
     {
@@ -98,14 +76,14 @@
         "level": "MEDIUM",
         "factors": [
           "Weekend traffic (+25)",
-          "Hot weather 91F (-5)"
+          "Hot weather 89F (-5)"
         ],
         "recommendation": "Use normal staffing and monitor afternoon demand",
         "events": []
       },
       "weather": {
-        "temp_high": 91,
-        "temp_low": 76,
+        "temp_high": 89,
+        "temp_low": 66,
         "rain_prob": 0
       }
     },
@@ -120,14 +98,14 @@
         "score": 45,
         "level": "LOW",
         "factors": [
-          "Hot weather 89F (-5)"
+          "Hot weather 90F (-5)"
         ],
         "recommendation": "Keep staffing lean and push targeted offers",
         "events": []
       },
       "weather": {
-        "temp_high": 89,
-        "temp_low": 77,
+        "temp_high": 90,
+        "temp_low": 78,
         "rain_prob": 0
       }
     },
@@ -142,7 +120,7 @@
         "score": 60,
         "level": "MEDIUM",
         "factors": [
-          "Hot weather 88F (-5)",
+          "Hot weather 89F (-5)",
           "Downtown Santa Barbara Farmers Market (+15)"
         ],
         "recommendation": "Use normal staffing and monitor afternoon demand",
@@ -154,9 +132,9 @@
         ]
       },
       "weather": {
-        "temp_high": 88,
-        "temp_low": 75,
-        "rain_prob": 1
+        "temp_high": 90,
+        "temp_low": 76,
+        "rain_prob": 0
       }
     },
     {
@@ -167,19 +145,41 @@
       "is_weekend": false,
       "month_day": "10/07",
       "demand": {
-        "score": 45,
+        "score": 50,
         "level": "LOW",
         "factors": [
           "Midweek activity (+5)",
-          "Extreme heat 92F (-10)"
+          "Hot weather 89F (-5)"
         ],
         "recommendation": "Keep staffing lean and push targeted offers",
         "events": []
       },
       "weather": {
-        "temp_high": 92,
-        "temp_low": 78,
-        "rain_prob": 1
+        "temp_high": 89,
+        "temp_low": 76,
+        "rain_prob": 0
+      }
+    },
+    {
+      "date": "2026-10-08",
+      "day_name": "Thursday",
+      "day_short": "THU",
+      "day_of_week": 3,
+      "is_weekend": false,
+      "month_day": "10/08",
+      "demand": {
+        "score": 45,
+        "level": "LOW",
+        "factors": [
+          "Hot weather 87F (-5)"
+        ],
+        "recommendation": "Keep staffing lean and push targeted offers",
+        "events": []
+      },
+      "weather": {
+        "temp_high": 88,
+        "temp_low": 76,
+        "rain_prob": 0
       }
     }
   ],
