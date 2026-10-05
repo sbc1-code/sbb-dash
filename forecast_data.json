@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-04T18:00:56.252220+00:00",
+  "generated_at": "2026-10-05T21:28:17.466702+00:00",
   "model_version": "2026-06-05-general-zip-v1",
   "location": {
     "zip": "93101",
@@ -12,29 +12,6 @@
     "label": "Santa Barbara, CA 93101"
   },
   "forecast": [
-    {
-      "date": "2026-10-04",
-      "day_name": "Sunday",
-      "day_short": "SUN",
-      "day_of_week": 6,
-      "is_weekend": true,
-      "month_day": "10/04",
-      "demand": {
-        "score": 65,
-        "level": "MEDIUM",
-        "factors": [
-          "Weekend traffic (+25)",
-          "Extreme heat 94F (-10)"
-        ],
-        "recommendation": "Use normal staffing and monitor afternoon demand",
-        "events": []
-      },
-      "weather": {
-        "temp_high": 94,
-        "temp_low": 64,
-        "rain_prob": 1
-      }
-    },
     {
       "date": "2026-10-05",
       "day_name": "Monday",
@@ -52,9 +29,9 @@
         "events": []
       },
       "weather": {
-        "temp_high": 92,
-        "temp_low": 65,
-        "rain_prob": 3
+        "temp_high": 91,
+        "temp_low": 67,
+        "rain_prob": 1
       }
     },
     {
@@ -80,9 +57,9 @@
         ]
       },
       "weather": {
-        "temp_high": 87,
-        "temp_low": 73,
-        "rain_prob": 0
+        "temp_high": 88,
+        "temp_low": 66,
+        "rain_prob": 2
       }
     },
     {
@@ -97,15 +74,15 @@
         "level": "LOW",
         "factors": [
           "Midweek activity (+5)",
-          "Hot weather 86F (-5)"
+          "Hot weather 87F (-5)"
         ],
         "recommendation": "Keep staffing lean and push targeted offers",
         "events": []
       },
       "weather": {
-        "temp_high": 86,
-        "temp_low": 74,
-        "rain_prob": 0
+        "temp_high": 88,
+        "temp_low": 66,
+        "rain_prob": 1
       }
     },
     {
@@ -119,14 +96,14 @@
         "score": 45,
         "level": "LOW",
         "factors": [
-          "Hot weather 87F (-5)"
+          "Hot weather 84F (-5)"
         ],
         "recommendation": "Keep staffing lean and push targeted offers",
         "events": []
       },
       "weather": {
-        "temp_high": 87,
-        "temp_low": 75,
+        "temp_high": 85,
+        "temp_low": 73,
         "rain_prob": 0
       }
     },
@@ -142,15 +119,15 @@
         "level": "MEDIUM",
         "factors": [
           "Friday activity (+15)",
-          "Hot weather 85F (-5)"
+          "Hot weather 83F (-5)"
         ],
         "recommendation": "Use normal staffing and monitor afternoon demand",
         "events": []
       },
       "weather": {
-        "temp_high": 85,
-        "temp_low": 74,
-        "rain_prob": 4
+        "temp_high": 84,
+        "temp_low": 70,
+        "rain_prob": 1
       }
     },
     {
@@ -165,7 +142,7 @@
         "level": "HIGH",
         "factors": [
           "Weekend traffic (+25)",
-          "Hot weather 86F (-5)",
+          "Hot weather 82F (-5)",
           "Saturday Santa Barbara Farmers Market (+15)"
         ],
         "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
@@ -177,9 +154,32 @@
         ]
       },
       "weather": {
-        "temp_high": 86,
-        "temp_low": 76,
-        "rain_prob": 8
+        "temp_high": 82,
+        "temp_low": 71,
+        "rain_prob": 5
+      }
+    },
+    {
+      "date": "2026-10-11",
+      "day_name": "Sunday",
+      "day_short": "SUN",
+      "day_of_week": 6,
+      "is_weekend": true,
+      "month_day": "10/11",
+      "demand": {
+        "score": 87,
+        "level": "HIGH",
+        "factors": [
+          "Weekend traffic (+25)",
+          "Ideal weather 75F (+12)"
+        ],
+        "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
+        "events": []
+      },
+      "weather": {
+        "temp_high": 75,
+        "temp_low": 63,
+        "rain_prob": 10
       }
     }
   ],
