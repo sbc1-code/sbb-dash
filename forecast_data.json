@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-10T20:42:58.013105+00:00",
+  "generated_at": "2026-11-11T21:05:17.869071+00:00",
   "model_version": "2026-06-05-general-zip-v1",
   "location": {
     "zip": "93101",
@@ -13,34 +13,6 @@
   },
   "forecast": [
     {
-      "date": "2026-11-10",
-      "day_name": "Tuesday",
-      "day_short": "TUE",
-      "day_of_week": 1,
-      "is_weekend": false,
-      "month_day": "11/10",
-      "demand": {
-        "score": 60,
-        "level": "MEDIUM",
-        "factors": [
-          "Hot weather 82F (-5)",
-          "Downtown Santa Barbara Farmers Market (+15)"
-        ],
-        "recommendation": "Use normal staffing and monitor afternoon demand",
-        "events": [
-          {
-            "name": "Downtown Santa Barbara Farmers Market",
-            "type": "market"
-          }
-        ]
-      },
-      "weather": {
-        "temp_high": 83,
-        "temp_low": 56,
-        "rain_prob": 0
-      }
-    },
-    {
       "date": "2026-11-11",
       "day_name": "Wednesday",
       "day_short": "WED",
@@ -52,14 +24,14 @@
         "level": "MEDIUM",
         "factors": [
           "Midweek activity (+5)",
-          "Ideal weather 77F (+12)"
+          "Ideal weather 78F (+12)"
         ],
         "recommendation": "Use normal staffing and monitor afternoon demand",
         "events": []
       },
       "weather": {
         "temp_high": 78,
-        "temp_low": 61,
+        "temp_low": 57,
         "rain_prob": 0
       }
     },
@@ -71,18 +43,19 @@
       "is_weekend": false,
       "month_day": "11/12",
       "demand": {
-        "score": 62,
-        "level": "MEDIUM",
+        "score": 42,
+        "level": "LOW",
         "factors": [
-          "Ideal weather 73F (+12)"
+          "Ideal weather 69F (+12)",
+          "67% rain chance (-20)"
         ],
-        "recommendation": "Use normal staffing and monitor afternoon demand",
+        "recommendation": "Keep staffing lean and push targeted offers",
         "events": []
       },
       "weather": {
-        "temp_high": 74,
-        "temp_low": 60,
-        "rain_prob": 22
+        "temp_high": 70,
+        "temp_low": 62,
+        "rain_prob": 67
       }
     },
     {
@@ -93,20 +66,20 @@
       "is_weekend": false,
       "month_day": "11/13",
       "demand": {
-        "score": 67,
+        "score": 57,
         "level": "MEDIUM",
         "factors": [
           "Friday activity (+15)",
-          "Ideal weather 67F (+12)",
-          "42% rain chance (-10)"
+          "Ideal weather 70F (+12)",
+          "71% rain chance (-20)"
         ],
         "recommendation": "Use normal staffing and monitor afternoon demand",
         "events": []
       },
       "weather": {
-        "temp_high": 68,
-        "temp_low": 61,
-        "rain_prob": 42
+        "temp_high": 70,
+        "temp_low": 59,
+        "rain_prob": 71
       }
     },
     {
@@ -121,8 +94,8 @@
         "level": "HIGH",
         "factors": [
           "Weekend traffic (+25)",
-          "Ideal weather 68F (+12)",
-          "42% rain chance (-10)",
+          "Ideal weather 69F (+12)",
+          "50% rain chance (-10)",
           "Saturday Santa Barbara Farmers Market (+15)"
         ],
         "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
@@ -135,8 +108,8 @@
       },
       "weather": {
         "temp_high": 69,
-        "temp_low": 58,
-        "rain_prob": 42
+        "temp_low": 62,
+        "rain_prob": 50
       }
     },
     {
@@ -147,19 +120,20 @@
       "is_weekend": true,
       "month_day": "11/15",
       "demand": {
-        "score": 87,
+        "score": 77,
         "level": "HIGH",
         "factors": [
           "Weekend traffic (+25)",
-          "Ideal weather 68F (+12)"
+          "Ideal weather 70F (+12)",
+          "40% rain chance (-10)"
         ],
         "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
         "events": []
       },
       "weather": {
-        "temp_high": 68,
-        "temp_low": 57,
-        "rain_prob": 26
+        "temp_high": 70,
+        "temp_low": 61,
+        "rain_prob": 40
       }
     },
     {
@@ -170,29 +144,51 @@
       "is_weekend": false,
       "month_day": "11/16",
       "demand": {
-        "score": 62,
-        "level": "MEDIUM",
+        "score": 42,
+        "level": "LOW",
         "factors": [
-          "Ideal weather 65F (+12)"
+          "Ideal weather 68F (+12)",
+          "64% rain chance (-20)"
         ],
-        "recommendation": "Use normal staffing and monitor afternoon demand",
+        "recommendation": "Keep staffing lean and push targeted offers",
         "events": []
       },
       "weather": {
-        "temp_high": 65,
-        "temp_low": 53,
-        "rain_prob": 35
+        "temp_high": 69,
+        "temp_low": 61,
+        "rain_prob": 64
+      }
+    },
+    {
+      "date": "2026-11-17",
+      "day_name": "Tuesday",
+      "day_short": "TUE",
+      "day_of_week": 1,
+      "is_weekend": false,
+      "month_day": "11/17",
+      "demand": {
+        "score": 77,
+        "level": "HIGH",
+        "factors": [
+          "Ideal weather 67F (+12)",
+          "Downtown Santa Barbara Farmers Market (+15)"
+        ],
+        "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
+        "events": [
+          {
+            "name": "Downtown Santa Barbara Farmers Market",
+            "type": "market"
+          }
+        ]
+      },
+      "weather": {
+        "temp_high": 67,
+        "temp_low": 58,
+        "rain_prob": 14
       }
     }
   ],
   "events": [
-    {
-      "date": "2026-11-10",
-      "name": "Downtown Santa Barbara Farmers Market",
-      "type": "market",
-      "impact": "medium",
-      "estimated_visitors": 500
-    },
     {
       "date": "2026-11-14",
       "name": "Saturday Santa Barbara Farmers Market",
@@ -213,6 +209,13 @@
       "type": "market",
       "impact": "medium",
       "estimated_visitors": 1000
+    },
+    {
+      "date": "2026-11-24",
+      "name": "Downtown Santa Barbara Farmers Market",
+      "type": "market",
+      "impact": "medium",
+      "estimated_visitors": 500
     }
   ],
   "data_quality": {
