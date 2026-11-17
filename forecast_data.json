@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-16T23:14:30.390105+00:00",
+  "generated_at": "2026-11-17T22:03:38.630156+00:00",
   "model_version": "2026-06-05-general-zip-v1",
   "location": {
     "zip": "93101",
@@ -13,28 +13,6 @@
   },
   "forecast": [
     {
-      "date": "2026-11-16",
-      "day_name": "Monday",
-      "day_short": "MON",
-      "day_of_week": 0,
-      "is_weekend": false,
-      "month_day": "11/16",
-      "demand": {
-        "score": 62,
-        "level": "MEDIUM",
-        "factors": [
-          "Ideal weather 70F (+12)"
-        ],
-        "recommendation": "Use normal staffing and monitor afternoon demand",
-        "events": []
-      },
-      "weather": {
-        "temp_high": 70,
-        "temp_low": 55,
-        "rain_prob": 11
-      }
-    },
-    {
       "date": "2026-11-17",
       "day_name": "Tuesday",
       "day_short": "TUE",
@@ -45,7 +23,7 @@
         "score": 77,
         "level": "HIGH",
         "factors": [
-          "Ideal weather 67F (+12)",
+          "Ideal weather 69F (+12)",
           "Downtown Santa Barbara Farmers Market (+15)"
         ],
         "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
@@ -57,9 +35,9 @@
         ]
       },
       "weather": {
-        "temp_high": 67,
-        "temp_low": 51,
-        "rain_prob": 0
+        "temp_high": 70,
+        "temp_low": 50,
+        "rain_prob": 4
       }
     },
     {
@@ -70,19 +48,20 @@
       "is_weekend": false,
       "month_day": "11/18",
       "demand": {
-        "score": 35,
+        "score": 47,
         "level": "LOW",
         "factors": [
           "Midweek activity (+5)",
-          "99% rain chance (-20)"
+          "Ideal weather 65F (+12)",
+          "68% rain chance (-20)"
         ],
         "recommendation": "Keep staffing lean and push targeted offers",
         "events": []
       },
       "weather": {
-        "temp_high": 63,
-        "temp_low": 52,
-        "rain_prob": 99
+        "temp_high": 66,
+        "temp_low": 51,
+        "rain_prob": 68
       }
     },
     {
@@ -96,15 +75,15 @@
         "score": 30,
         "level": "LOW",
         "factors": [
-          "99% rain chance (-20)"
+          "94% rain chance (-20)"
         ],
         "recommendation": "Keep staffing lean and push targeted offers",
         "events": []
       },
       "weather": {
-        "temp_high": 64,
-        "temp_low": 54,
-        "rain_prob": 99
+        "temp_high": 63,
+        "temp_low": 53,
+        "rain_prob": 94
       }
     },
     {
@@ -115,18 +94,19 @@
       "is_weekend": false,
       "month_day": "11/20",
       "demand": {
-        "score": 65,
-        "level": "MEDIUM",
+        "score": 77,
+        "level": "HIGH",
         "factors": [
-          "Friday activity (+15)"
+          "Friday activity (+15)",
+          "Ideal weather 66F (+12)"
         ],
-        "recommendation": "Use normal staffing and monitor afternoon demand",
+        "recommendation": "Staff up, protect inventory, and prep for heavier foot traffic",
         "events": []
       },
       "weather": {
-        "temp_high": 64,
-        "temp_low": 51,
-        "rain_prob": 16
+        "temp_high": 67,
+        "temp_low": 50,
+        "rain_prob": 2
       }
     },
     {
@@ -153,8 +133,8 @@
       },
       "weather": {
         "temp_high": 63,
-        "temp_low": 52,
-        "rain_prob": 12
+        "temp_low": 50,
+        "rain_prob": 9
       }
     },
     {
@@ -174,9 +154,29 @@
         "events": []
       },
       "weather": {
-        "temp_high": 64,
-        "temp_low": 51,
+        "temp_high": 60,
+        "temp_low": 50,
         "rain_prob": 23
+      }
+    },
+    {
+      "date": "2026-11-23",
+      "day_name": "Monday",
+      "day_short": "MON",
+      "day_of_week": 0,
+      "is_weekend": false,
+      "month_day": "11/23",
+      "demand": {
+        "score": 50,
+        "level": "LOW",
+        "factors": [],
+        "recommendation": "Keep staffing lean and push targeted offers",
+        "events": []
+      },
+      "weather": {
+        "temp_high": 61,
+        "temp_low": 47,
+        "rain_prob": 15
       }
     }
   ],
